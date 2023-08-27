@@ -1,0 +1,29 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}O-Notation}{2}{}%
+\contentsline {section}{\numberline {2}Induktion}{2}{}%
+\contentsline {section}{\numberline {3}Suchen}{2}{}%
+\contentsline {subsection}{\numberline {3.1}Suchen in Arrays}{2}{}%
+\contentsline {section}{\numberline {4}Sortier-Algorithmen}{2}{}%
+\contentsline {subsection}{\numberline {4.1}Bubblesort}{2}{}%
+\contentsline {subsection}{\numberline {4.2}Heapsort}{2}{}%
+\contentsline {subsection}{\numberline {4.3}Mergesort}{2}{}%
+\contentsline {subsection}{\numberline {4.4}Quicksort}{2}{}%
+\contentsline {section}{\numberline {5}Dynamisches Programmieren}{2}{}%
+\contentsline {subsection}{\numberline {5.1}Längste aufsteigende Teilfolge}{2}{}%
+\contentsline {subsection}{\numberline {5.2}Längste gemeinsame Teilfolge}{2}{}%
+\contentsline {subsection}{\numberline {5.3}Minimale Editierdistanz}{2}{}%
+\contentsline {subsection}{\numberline {5.4}Matrixkettenmultiplikation}{2}{}%
+\contentsline {subsection}{\numberline {5.5}Subset Sum Problem}{2}{}%
+\contentsline {subsection}{\numberline {5.6}KnapSack Problem}{2}{}%
+\contentsline {section}{\numberline {6}Datenstrukturen}{2}{}%
+\contentsline {subsection}{\numberline {6.1}AVL-Bäume}{2}{}%
+\contentsline {section}{\numberline {7}GraphenTheorie}{2}{}%
+\contentsline {subsection}{\numberline {7.1}Grundlagen}{2}{}%
+\contentsline {subsection}{\numberline {7.2}Tiefensuche}{2}{}%
+\contentsline {subsection}{\numberline {7.3}Breitensuche}{2}{}%
+\contentsline {subsection}{\numberline {7.4}Zusammenhangskompontente}{2}{}%
+\contentsline {subsection}{\numberline {7.5}Shortest-path}{2}{}%
+\contentsline {subsubsection}{\numberline {7.5.1}mit uniformen Kantengewichten}{2}{}%
+\contentsline {subsubsection}{\numberline {7.5.2}mit nicht-negativen Kantengewichten}{2}{}%
+\contentsline {subsubsection}{\numberline {7.5.3}mit allgemeinen Kantengewichten}{2}{}%
+\contentsline {subsubsection}{\numberline {7.5.4}zwischen allen Paaren von Knoten}{2}{}%
