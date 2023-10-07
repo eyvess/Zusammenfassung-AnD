@@ -11,7 +11,7 @@
 \usepackage{algorithm}
 \usepackage{algorithmicx}
 \usepackage{amsfonts}
-\usepackage[noend]{algpseudocode}
+\usepackage{algpseudocode}
 \usepackage{color,soul}
 \usepackage{multicol}
 \usepackage{amsmath}
@@ -103,7 +103,7 @@ Für etliche Fehler in diesem Skript wird keine Verantwortung übernommen.
     \subsection{Big-O Notation}
     Landau-Symbole (engl. Big-O notation) werden verwendet, um das asymptotische Verhalten von Funktionen und Folgen zu beschreiben.
     In der Informatik werden sie bei der Analyse von Algorithmen verwendet und geben ein Maß für die Anzahl der Elementarschritte oder der Speichereinheiten in Abhängigkeit von der Größe des gegebenen Problems an. \\
-    Für Annäherungen wird auch sehr oft die \textbf{Regel von de l'Hôpital} \label{Hopital} angewendet:\\
+    Für Annäherungen wird auch sehr oft die \textbf{Regel von de l'Hôpital} \label{Hôpital} angewendet:\\
         Let $f, g : \mathbb{R}\to\mathbb{R}$ be differentiable functions with $f(x)\to\infty, g(x)\to\infty$ for $x\to\infty$. \\
         If $\lim_{x\to\infty}\frac{f'(x)}{g'(x)}$ exists, then
         $\lim_{x\to\infty}\frac{f(x)}{g(x)}=\lim_{x\to\infty}\frac{f'(x)}{g'(x)}$
@@ -186,30 +186,66 @@ Für etliche Fehler in diesem Skript wird keine Verantwortung übernommen.
     Für einen ersten Algorithmus schauen wir den \texttt{Maximum Subarray Sum} Algorithmus an. Dieser Algorithmus enthält ein Array von $n$ rationalen Zahlen $a_1,..., a_n$ und gesucht ist ein Teilstück mit maximaler Summe.  \\
     \textbf{Beispiel}: \\
     Sei ein Array [-2, -5, 6, -2, -3, 1, 5, -6] gegeben, so ist die maximale Teilsumme dieses Array 7, nämlich $ 6 + (-2) + (-3) + 1 + 5 = 7$. \\
-
+      
 \begin{algorithm}
     \caption{Maximum Subarray Sum $(a_1,..., a_n)$}\label{MSS-1}
-\begin{algorithmic}
-        \includegraphics[scale = 0.39]{Pictures/MSS-naiv.png}
+    \begin{algorithmic}[1]
+    \Function{FindMSS}{Array [$1...n$]}
+    \State $S_0 \gets 0$ 
+    \For{$i \gets 1,...,n$}
+        \State $S_i \gets S_{i-1} + a_i$ 
+    \EndFor
+    \State maxS $\gets 0$
+    \For{$i \gets 1,...,n$}
+        \For{$j \gets 1,...,n$}
+            \State $S \gets S_j - S_{j-1}$ 
+           \State Merke maximales S
+        \EndFor
+    \EndFor
+    \EndFunction
 
     \end{algorithmic}
     
 \end{algorithm}
 
 Dieser naive Algorithmus führt insgesamt $\Theta(n^3)$ viele Additionen aus, was sehr schlecht ist für unseren Algorithmus.
+
 \begin{algorithm}
- \caption{MSS divide and conquer $(a_1,..., a_n)$}\label{MSS-DivAQ}
-    \begin{algorithmic}
-         \includegraphics[scale = 0.4]{Pictures/MSS-DivandConq.png}
-    \end{algorithmic}
+ \caption{MSS divide and conquer $(a_1,..., a_n)$}\label{MSS-Div}
+ \begin{algorithmic}[1]
+    \Function{MSSDivAndConquer}{Array [$1,...,n$]}
+      \State Wenn $n=1$ ist, dann gib $max{a_1,0}$ zurück.
+      \State Wenn $n>1$ ist:
+      \State Teile die Eingabe in $A_1 = \langle a_1,...,a_{n/2} \rangle$ und $A_2 = \langle a_{n/2+1},...,a_{n} \rangle$ auf
+      \State Berechne rekursiv den Wert $W_1$ einer besten Lösung für das Array $A_1$
+      \State Berechne rekursiv den Wert $W_2$ einer besten Lösung für das Array $A_2$
+      \State Berechne grösste Suffixsumme $S$ in $A_1$
+      \State Berechne grösste Suffixsumme $P$ in $A_2$
+      \State Setzte $W_3 \gets S+P$
+      \State Gib max$\{W_1, W_2, W_3\}$ zurück
+    \EndFunction
+ \end{algorithmic}
 \end{algorithm}
 
     Wir haben schon eine Verbesserung des Algorithmus von $\Theta(n^3)$ vielen Additionen zu $\Theta(n\log n)$ vielen Additionen. In einem letzten Schritt können wir diesen sogar noch einmal verbessern nämlich bis zu $\Theta(n)$ viele Additionen.
 
 \begin{algorithm}
  \caption{MSS-Induktiv $(a_1,..., a_n)$}\label{MSS-Induktiv}
-    \begin{algorithmic}
-         \includegraphics[scale = 0.39]{Pictures/MSS-Induktiv.png}
+    \begin{algorithmic}[1]
+    \Function{MSSInduktiv}{Array [$1,...,n$]}
+    \State $randmax \gets 0$
+    \State $maxS \gets 0$
+        \For{$i \gets 1,...,n$}
+            \State $randmax \gets randmax + a_i$
+            \If{$randmax > maxS$}
+                \State $maxS \gets randmax$
+            \EndIf
+            \If{$randmax < 0$}
+                \State $randmax \gets 0$
+            \EndIf
+        \State Gib $maxS$ zurück
+        \EndFor
+    \EndFunction
     \end{algorithmic}
 \end{algorithm}
 
@@ -240,7 +276,7 @@ Wir stellen fest, dass es im Allgemeinen einen Kompromiss gibt zwischen einfache
 
 \begin{algorithm}
 \caption{Binary search} 
-\begin{algorithmic}
+\begin{algorithmic}[1]
   \Function{FindIndex}{$A$, $e$} \Comment{Search item $e$ in sorted array $A$}
   \State $l, r \gets 0, A\texttt{.length}-1$
   \While{$r > l$}
@@ -284,7 +320,7 @@ Genauer gesagt sind Min- (bzw. Max-) Heaps baumbasierte Datenstrukturen, die die
 \subsubsection*{Implementation}
 Die gebräuchlichste Implementierung ist ein Array (mit fester oder dynamischer Größe). Geht man von einem 0-basierten Array aus (vgl. Figure \ref{fig: 0-Heap}), so sind die \textit{children} des Knotens $n$, $2n+1$ und $2n+2$ und die \textit{parent} des Knotens $k$ ist der Knoten $\lfloor \frac{k-1}{2}\rfloor$.
 
-
+\newpage
 \subsubsection*{Common operations}
 Here are the most common operations that a min-heap must support:
 \begin{itemize}
@@ -324,7 +360,7 @@ Bei der Aktualisierung eines Heaps ist es wichtig, die oben beschriebene Invaria
 
 \begin{algorithm}
 \caption{Restore heap invariant by percolating element down}
-\begin{algorithmic}
+\begin{algorithmic}[1]
   \Function{PercolateDown}{$H$, $i$} \Comment{Percolate element $i$ in $H$}
   \State $e \gets H\left[i\right]$
   \If{$2i+2 = H\texttt{.length}$}
