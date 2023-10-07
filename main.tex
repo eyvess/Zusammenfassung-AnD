@@ -8,6 +8,29 @@
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{booktabs}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{color,soul}
+\usepackage{multicol}
+\usepackage{amsmath}
+
+
+
+\usepackage{courier} %% Sets font for listing as Courier.
+\usepackage{listings, xcolor}
+\lstset{
+tabsize = 4, %% set tab space width
+showstringspaces = false, %% prevent space marking in strings, string is defined as the text that is generally printed directly to the console
+numbers = left, %% display line numbers on the left
+commentstyle = \color{orange}, %% set comment color
+keywordstyle = \color{blue}, %% set keyword color
+stringstyle = \color{red}, %% set string color
+rulecolor = \color{black}, %% set frame color to avoid being affected by text color
+basicstyle = \small \ttfamily , %% set listing font and size
+breaklines = true, %% enable line breaking
+numberstyle = \tiny,
+}
+
 
 
 %% Sets page size and margins
@@ -28,69 +51,19 @@
 
 \maketitle
 \begin{center}
-    \includegraphics{eth_logo_kurz_pos Kopie.png}
+    \includegraphics{Pictures/eth_logo_kurz_pos Kopie.png}
 \end{center}
 
 \tableofcontents
 
-\newpage
-
-\section{O-Notation}
-
-\section{Induktion}
-
-\section{Suchen}
-
-\subsection{Suchen in Arrays}
-
-\section{Sortier-Algorithmen}
-
-\subsection{Bubblesort}
-
-\subsection{Heapsort}
-
-\subsection{Mergesort}
-
-\subsection{Quicksort}
-
-\section{Dynamisches Programmieren}
-
-\subsection{Längste aufsteigende Teilfolge}
-
-\subsection{Längste gemeinsame Teilfolge}
-
-\subsection{Minimale Editierdistanz}
-
-\subsection{Matrixkettenmultiplikation}
-
-\subsection{Subset Sum Problem}
-
-\subsection{KnapSack Problem}
-
-\section{Datenstrukturen}
-
-\subsection{AVL-Bäume}
-
-\section{GraphenTheorie}
-
-\subsection{Grundlagen}
-
-\subsection{Tiefensuche}
-
-\subsection{Breitensuche}
-
-\subsection{Zusammenhangskompontente}
-
-\subsection{Shortest-path}
-
-\subsubsection{mit uniformen Kantengewichten}
-
-\subsubsection{mit nicht-negativen Kantengewichten}
-
-\subsubsection{mit allgemeinen Kantengewichten}
-
-\subsubsection{zwischen allen Paaren von Knoten}
-
+    \newpage
+    \input{Chapters/Chapter00.tex}
+    \input{Chapters/Chapter01.tex}
+    \input{Chapters/Chapter02.tex}
+    \input{Chapters/Chapter03.tex}
+    \input{Chapters/Chapter04.tex}
+    \input{Chapters/Chapter05.tex}
+    \input{Chapters/Chapter06.tex}
 
 
 
