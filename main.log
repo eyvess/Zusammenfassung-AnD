@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.27)  7 OCT 2023 17:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.27)  7 OCT 2023 20:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -949,6 +949,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring OFF on input line 52.
+ (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
@@ -996,19 +997,18 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 54.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<Pictures/eth_logo_kurz_pos Kopie.png, id=4, 186.6975pt x 68.1747pt>
+<Pictures/eth_logo_kurz_pos Kopie.png, id=156, 186.6975pt x 68.1747pt>
 File: Pictures/eth_logo_kurz_pos Kopie.png Graphic file (type png)
 <use Pictures/eth_logo_kurz_pos Kopie.png>
 Package pdftex.def Info: Pictures/eth_logo_kurz_pos Kopie.png  used on input line 55.
 (pdftex.def)             Requested size: 186.69704pt x 68.17451pt.
+ (./main.toc [1
 
-No file main.toc.
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./Pictures/eth_logo_kurz_pos Kopie.png>])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
-[1
-
-{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./Pictures/eth_logo_kurz_pos Kopie.png>]
+ [2]
 LaTeX Font Info:    Trying to load font information for T1+cmss on input line 80.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2022/07/10 v2.5l Standard LaTeX font definitions
@@ -1022,27 +1022,20 @@ Overfull \hbox (2.96481pt too wide) in paragraph at lines 85--86
 \T1/cmr/m/n/10 Damit wir schnelle Re-sul-tate er-hal-ten kön-nen, sind Ap-prox-i-ma-tio-nen ein fun-da-men-taler Be-standteil.
  []
 
-[2{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-
-LaTeX Warning: Reference `tab:ONotation' on page 3 undefined on input line 115.
-
-
+[3{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 Overfull \hbox (28.41385pt too wide) in paragraph at lines 133--158
  [][] 
  []
 
-<Pictures/big-o-notation.jpg, id=42, 1468.48625pt x 1006.76125pt>
+<Pictures/big-o-notation.jpg, id=234, 1468.48625pt x 1006.76125pt>
 File: Pictures/big-o-notation.jpg Graphic file (type jpg)
 <use Pictures/big-o-notation.jpg>
 Package pdftex.def Info: Pictures/big-o-notation.jpg  used on input line 175.
 (pdftex.def)             Requested size: 170.71393pt x 117.0271pt.
 
-LaTeX Warning: Reference `fig: WachstumBigO' on page 3 undefined on input line 179.
-
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[3]
+[4]
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 186.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
@@ -1052,111 +1045,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 186--189
  []
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 191.
-<Pictures/MSS-naiv.png, id=62, 338.26375pt x 222.8325pt>
-File: Pictures/MSS-naiv.png Graphic file (type png)
-<use Pictures/MSS-naiv.png>
-Package pdftex.def Info: Pictures/MSS-naiv.png  used on input line 193.
-(pdftex.def)             Requested size: 131.92232pt x 86.90431pt.
-
-/Users/yvesberger/Desktop/ETH/HS23/Algorithmen und Datenstrukturen/Zusammenfassung/Zusammenfassung-AnD/main.tex:195: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.195     \end{algorithmic}
-                           
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<Pictures/MSS-DivandConq.png, id=63, 687.56876pt x 249.93375pt>
-File: Pictures/MSS-DivandConq.png Graphic file (type png)
-<use Pictures/MSS-DivandConq.png>
-Package pdftex.def Info: Pictures/MSS-DivandConq.png  used on input line 203.
-(pdftex.def)             Requested size: 275.02263pt x 99.97173pt.
-
-/Users/yvesberger/Desktop/ETH/HS23/Algorithmen und Datenstrukturen/Zusammenfassung/Zusammenfassung-AnD/main.tex:204: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.204     \end{algorithmic}
-                           
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<Pictures/MSS-Induktiv.png, id=64, 300.12125pt x 232.87pt>
-File: Pictures/MSS-Induktiv.png Graphic file (type png)
-<use Pictures/MSS-Induktiv.png>
-Package pdftex.def Info: Pictures/MSS-Induktiv.png  used on input line 212.
-(pdftex.def)             Requested size: 117.04681pt x 90.81892pt.
-
-/Users/yvesberger/Desktop/ETH/HS23/Algorithmen und Datenstrukturen/Zusammenfassung/Zusammenfassung-AnD/main.tex:213: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.213     \end{algorithmic}
-                           
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[4{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc} <./Pictures/big-o-notation.jpg> <./Pictures/MSS-naiv.png> <./Pictures/MSS-DivandConq.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 220--221
+[5{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc} <./Pictures/big-o-notation.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
 
  []
 
-[5 <./Pictures/MSS-Induktiv.png>]
-<Pictures/Heap.svg.png, id=89, 1204.5pt x 613.29124pt>
+[6]
+<Pictures/Heap.svg.png, id=267, 1204.5pt x 613.29124pt>
 File: Pictures/Heap.svg.png Graphic file (type png)
 <use Pictures/Heap.svg.png>
-Package pdftex.def Info: Pictures/Heap.svg.png  used on input line 272.
+Package pdftex.def Info: Pictures/Heap.svg.png  used on input line 308.
 (pdftex.def)             Requested size: 240.89574pt x 122.65607pt.
-<Pictures/0-heap.png, id=90, 356.83313pt x 237.88875pt>
+<Pictures/0-heap.png, id=268, 356.83313pt x 237.88875pt>
 File: Pictures/0-heap.png Graphic file (type png)
 <use Pictures/0-heap.png>
-Package pdftex.def Info: Pictures/0-heap.png  used on input line 278.
+Package pdftex.def Info: Pictures/0-heap.png  used on input line 314.
 (pdftex.def)             Requested size: 178.41612pt x 118.94408pt.
-
-
-LaTeX Warning: Reference `fig: 0-Heap' on page 6 undefined on input line 285.
-
-[6 <./Pictures/Heap.svg.png> <./Pictures/0-heap.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 354--355
+ [7 <./Pictures/Heap.svg.png> <./Pictures/0-heap.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
 
  []
 
-[7] [8] (./main.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  E2FA91F88DB42C3A5DB37EE3ECC44BFD;5728.
+[8] [9] [10] (./main.aux)
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: E2FA91F88DB42C3A5DB37EE3ECC44BFD;5728.
  ) 
 Here is how much of TeX's memory you used:
- 14411 strings out of 476025
- 225645 string characters out of 5790017
+ 14446 strings out of 476025
+ 225903 string characters out of 5790017
  1871388 words of memory out of 5000000
- 34544 multiletter control sequences out of 15000+600000
- 531896 words of font info for 83 fonts, out of 8000000 for 9000
+ 34573 multiletter control sequences out of 15000+600000
+ 532660 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,14n,76p,769b,586s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on main.pdf (8 pages, 751570 bytes).
+ 75i,14n,76p,737b,581s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on main.pdf (10 pages, 514690 bytes).
 PDF statistics:
- 279 PDF objects out of 1000 (max. 8388607)
- 195 compressed objects within 2 object streams
- 65 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 445 PDF objects out of 1000 (max. 8388607)
+ 361 compressed objects within 4 object streams
+ 67 named destinations out of 1000 (max. 500000)
+ 325 words of extra memory for PDF output out of 10000 (max. 10000000)
 
