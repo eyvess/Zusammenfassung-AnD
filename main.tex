@@ -18,6 +18,11 @@
 \usepackage{amssymb}
 \usepackage{wrapfig}
 \usepackage{hyperref}
+\usepackage{tikz}  %
+\usetikzlibrary{positioning}
+\usepackage{subcaption}
+\usepackage{xcolor}
+
 
 
 
@@ -188,7 +193,8 @@ Für etliche Fehler in diesem Skript wird keine Verantwortung übernommen.
     Sei ein Array [-2, -5, 6, -2, -3, 1, 5, -6] gegeben, so ist die maximale Teilsumme dieses Array 7, nämlich $ 6 + (-2) + (-3) + 1 + 5 = 7$. \\
       
 \begin{algorithm}
-    \caption{Maximum Subarray Sum $(a_1,..., a_n)$}\label{MSS-1}
+    \caption{Maximum Subarray Sum $(a_1,..., a_n)$}
+    \label{alg:MSS-1}
     \begin{algorithmic}[1]
     \Function{FindMSS}{Array [$1...n$]}
     \State $S_0 \gets 0$ 
@@ -211,7 +217,8 @@ Für etliche Fehler in diesem Skript wird keine Verantwortung übernommen.
 Dieser naive Algorithmus führt insgesamt $\Theta(n^3)$ viele Additionen aus, was sehr schlecht ist für unseren Algorithmus.
 
 \begin{algorithm}
- \caption{MSS divide and conquer $(a_1,..., a_n)$}\label{MSS-Div}
+ \caption{MSS divide and conquer $(a_1,..., a_n)$}
+ \label{alg:MSS-Div}
  \begin{algorithmic}[1]
     \Function{MSSDivAndConquer}{Array [$1,...,n$]}
       \State Wenn $n=1$ ist, dann gib $max{a_1,0}$ zurück.
@@ -230,7 +237,8 @@ Dieser naive Algorithmus führt insgesamt $\Theta(n^3)$ viele Additionen aus, wa
     Wir haben schon eine Verbesserung des Algorithmus von $\Theta(n^3)$ vielen Additionen zu $\Theta(n\log n)$ vielen Additionen. In einem letzten Schritt können wir diesen sogar noch einmal verbessern nämlich bis zu $\Theta(n)$ viele Additionen.
 
 \begin{algorithm}
- \caption{MSS-Induktiv $(a_1,..., a_n)$}\label{MSS-Induktiv}
+ \caption{MSS-Induktiv $(a_1,..., a_n)$}
+ \label{alg:MSS-Induktiv}
     \begin{algorithmic}[1]
     \Function{MSSInduktiv}{Array [$1,...,n$]}
     \State $randmax \gets 0$
@@ -276,7 +284,8 @@ Wir stellen fest, dass es im Allgemeinen einen Kompromiss gibt zwischen einfache
 
 \begin{algorithm}
 \caption{Binary search} 
-\begin{algorithmic}[1]
+\label{alg:BinarySearch}
+\begin{algorithmic}[1] 
   \Function{FindIndex}{$A$, $e$} \Comment{Search item $e$ in sorted array $A$}
   \State $l, r \gets 0, A\texttt{.length}-1$
   \While{$r > l$}
@@ -321,7 +330,7 @@ Genauer gesagt sind Min- (bzw. Max-) Heaps baumbasierte Datenstrukturen, die die
 Die gebräuchlichste Implementierung ist ein Array (mit fester oder dynamischer Größe). Geht man von einem 0-basierten Array aus (vgl. Figure \ref{fig: 0-Heap}), so sind die \textit{children} des Knotens $n$, $2n+1$ und $2n+2$ und die \textit{parent} des Knotens $k$ ist der Knoten $\lfloor \frac{k-1}{2}\rfloor$.
 
 \newpage
-\subsubsection*{Common operations}
+\subsubsection*{Common operations} \label{common operations}
 Here are the most common operations that a min-heap must support:
 \begin{itemize}
 \item \textbf{Basic operations}
@@ -356,11 +365,12 @@ Die Heap Invariante sagt uns eigentlich aus:
 \begin{quote}
     "Das Label jedes Knoten $n$ ist kleiner oder gleich den Labels der Kinder von $n$."
 \end{quote}
-Bei der Aktualisierung eines Heaps ist es wichtig, die oben beschriebene Invariante beizubehalten. Nach einer Löschung oder einer Einfügung kann es vorkommen, dass ein (einzelnes) Element kleiner wird als eines seiner Kinder; wir können dann die Heap-Invariante in logarithmischer Zeit wiederherstellen, indem wir dieses Element nach unten durchsickern lassen.
+Bei der Aktualisierung eines Heaps ist es wichtig, die oben beschriebene Invariante beizubehalten. Nach einer Löschung oder einer Einfügung kann es vorkommen, dass ein (einzelnes) Element kleiner wird als eines seiner Kinder; wir können dann die Heap-Invariante in logarithmischer Zeit wiederherstellen, indem wir dieses Element nach unten durchsickern lassen. (Vgl. Durchsickeralgorithmus \ref{alg:DurchsickernHeap})
 
 \begin{algorithm}
-\caption{Restore heap invariant by percolating element down}
-\begin{algorithmic}[1]
+\caption{Restore heap invariant by percolating element down} 
+\label{alg:DurchsickernHeap}
+\begin{algorithmic}[1] 
   \Function{PercolateDown}{$H$, $i$} \Comment{Percolate element $i$ in $H$}
   \State $e \gets H\left[i\right]$
   \If{$2i+2 = H\texttt{.length}$}
@@ -406,22 +416,370 @@ increase key & $\Theta(\log n)$   & $\Theta(\log n)$ & $\Theta(1)$ \\
 \subsubsection*{Zusammenfassung- Youtube}
 \href{https://www.youtube.com/watch?v=0wPlzMU-k00}{Kurze Zusammenfassung anschauen}
 
+\subsection{Binärer Suchbaum}
+\subsubsection{Begrifflichkeiten}
+Bäume im Allgemeinen gehören zu den wichtigsten in der Informatik auftretenden Datenstrukturen. Seien es Entscheidungsbäume, Syntaxbäume, Ableitungsbäume, Kodebäume oder auch Suchbäume. Bäume sind Listenstrukturen, ein Element referenziert einen \textbf{Knoten}. Jegliche Nachfahren die einen Knoten beinhalten nennt man \textbf{Kinder-Knoten}. Die \textbf{Wurzel} des Baumes ist, von welchem der Baum aus startet. Zusätzlich gilt, dass von jeder Wurzel der verschiedenen Knoten eines Baumes durch genau einen Pfad mit der Wurzel verbunden. Ein \textbf{Blatt} oder \textbf{Blätter} eines Baumes sind die Knoten welche keine Nachfolger haben. Im Beispiel von \ref{fig: binarytree} wären die Blätter dieses Baumes: [3, 7, 13, 18, 23]. Man nennt einen Baum \textbf{geordnet} wenn unter den Kinderknoten eines jeden Knotens eines Baumes eine \textbf{Anordnung definiert} ist, sodass man vom ersten, zweiten, dritten usw. Kinderknoten eines Knotens sprechen kann, so nennt man den Baum geordnet (Vgl. Figure \ref{fig: binarytree}). Im diesem Beispiel ist zu sehen, dass die definierte Anordnung wie folgt ist: Wenn der Wert eines Knotens kleiner ist als die Wurzel, so wird dieser links platziert, und dann wieder mit dem nächsten Knoten verglichen. Sofern dieser nun grösser ist, wie z.B Knoten 12, wird dieser rechts vom Knoten 5 platziert. \\
+Ein weiterer Begriff, der wichtig ist im Kontext mit Bäumen ist die \textbf{Höhe} und \textbf{Tiefe} eines Baumes. Diese beiden Begriffe sind wie folgt definiert: 
+\begin{itemize}
+    \item $depth(v) = $ distance $v$ to root (along unique path)
+    \item $height(T) = max_{v \in V} depth(v) + 1$
+\end{itemize}
+Man fasst die Knoten eines Baumes gleicher Tiefe zu \textbf{Niveaus} zusammen. Die Knoten auf dem Niveau $i$ sind alle Knoten der Tiefe $i$. Die Höhe des Beispiels (\ref{fig: binarytree}) wäre also der Pfad von $(15-5-12-10-6-7) + 1 = 6 $ und die Tiefe vom Knoten 20 wäre: 2. \\
+Zusätzlich gilt: die Tiefe eines binary tree ist gleich wie die Höhe eines binary trees.\footnote{Vergleiche mit \href{https://www.baeldung.com/cs/binary-tree-height}{weitere Beispiele \& Erklärungen}}
+Des weiteren heisst ein Baum \textbf{vollständig} wenn er auf jedem Niveau die maximal mögiche Knotenanzahl hat und sämtliche Blätter dieselbe Tiefe haben. 
+Auch wie bei dem Heap gelten die "Basic operations": Einfügen, löschen, suchen eines Elementes und das Traversieren des Baumes (Vgl. \ref{common operations}).
+
+\begin{figure}[h] 
+\caption{Beispiel eines geordneten Binärbaumes}
+\centering
+\includegraphics[scale= 0.7]{Pictures/Pseudobinärersuchbaum.svg.png}
+\label{fig: binarytree}
+\end{figure}
+
+
+
+
 \subsection{AVL-Trees}
+Ein binärer Suchbaum ist \textit{AVL-ausgegelichen} oder höhenbalanciert. Kurz: Ein AVL Baum, wenn für jeden Knoten $p$ des Baumes gilt, dass sich die Höhe des linken Teilbaumes von der Höhe des rechten Teilbaumes von $p$ um höchstens 1 unterscheidet. In der folgenden Abbildung(\ref{fig: AVL-trees}) ist in (a)  und (c) ein AVL-Baum zu sehen. (b) hingegen ist kein AVL-Baum.
+
+\begin{figure}[h] 
+\caption{Beispiel von zwei AVL-Bäume}
+\centering
+\includegraphics[scale= 0.5]{Pictures/AVL-trees.png}
+\label{fig: AVL-trees}
+\end{figure}
+
+AVL-Bäume mit $N$ inneren Knoten und $N+1$ Blättern haben eine höhe von $\mathcal{O}(\log N)$. Man überlegt sich was die minimale Blatt-und Knotenzahl eines AVL-Baumes gegebener Höhe $h$ ist. Es gilt: AVL-Baum der Höhe 1 hat 2 Blätter und ein AVL-Baum der Höhe 2 mit minimaler Blattzahl hat 3 Blätter (Vgl. Figure \ref{fig: AVL-trees-height}). Ein AVL-Baum der Höhe $h+2$ mit minimaler Blattzahl erhält man, wenn man je einen AVL-Baum mit der Höhe $h+1$ und $h$ mit minimaler Blattzahl wie in Figure (\ref{fig: AVL-trees-allg}) zu einem Baum der Höhe $h+2$ zusammenfügt.
+
+\begin{figure}[h] 
+\caption{AVL-Baum mit Höhe 1 und 2}
+\centering
+\includegraphics[scale= 0.5]{Pictures/AVL-trees-height.png}
+\label{fig: AVL-trees-height}
+\end{figure}
+
+\begin{figure}[t] 
+\caption{AVL-Baum }
+\centering
+\includegraphics[scale= 0.5]{Pictures/AVL-trees-allg.png}
+\label{fig: AVL-trees-allg}
+\end{figure}
+
+\newpage
+\subsubsection{Suchen, Einfügen und Entfernen in AVL-Bäumen}
+Da AVL-Bäume eigentlich binäre Suchbäume sind, kann man ihnen nach einem Schlüssel genauso suchen wie in einem natürlichen Baum. Im schlechtesten Fall ist die Suche nach einem Schlüssel von Wurzel bis zu einem Blatt. Da die Höhe logarithmisch beschränkt ist, wird dies im worst case $\mathcal{O} (\log N)$ Schritte benötigen, wobei der worst case in einem normalen binären Suchbaum $\mathcal{O} (N)$ ist (alle links oder rechts an der Wurzel). 
+
+\subsubsection{Einfügen}\label{subsection EinfügenAVL}
+Damit der Schlüssel eingefügt werden kann, überprüfen wir in einem ersten Schritt nach dem Schlüssel im Baum. Wenn dieser Schlüssel bereits vorhanden ist, endet der Vorgang. Sofern dieser aber nicht in dem Baum ist fügen wird diesen ein wie bei einem normalen Baum.
+
+Das Problem welches wir nun erhalten ist die Aufrechterhaltung der AVL-Eigenschaft. Wenn wir bei Figure (\ref{fig: AVL-ausgangslage}) den Key 5 einfügen wollen, wird im nächsten Schritt Figure (\ref{fig:AVL-verletzt}) die Bedingung verletzt, da die Höhen des linken und rechten Teilbaumes sich um mehr als 1 unterscheiden. Man muss also die AVLAusgeglichenheit wieder herstellen. Dazu läuft man von der Einfügestelle den Suchpfad entlang zur Wurzel zurück und prüft an jedem Knoten (Vgl. \ref{eqn: bal(p)}, ob die Höhendifferenz  zwischen
+linkem und rechtem Teilbaum noch innerhalb der vorgeschriebenen Grenzen liegt. Ist das nicht der Fall, führt man eine so genannte Rotation oder eine Doppelrotation durch (Vgl. \ref{Rotationabschnitt}), die die Sortierung der Schlüssel nicht beeinflusst, aber die Höhendifferenzen in den richtigen Bereich bringt.
+\begin{figure}[h] 
+   \centering
+     \begin{subfigure}[h]{0.5\textwidth}
+         \centering
+         \includegraphics[scale = 0.3]{Pictures/AVL-einfügen1.png}
+         \caption{Ausgangslage}
+         \label{fig: AVL-ausgangslage}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[h]{0.45\textwidth}
+         \centering
+         \includegraphics[scale = 0.4]{Pictures/AVL.einfügen2.png}         \caption{AVL-Bedingung verletzt}
+         \label{fig:AVL-verletzt}
+     \end{subfigure}
+     \caption{Wie die AVL-Eigenschaft verletzt werden kann}
+    \label{fig: AVL-ausgangslage-verletzt}
+\end{figure}
+
+Man könnte vermuten, dass man zur Prüfung der Höhenbedingung an einem Knoten
+im Baum die Höhen der Teilbäume des Knotens kennen muss. Das ist jedoch glücklicherweise nicht der Fall. Es genügt, an jedem inneren Knoten p den so genannten \textbf{Balancefaktor} $bal(p)$ mitzuführen, der wie folgt definiert ist:
+\begin{equation} \label{eqn: bal(p)}
+    bal(p) = \text{Höhe des rechten Teilbaumes von } p - \text{Höhe des linken Teilbaumes von } p
+\end{equation}
+\newpage
+AVL-Bäume sind offenbar gerade dadurch charakterisiert, dass für jeden inneren Knoten $p$ gilt: $bal(p) \in \{ -1, 0, +1\}$. Um diese drei Fälle anzusehen, vergleichen wir diese in den folgenden Abbildungen \ref{fig: bal(p) für alle}:
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.6\textwidth}
+    \includegraphics[width=\textwidth]{Pictures/AVL-bal(+1).png}
+        \caption{$bal(p) = +1$}
+        \label{fig: bal(p) = +1}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.6\textwidth}
+    \includegraphics[width=\textwidth]{Pictures/AVL-bal(-1).png}
+        \caption{$bal(p) = -1$}
+        \label{fig: bal(p) = -1}
+\end{subfigure}
+
+\begin{subfigure}{0.6\textwidth}
+    \includegraphics[width=\textwidth]{Pictures/AVL-bal(0).png}
+        \caption{$bal(p) = 0$}
+        \label{fig: bal(p) = 0}
+\end{subfigure}
+        
+\caption{Veranschaulichung von $bal(p) \in \{-1, 0, +1\}$ und dessen Balancierung}
+\label{fig: bal(p) für alle}
+\end{figure}
+
+\newpage
+\subsubsection{Entfernen}\label{subsection EntfernenAVL}
+Wie beim Einfügen in den AVL-Tree gehen wir zuerst so vor wie in natürlichen Suchbäumen. Man sucht den zu entfernenden Schlüssel, findet man diesen nciht, so ist das Entfernen beendet. Falls dies nicht der Fall ist, haben wir drei Fälle der Entfernung. 
+
+\subsubsection*{Fall 1}
+
+Knoten $n$ hat zwei blätter als Kinder. Sei $p$ der Elternknoten von $n \implies $ Anderer Teilbaum hat Höhe $h' =$ 0, 1 oder 2.
+\begin{itemize}
+    \item $h' = $1: $bal(p)$ anpassen
+    \item $h' = $0: $bal(p)$ anpassen. Aufruf von $upout(p)$
+    \item $h' = $2: Rebalancieren des Teilbaumes. Aufruf von $upout(p)$
+\end{itemize}
+
+
+
+\subsubsection*{Fall 2}
+Knoten $n$ hat einen inneren Knoten $k$ als Kind
+\begin{itemize}
+    \item Ersetze $n$ durch $k$ -  $upout(k)$ \ref{fig: upout(p)}
+\end{itemize}
+
+
+
+\subsubsection*{Fall 3}
+Knoten $n$ hat zwei inneren Knoten als Kinder
+\begin{itemize}
+    \item Ersetze $n$ durch symmetrischen Nachfolger-  $upout(k)$ \ref{fig: upout(p)}
+    \item Löschen des symmetrischen Nachfolgers wie in Fall 1 oder 2.
+\end{itemize}
+
+
+\subsubsection*{upout(p)}
+Sei $pp$ der Elternknoten von $p$
+\begin{itemize}
+    \item $p$ linkes Kind von $pp$
+        \begin{enumerate}
+            \item $bal(pp) = -1 \implies bal(s) \gets 0 \ \textbf{$upout(pp)$}$
+            \item $bal(pp) = 0 \implies bal(s) \gets 1 $
+            \item $bal(pp) = +1 \implies $ (Vgl. unten \ref{fig: upout(p)})
+        \end{enumerate}
+    \item $p$ rechtes Kind von $pp$: Symmetrische Fälle unter Veratuschung von -1 und +1
+\end{itemize}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.38\textwidth}
+    \includegraphics[width=\textwidth]{Pictures/upout1.png}
+        \caption{Erster Schritt}
+        \label{fig: upout1}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.38\textwidth}
+ \includegraphics[width=\textwidth]{Pictures/upout2.png}  
+ \caption{Zweiter Schritt}
+        \label{fig: upout2}
+\end{subfigure}
+
+\begin{subfigure}{0.38\textwidth}
+ \includegraphics[width=\textwidth]{Pictures/upout3.png}
+        \caption{Dritter Schritt}
+        \label{fig: upout3}
+\end{subfigure}
+        
+\caption{$upout(p)$, Mit (a) ist der Erste bullet point ($p$ linkes Kind von $pp$) gemeint}
+\label{fig: upout(p)}
+\end{figure}
+
+
+\newpage
+
+
+\subsubsection{Rotationen}
+In den vorherigen Abschnitten (\ref{subsection EinfügenAVL}, \ref{subsection EntfernenAVL}) haben wir bereits \textbf{Rotationen} gesehen. Wir unterscheiden insgesamt 4 Fälle: LR, RL, LL, RR. \\
+LL und RR müssen jeweils nur eine Operation durchführen, wohingegen LR und RL zwei Operationen durchführen müssen. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.4]{Pictures/AVL-Rotations.png}
+    \caption{Alle Fälle zum AVL-Tree zu balancieren}
+    \label{fig:AVL-rotations}
+\end{figure}
+
+\subsubsection{Operationen und Komplexität}
+    Der Baum braucht genau $\Theta (n)$ Speicher. Er verfügt über die Standartoperationen von Suchen, Einfügen und Entfernen, die eine Komplexität von $\mathcal{O}(\log n)$ haben. 
+
 
 \subsection{Sortier-Algorithmen}
+Zunächst wollen wir das Sortierproblem genauer fixieren: Wir nehmen an, es sei eine
+Menge von Sätzen gegeben; jeder Satz besitzt einen Schlüssel. Zwischen Schlüsseln ist
+eine Ordnungsrelation „<" oder „$\leq$" erklärt. Außer der Schlüsselkomponente können
+Sätze weitere Komponenten als „eigentliche“ Information enthalten.
 
-    \subsubsection{Bubblesort}\label{alg:Bubblesort}
+\newpage
+\subsubsection{Bogo sort}
+This is a fairly inefficient sorting algorithm that generates a random permutation until the elements are sorted. An analogy with a deck of card would be to shuffle the deck, then check if it is sorted and loop if it is not.
+
+\begin{algorithm}
+\caption{Bogo Sort}
+\label{alg:BogoSort}
+\begin{algorithmic}
+\While{$\neg \textsc{isSorted}\left(A\right)$}
+\State $A \gets \textsc{randomPermutation}\left(A\right)$
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+This algorithm doesn't have a worst case asymptotic time as it is not guaranteed to terminate within a given time. It has an average runtime of $O(n\cdot n!)$.
+
+
+
+
+    \subsubsection{Bubblesort}\label{Bubblesort}
+    Bubblesort $\mathcal{O}(n^2)$ - ist ein Verfahren, welches nach dem Motto \textit{Sortierten durch Einfügen} leben. Bubblesort ist ein Sortierverfahren, das solange zwei jeweils
+    benachbarte, nicht in der richtigen Reihenfolge stehende Elemente vertauscht, bis keine Vertauschungen mehr nötig sind.
+    Um ein genaueres Verständnis zu erlangen ein Beispiel: \\
+    
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{c|c|c|c}
+            \textbf{1. (Schritt 6 \& 5)}    & 
+            \textbf{2.}    & 
+            \textbf{3.}    &
+            \textbf{4.}   \\
+            
+            \hline
+            6 5 3 1 8 7 2 4 & 
+            \textcolor{red}{3 5} 1 6 7 2 4 8  &
+            1 \textcolor{red}{3 5} 6 2 4 7 8 & 
+            1 3 \textcolor{red}{2 5} 4 6 7 9 \\
+            
+            \textcolor{red}  {5 6} 3 1 8 7 2 4 &
+            3\textcolor{red} {1 5} 6 7 2 4 8 &
+            1 3 \textcolor{red}{5 6} 2 4 7 8 & 
+            1 3 2 \textcolor{red}{4 5} 6 7 9 \\
+            
+            5 \textcolor{red}{3 6} 1 8 7 2 4 &
+            3 1 \textcolor{red}{5 6} 7 2 4 8 &
+            1 3 5 \textcolor{red}{2 6} 4 7 8 &
+            1 3 2 4 \textcolor{red}{5 6} 7 9 \\
+
+            5 3 \textcolor{red}{1 6} 8 7 2 4 & 
+            3 1 5 \textcolor{red}{6 7} 2 4 8 &
+            1 3 5 2 \textcolor{red}{4 6} 7 8 &
+            1 3 2 4 5 \textcolor{red}{6 7} 9 \\
+
+            5 3 1 \textcolor{red}{6 8} 7 2 4 &
+            3 1 5 6 \textcolor{red}{2 7} 4 8 &
+            1 3 5 2 4 \textcolor{red}{6 7} 8 &
+            1 3 2 4 5 6 \textcolor{red}{7 9} \\
+
+            5 3 1 6 \textcolor{red}{7 8} 2 4 &
+            3 1 5 6 2 \textcolor{red}{4 7} 8 &
+            1 3 5 2 4 6 \textcolor{red}{7 8} &
+            \textcolor{red}{1 3} 2 4 5 6 7 9\\
+
+            5 3 1 6 7  \textcolor{red}{2 8} 4 &
+            3 1 5 6 2 4  \textcolor{red}{7 8} &
+             \textcolor{red}{1 3} 5 2 4 6 7 9 &
+            1  \textcolor{red}{2 3} 4 5 6 7 9 \\
+
+            5 3 1 6 7 2 \textcolor{red}{4 8} & 
+          \textcolor{red}{1 3} 5 6 2 4 7 8 &
+            1 \textcolor{red}{3 5} 2 4 6 7 9 &
+            \\
+       
+        \end{tabular}
+        \caption{Tabelle wird von oben nach unten, links nach rechts interpretiert}
+        \label{tab:BubblesortTable}
+    \end{table}
+
+\begin{algorithm}
+    \caption{Bubble sort}
+    \label{alg:BubbleSort}
+    \begin{algorithmic} 
+        \State $swapped \gets \texttt{true}$
+        \While{$swapped$}
+        \State $swapped \gets \texttt{false}$
+        \For {$i \in \left\lbrace 0, \dots, A\texttt{.length}-1 \right\rbrace$}
+        \If{$A\left[i\right]>A\left[i+1\right]$}
+        \State Swap $A\left[i\right]$ and $A\left[i+1\right]$
+        \State $swapped \gets \texttt{true}$
+        \EndIf
+        \EndFor
+        \EndWhile
+    \end{algorithmic}
+\end{algorithm}
+
+\newpage
+ \subsubsection{InsertionSort}\label{Insertionsort}
+    InsertionSort $\mathcal{O}(n^2)$ [worst and average case] - ist ein Algorithmus, der der Art und Weise, wie ein Mensch ein Kartenspiel sortiert, sehr ähnlich ist. Er geht so vor, dass er eine Folge von bereits sortierten Elementen behält und immer das nächste Element in der Folge berücksichtigt. Dieses Element wird dann an der richtigen Stelle in der sortierten Folge eingefügt, wobei alle größeren Elemente nach rechts verschoben werden.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.3]{Pictures/insertionsort_version1.png}
+        \caption{InsertionSort-Beispiel}
+        \label{fig:InsertionSort}
+    \end{figure}
+
+\begin{algorithm}
+    \caption{Insertion sort}
+    \label{alg:InsertionSort}
+    \begin{algorithmic} 
+        \For {$i \in \left\lbrace 0, \dots, A\texttt{.length} - 1 \right\rbrace$}
+        \State $v \gets A\left[i\right]$
+        \State $j \gets i-1$
+        
+        \While{$j\geq 0$ \textbf{and} $A\left[j\right]>v$}
+        \State $A\left[j+1\right] \gets A\left[j\right]$
+        \State $j\leftarrow j-1$
+        \EndWhile
+        
+        \State $A\left[j+1\right] \gets v$
+        \EndFor
+    \end{algorithmic}
+\end{algorithm}
+
+\newpage
+  \subsubsection{SelectionSort}\label{Selectionsort}
+   Selection Sort- $\Theta(n^2)$ Dieser Algorithmus behält ebenfalls eine Folge von sortierten Elementen bei und erweitert sie iterativ um das größte der verbleibenden unsortierten Elemente. Dann tauscht er dieses Element mit demjenigen aus, das den sortierten Elementen am nächsten liegt. Dadurch wird das nächste Element ausgewählt, daher der Name.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.3]{Pictures/selectionsort_idee_version1.png}
+        \caption{SelectionSort-Beispiel}
+        \label{fig:SelectionSort}
+    \end{figure}
+
+\begin{algorithm}
+    \caption{SelectionSort}
+    \label{alg:SelectionSort}
+    \begin{algorithmic} 
+        \For {$i \in \left\lbrace 0, \dots, A\texttt{.length} - 1 \right\rbrace$}
+            \State $min = i$
+            \For{$j = i+1$ to $n$ }
+                    \State $//Find\ the\ index\ of\ the\ i^{th}\ smallest\ element$
+                 \If{$A\left[i \right] < A\left[ min\right]$}
+                    \State $min = j$
+                \EndIf
+            \EndFor
+        \State $A[min] and\ A[i]$
+        \EndFor
+    \end{algorithmic}
+\end{algorithm}
+
+    \subsubsection*{Complexity}
+    Worst case: $\mathcal{O}(n^2)$, Best case: $\mathcal{O}(n^2)$: \\
+    $\sum_{i=1}^{n-1} (n-i) = n(n-1)-\sum_{i=1}^{n-1} i = n^2 - n - \frac{n^2-n}{2} = \frac{n^2-n}{2} = \Theta(n^2)$
+    
+\newpage    
+
+    \subsubsection{Quicksort}\label{Quicksort}
     
 
-    \subsubsection{Heapsort}\label{alg:Heapsort}
 
+    \subsubsection{Mergesort}\label{Mergesort}
 
+    \subsubsection{Heapsort}\label{Heapsort}
 
-    \subsubsection{Mergesort}\label{alg:Mergesort}
-
-
-
-    \subsubsection{Quicksort}\label{alg:Quicksort}
 
 
 %%Chapter 04
