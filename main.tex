@@ -177,15 +177,16 @@ Für etliche Fehler in diesem Skript wird keine Verantwortung übernommen.
     Damit wir nun einmal sehen können wie die asympotischen Grenzen sich verhalten, folgende Abbildung: 
     \begin{figure}[h]
         \centering
-        \includegraphics[width=0.4\textwidth]{Pictures/big-o-notation.jpg}
+        \includegraphics[width=0.3\textwidth]{Pictures/big-o-notation.jpg}
         \caption{Wachstum verschiedener Funktionen}
         \label{fig: WachstumBigO}
     \end{figure}
     Die graphische Darstellung der Funktionen im Bild (\ref{fig: WachstumBigO}) zeigt uns leider nur sechs Funktionen. 
     Um möglichst viele Funktionen in aufsteigendem, asymptotischen Wachstum zu sehen, folgende Abbildung:
 
-    $\mathcal{O}(1) \in  \mathcal{O}(\log \log n)\in \mathcal{O}(\log n) \in \mathcal{O}(\sqrt{n}) \in \mathcal{O}(n) \in \mathcal{O}(n\log n) \in \mathcal{O}(n^2) \in \mathcal{O}(2^n) \in \mathcal{O}(2^{n^{2}}) \in \mathcal{O}(n!) $
-\newpage
+    $\mathcal{O}(1) \in [\mathcal{O}(\frac{1}{n^2}) \in \mathcal{O}(\frac{1}{n}) \in \ ]  \mathcal{O}(\log \log n)\in \mathcal{O}(\log n) \in \mathcal{O}(\sqrt{n}) \in \mathcal{O}(n) \in \mathcal{O}(n\log n) \in \mathcal{O}(n^2) \in \mathcal{O}(2^n) \in \mathcal{O}(2^{n^{2}}) \in \mathcal{O}(n!) $
+
+
 \subsection{Erster Algorithmus}
     \subsubsection{Maximum Subarray Sum}
     Für einen ersten Algorithmus schauen wir den \texttt{Maximum Subarray Sum} Algorithmus an. Dieser Algorithmus enthält ein Array von $n$ rationalen Zahlen $a_1,..., a_n$ und gesucht ist ein Teilstück mit maximaler Summe.  \\
@@ -472,8 +473,7 @@ Da AVL-Bäume eigentlich binäre Suchbäume sind, kann man ihnen nach einem Schl
 \subsubsection{Einfügen}\label{subsection EinfügenAVL}
 Damit der Schlüssel eingefügt werden kann, überprüfen wir in einem ersten Schritt nach dem Schlüssel im Baum. Wenn dieser Schlüssel bereits vorhanden ist, endet der Vorgang. Sofern dieser aber nicht in dem Baum ist fügen wird diesen ein wie bei einem normalen Baum.
 
-Das Problem welches wir nun erhalten ist die Aufrechterhaltung der AVL-Eigenschaft. Wenn wir bei Figure (\ref{fig: AVL-ausgangslage}) den Key 5 einfügen wollen, wird im nächsten Schritt Figure (\ref{fig:AVL-verletzt}) die Bedingung verletzt, da die Höhen des linken und rechten Teilbaumes sich um mehr als 1 unterscheiden. Man muss also die AVLAusgeglichenheit wieder herstellen. Dazu läuft man von der Einfügestelle den Suchpfad entlang zur Wurzel zurück und prüft an jedem Knoten (Vgl. \ref{eqn: bal(p)}, ob die Höhendifferenz  zwischen
-linkem und rechtem Teilbaum noch innerhalb der vorgeschriebenen Grenzen liegt. Ist das nicht der Fall, führt man eine so genannte Rotation oder eine Doppelrotation durch (Vgl. \ref{Rotationabschnitt}), die die Sortierung der Schlüssel nicht beeinflusst, aber die Höhendifferenzen in den richtigen Bereich bringt.
+Das Problem welches wir nun erhalten ist die Aufrechterhaltung der AVL-Eigenschaft. Wenn wir bei Figure (\ref{fig: AVL-ausgangslage}) den Key 5 einfügen wollen, wird im nächsten Schritt Figure (\ref{fig:AVL-verletzt}) die Bedingung verletzt, da die Höhen des linken und rechten Teilbaumes sich um mehr als 1 unterscheiden. Man muss also die AVLAusgeglichenheit wieder herstellen. Dazu läuft man von der Einfügestelle den Suchpfad entlang zur Wurzel zurück und prüft an jedem Knoten (Vgl. \ref{eqn: bal(p)}, ob die Höhendifferenz  zwischen linkem und rechtem Teilbaum noch innerhalb der vorgeschriebenen Grenzen liegt. Ist das nicht der Fall, führt man eine so genannte Rotation oder eine Doppelrotation durch (Vgl. \ref{Rotationabschnitt}), die die Sortierung der Schlüssel nicht beeinflusst, aber die Höhendifferenzen in den richtigen Bereich bringt.
 \begin{figure}[h] 
    \centering
      \begin{subfigure}[h]{0.5\textwidth}
