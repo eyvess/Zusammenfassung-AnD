@@ -22,6 +22,8 @@
 \usetikzlibrary{positioning}
 \usepackage{subcaption}
 \usepackage{xcolor}
+\usepackage{stmaryrd}
+
 
 
 
@@ -122,14 +124,15 @@ Für etliche Fehler in diesem Skript wird keine Verantwortung übernommen.
     Let $f, g: \mathbb{R} \rightarrow \mathbb{R}^+$ such that the limit of $\frac f g$ exists. Then:
     
     \begin{equation*}
-    \lim_{x\to\infty}\frac fg = \infty \Rightarrow g \in \mathcal{O}(f) \text{and} f \in \Omega(g)
+    \lim_{x\to\infty}\frac fg = \infty \Rightarrow g \in \mathcal{O}(f) \text{ and } f \in \Omega(g)
     \end{equation*}
     \begin{equation*}
-    \lim_{x \rightarrow \infty} \frac fg = C \in \mathbb{R}^+ \setminus \left\lbrace 0 \right\rbrace \Rightarrow f \in\Theta(g)  \text{and } g \in\Theta(f) \\
+    \lim_{x \rightarrow \infty} \frac fg = C \in \mathbb{R}^+ \setminus \left\lbrace 0 \right\rbrace \Rightarrow f \in\Theta(g)  \text{ and } g \in\Theta(f) \\
     \end{equation*}
     \begin{equation*}
-    \lim_{x \rightarrow \infty} \frac fg = 0 \Rightarrow f \in\mathcal{O}(g) \text{and } g \in\Omega(f) \\
+    \lim_{x \rightarrow \infty} \frac fg = 0 \Rightarrow f \in\mathcal{O}(g) \text{ and } g \in\Omega(f) \\
     \end{equation*}
+    \textbf{Wichtiger Hinweis:} Implikationspfeil anschauen: $\mathcal{O}(f) \implies \lim_{x\to\infty}\frac fg = \infty \ \lightning$
 
 
     \begin{table}
@@ -184,9 +187,9 @@ Für etliche Fehler in diesem Skript wird keine Verantwortung übernommen.
     Die graphische Darstellung der Funktionen im Bild (\ref{fig: WachstumBigO}) zeigt uns leider nur sechs Funktionen. 
     Um möglichst viele Funktionen in aufsteigendem, asymptotischen Wachstum zu sehen, folgende Abbildung:
 
-    $\mathcal{O}(1) \in [\mathcal{O}(\frac{1}{n^2}) \in \mathcal{O}(\frac{1}{n}) \in \ ]  \mathcal{O}(\log \log n)\in \mathcal{O}(\log n) \in \mathcal{O}(\sqrt{n}) \in \mathcal{O}(n) \in \mathcal{O}(n\log n) \in \mathcal{O}(n^2) \in \mathcal{O}(2^n) \in \mathcal{O}(2^{n^{2}}) \in \mathcal{O}(n!) $
+    $\mathcal{O}(1) \in [\mathcal{O}(\frac{1}{n^2}) \in \mathcal{O}(\frac{1}{n}) \in \ ] \  \mathcal{O}(\log \log n)\in \mathcal{O}(\log n) \in \mathcal{O}(\sqrt{n}) \in \mathcal{O}(n) \in \mathcal{O}(n\log n) \in [\mathcal{O}({n^c}) \in \mathcal{O}(c^n) \in \ ] \mathcal{O}(n^2) \in \mathcal{O}(2^n) \in \mathcal{O}(2^{n^{2}}) \in \mathcal{O}(n!) $
 
-
+\newpage
 \subsection{Erster Algorithmus}
     \subsubsection{Maximum Subarray Sum}
     Für einen ersten Algorithmus schauen wir den \texttt{Maximum Subarray Sum} Algorithmus an. Dieser Algorithmus enthält ein Array von $n$ rationalen Zahlen $a_1,..., a_n$ und gesucht ist ein Teilstück mit maximaler Summe.  \\
@@ -473,7 +476,7 @@ Da AVL-Bäume eigentlich binäre Suchbäume sind, kann man ihnen nach einem Schl
 \subsubsection{Einfügen}\label{subsection EinfügenAVL}
 Damit der Schlüssel eingefügt werden kann, überprüfen wir in einem ersten Schritt nach dem Schlüssel im Baum. Wenn dieser Schlüssel bereits vorhanden ist, endet der Vorgang. Sofern dieser aber nicht in dem Baum ist fügen wird diesen ein wie bei einem normalen Baum.
 
-Das Problem welches wir nun erhalten ist die Aufrechterhaltung der AVL-Eigenschaft. Wenn wir bei Figure (\ref{fig: AVL-ausgangslage}) den Key 5 einfügen wollen, wird im nächsten Schritt Figure (\ref{fig:AVL-verletzt}) die Bedingung verletzt, da die Höhen des linken und rechten Teilbaumes sich um mehr als 1 unterscheiden. Man muss also die AVLAusgeglichenheit wieder herstellen. Dazu läuft man von der Einfügestelle den Suchpfad entlang zur Wurzel zurück und prüft an jedem Knoten (Vgl. \ref{eqn: bal(p)}, ob die Höhendifferenz  zwischen linkem und rechtem Teilbaum noch innerhalb der vorgeschriebenen Grenzen liegt. Ist das nicht der Fall, führt man eine so genannte Rotation oder eine Doppelrotation durch (Vgl. \ref{Rotationabschnitt}), die die Sortierung der Schlüssel nicht beeinflusst, aber die Höhendifferenzen in den richtigen Bereich bringt.
+Das Problem welches wir nun erhalten ist die Aufrechterhaltung der AVL-Eigenschaft. Wenn wir bei Figure (\ref{fig: AVL-ausgangslage}) den Key 5 einfügen wollen, wird im nächsten Schritt Figure (\ref{fig:AVL-verletzt}) die Bedingung verletzt, da die Höhen des linken und rechten Teilbaumes sich um mehr als 1 unterscheiden. Man muss also die AVLAusgeglichenheit wieder herstellen. Dazu läuft man von der Einfügestelle den Suchpfad entlang zur Wurzel zurück und prüft an jedem Knoten (Vgl. \ref{eqn: bal(p)}, ob die Höhendifferenz  zwischen linkem und rechtem Teilbaum noch innerhalb der vorgeschriebenen Grenzen liegt. Ist das nicht der Fall, führt man eine so genannte Rotation oder eine Doppelrotation durch (Vgl. \ref{Rotationsabschnitt}), die die Sortierung der Schlüssel nicht beeinflusst, aber die Höhendifferenzen in den richtigen Bereich bringt.
 \begin{figure}[h] 
    \centering
      \begin{subfigure}[h]{0.5\textwidth}
@@ -595,7 +598,7 @@ Sei $pp$ der Elternknoten von $p$
 \newpage
 
 
-\subsubsection{Rotationen}
+\subsubsection{Rotationen} \label{Rotationsabschnitt}
 In den vorherigen Abschnitten (\ref{subsection EinfügenAVL}, \ref{subsection EntfernenAVL}) haben wir bereits \textbf{Rotationen} gesehen. Wir unterscheiden insgesamt 4 Fälle: LR, RL, LL, RR. \\
 LL und RR müssen jeweils nur eine Operation durchführen, wohingegen LR und RL zwei Operationen durchführen müssen. 
 
@@ -740,7 +743,7 @@ This algorithm doesn't have a worst case asymptotic time as it is not guaranteed
 
 \newpage
   \subsubsection{SelectionSort}\label{Selectionsort}
-   Selection Sort- $\Theta(n^2)$ Dieser Algorithmus behält ebenfalls eine Folge von sortierten Elementen bei und erweitert sie iterativ um das größte der verbleibenden unsortierten Elemente. Dann tauscht er dieses Element mit demjenigen aus, das den sortierten Elementen am nächsten liegt. Dadurch wird das nächste Element ausgewählt, daher der Name.
+   Selection Sort $\Theta(n^2)$ - Dieser Algorithmus behält ebenfalls eine Folge von sortierten Elementen bei und erweitert sie iterativ um das größte der verbleibenden unsortierten Elemente. Dann tauscht er dieses Element mit demjenigen aus, das den sortierten Elementen am nächsten liegt. Dadurch wird das nächste Element ausgewählt, daher der Name.
 
     \begin{figure}[h]
         \centering
