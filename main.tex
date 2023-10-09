@@ -429,7 +429,7 @@ Ein weiterer Begriff, der wichtig ist im Kontext mit Bäumen ist die \textbf{Hö
     \item $height(T) = max_{v \in V} depth(v) + 1$
 \end{itemize}
 Man fasst die Knoten eines Baumes gleicher Tiefe zu \textbf{Niveaus} zusammen. Die Knoten auf dem Niveau $i$ sind alle Knoten der Tiefe $i$. Die Höhe des Beispiels (\ref{fig: binarytree}) wäre also der Pfad von $(15-5-12-10-6-7) + 1 = 6 $ und die Tiefe vom Knoten 20 wäre: 2. \\
-Zusätzlich gilt: die Tiefe eines binary tree ist gleich wie die Höhe eines binary trees.\footnote{Vergleiche mit \href{https://www.baeldung.com/cs/binary-tree-height}{weitere Beispiele \& Erklärungen}}
+Zusätzlich gilt: die Tiefe eines binary tree ist gleich wie die Höhe eines binary trees.\footnote{\href{https://www.baeldung.com/cs/binary-tree-height}{weitere Beispiele \& Erklärungen}}
 Des weiteren heisst ein Baum \textbf{vollständig} wenn er auf jedem Niveau die maximal mögiche Knotenanzahl hat und sämtliche Blätter dieselbe Tiefe haben. 
 Auch wie bei dem Heap gelten die "Basic operations": Einfügen, löschen, suchen eines Elementes und das Traversieren des Baumes (Vgl. \ref{common operations}).
 
@@ -444,7 +444,7 @@ Auch wie bei dem Heap gelten die "Basic operations": Einfügen, löschen, suchen
 
 
 \subsection{AVL-Trees}
-Ein binärer Suchbaum ist \textit{AVL-ausgegelichen} oder höhenbalanciert. Kurz: Ein AVL Baum, wenn für jeden Knoten $p$ des Baumes gilt, dass sich die Höhe des linken Teilbaumes von der Höhe des rechten Teilbaumes von $p$ um höchstens 1 unterscheidet. In der folgenden Abbildung(\ref{fig: AVL-trees}) ist in (a)  und (c) ein AVL-Baum zu sehen. (b) hingegen ist kein AVL-Baum.
+Ein binärer Suchbaum ist \textit{AVL-ausgegelichen} oder höhenbalanciert. Kurz: Ein AVL Baum, wenn für jeden Knoten $p$ des Baumes gilt, dass sich die Höhe des linken Teilbaumes von der Höhe des rechten Teilbaumes von $p$ um höchstens 1 unterscheidet. In der folgenden Abbildung(\ref{fig: AVL-trees}) ist in (a)  und (c) ein AVL-Baum zu sehen. (b) hingegen ist kein AVL-Baum.\footnote{\href{https://www.cs.usfca.edu/~galles/visualization/AVLtree.html}{Animationen von AVL-Trees}}
 
 \begin{figure}[h] 
 \caption{Beispiel von zwei AVL-Bäume}
@@ -612,6 +612,7 @@ LL und RR müssen jeweils nur eine Operation durchführen, wohingegen LR und RL 
 \subsubsection{Operationen und Komplexität}
     Der Baum braucht genau $\Theta (n)$ Speicher. Er verfügt über die Standartoperationen von Suchen, Einfügen und Entfernen, die eine Komplexität von $\mathcal{O}(\log n)$ haben. 
 
+    \newpage
 
 \subsection{Sortier-Algorithmen}
 Zunächst wollen wir das Sortierproblem genauer fixieren: Wir nehmen an, es sei eine
@@ -619,23 +620,47 @@ Menge von Sätzen gegeben; jeder Satz besitzt einen Schlüssel. Zwischen Schlüs
 eine Ordnungsrelation „<" oder „$\leq$" erklärt. Außer der Schlüsselkomponente können
 Sätze weitere Komponenten als „eigentliche“ Information enthalten.
 
-\newpage
+
+\subsubsection{Eigenschaften von Sortier-Algorithmen}
+
+\paragraph{Stability} Zwei Objekte mit gleichen Schlüsseln erscheinen in der (sortierten) Ausgabe in der gleichen Reihenfolge, wie sie in der Eingabe erschienen.
+\paragraph{In-place} oder in-situ beschreiben jene Algorithmen, die die Eingabe ohne zusätzliche Datenstruktur und damit ohne zusätzlichen Speicherplatz umwandeln. In einigen Fällen ist zusätzlicher Speicherplatz zur Speicherung einiger Variablen zulässig.
+
+\begin{table}[H]
+\centering
+\caption{Properties of sorting algorithms}
+\label{my-label}
+~\\
+\begin{tabular}{|r|c|c|c|c|c|c|@{}}
+  \cline{2-7}
+  \multicolumn{1}{c|}{} & \textbf{bubble} & \textbf{insert} & \textbf{select} & \textbf{quick} & \textbf{merge} & \textbf{heap} \\
+        \hline
+stable  & Yes      & Yes      & No      & No     & Yes     & No    \\
+  in-situ & Yes      & Yes      & Yes      & Yes     & No     & Yes   \\
+  \hline
+\end{tabular}
+\end{table}
+
+
 \subsubsection{Bogo sort}
-This is a fairly inefficient sorting algorithm that generates a random permutation until the elements are sorted. An analogy with a deck of card would be to shuffle the deck, then check if it is sorted and loop if it is not.
+Bogo sort $\mathcal{O}(n\cdot n!)$ - This is a fairly inefficient sorting algorithm that generates a random permutation until the elements are sorted. An analogy with a deck of card would be to shuffle the deck, then check if it is sorted and loop if it is not. 
+
 
 \begin{algorithm}
-\caption{Bogo Sort}
-\label{alg:BogoSort}
-\begin{algorithmic}
-\While{$\neg \textsc{isSorted}\left(A\right)$}
-\State $A \gets \textsc{randomPermutation}\left(A\right)$
-\EndWhile
-\end{algorithmic}
+    \caption{Bogo Sort}
+    \label{alg:BogoSort}
+    \begin{algorithmic}
+        \While{$\neg \textsc{isSorted}\left(A\right)$}
+        \State $A \gets \textsc{randomPermutation}\left(A\right)$
+        \EndWhile
+    \end{algorithmic}
 \end{algorithm}
-This algorithm doesn't have a worst case asymptotic time as it is not guaranteed to terminate within a given time. It has an average runtime of $O(n\cdot n!)$.
+This algorithm doesn't have a worst case asymptotic time as it is not guaranteed to terminate within a given time. 
 
+\subsubsection{Stalin-Sort}
+The Stalin sort is a sort in which elements that are out of order get removed from a list. For example, [1, 2, 5, 3, 6, 4, 10] becomes [1, 2, 5, 6, 10]. It is said to runs in $\mathcal{O}(n)$ time but if coded that way, the final list may have fewer than the maximum number of elements possible. For example [10, 1, 2, 3, 4] would become [10].
 
-
+\newpage
 
     \subsubsection{Bubblesort}\label{Bubblesort}
     Bubblesort $\mathcal{O}(n^2)$ - ist ein Verfahren, welches nach dem Motto \textit{Sortierten durch Einfügen} leben. Bubblesort ist ein Sortierverfahren, das solange zwei jeweils
@@ -752,22 +777,25 @@ This algorithm doesn't have a worst case asymptotic time as it is not guaranteed
         \label{fig:SelectionSort}
     \end{figure}
 
-\begin{algorithm}
-    \caption{SelectionSort}
-    \label{alg:SelectionSort}
-    \begin{algorithmic} 
-        \For {$i \in \left\lbrace 0, \dots, A\texttt{.length} - 1 \right\rbrace$}
-            \State $min = i$
-            \For{$j = i+1$ to $n$ }
-                    \State $//Find\ the\ index\ of\ the\ i^{th}\ smallest\ element$
-                 \If{$A\left[i \right] < A\left[ min\right]$}
-                    \State $min = j$
-                \EndIf
-            \EndFor
-        \State $A[min] and\ A[i]$
-        \EndFor
-    \end{algorithmic}
-\end{algorithm}
+
+    \begin{algorithm}[h]
+        \caption{Selection sort}
+        \label{alg:SelectionSort}
+        \begin{algorithmic} 
+          \For{$i \in \left\lbrace 0, A\texttt{.length}-2 \right\rbrace$}
+          \State $m, v \gets i, A\left[i\right]$
+          \For {$j \in \left\lbrace i+1, \dots, A\texttt{.length} -1\right\rbrace$}
+          \If{$A\left[j\right] < v$}
+          \State $m, v \gets j, A\left[j\right]$
+          \EndIf
+          \EndFor
+          \If{$m \neq i$}
+          \State Swap $A\left[i\right]$ and $A\left[m\right]$
+          \EndIf
+        
+          \EndFor
+        \end{algorithmic}
+    \end{algorithm}
 
     \subsubsection*{Complexity}
     Worst case: $\mathcal{O}(n^2)$, Best case: $\mathcal{O}(n^2)$: \\
@@ -776,16 +804,155 @@ This algorithm doesn't have a worst case asymptotic time as it is not guaranteed
 \newpage    
 
     \subsubsection{Quicksort}\label{Quicksort}
-    
+    Quicksort $\mathcal{O}(n\log n)$ - Dieser Algorithmus funktioniert, indem er rekursiv einen Pivot (ein Element, normalerweise an der ersten oder letzten Position im Array) wählt und alle anderen Elemente in Bezug auf diesen aufteilt. Er erstellt zunächst die Mengen $S^-$ und $S^+$, in denen alle Elemente, die kleiner/größer als der Drehpunkt sind, gespeichert werden. Dann ruft es sich selbst rekursiv auf diesen beiden Mengen auf, und nachdem sie sortiert zurückgegeben wurden, fügt es sie einfach zusammen, wobei es den Drehpunkt in der Mitte hinzufügt. Die Rekursion endet im Basisfall, in dem das Array nur ein Element enthält. Es ist zu beachten, dass auch eine In-Place-Implementierung möglich ist, die den Speicher-Overhead reduziert. Dieser Algorithmus hat eine schlechtere obere Schranke für die Operationszeit, wird aber in der Praxis häufig verwendet, da die durchschnittliche Zeit besser ist als bei Merge und Heap Sort. Beachten Sie, dass der $\cdot$-Operator hier Verkettung bedeutet.
 
-
+    \begin{algorithm}[h]
+        \caption{Quicksort}
+        \begin{algorithmic}
+            \label{alg:Quicksort}
+        \Function{QuickSort}{$A$}
+        \If{$A\texttt{.length} \leq 1$}
+        \State \Return $A$
+        \EndIf
+        \State Pick pivot $p \gets A[0]$
+        \For{$i \in \left\lbrace 1, \dots, A\texttt{.length}-1 \right\rbrace$}
+        \If{$A\left[i\right]\leq p$}
+        \State $S^-\texttt{.add}\left(A\left[i\right]\right)$
+        \Else
+        \State $S^+\texttt{.add}\left(A\left[i\right]\right)$
+        \EndIf
+        \EndFor
+        \State $S^+ \gets \textsc{QuickSort}\left(S^+\right)$
+        \State $S^- \gets \textsc{QuickSort}\left(S^-\right)$
+        \State \Return $S^- \cdot \left\lbrace p\right\rbrace \cdot S^+$
+        \EndFunction
+        \end{algorithmic}
+        \end{algorithm}
+        
+\newpage
     \subsubsection{Mergesort}\label{Mergesort}
-
+        Mergesort $\mathcal{O}(n \log n)$ - Dieser Algorithmus arbeitet ebenfalls rekursiv. Er teilt die Eingabe in zwei Mengen auf und ruft sich dann selbst rekursiv auf diesen Mengen auf. Nachdem die beiden Mengen sortiert zurückgegeben wurden, führt er sie in linearer Zeit zusammen. Der Name leitet sich von diesem letzten Teil des Algorithmus ab.
+        
+        \begin{algorithm}[h]
+            \caption{Merge sort}
+            \label{alg:MergeSort}
+            \begin{algorithmic}
+              \Function{MergeSort}{$A$}
+              \If{$A\texttt{.length} \leq 1$}
+              \State \Return $A$
+              \EndIf
+              \State $n \gets A\texttt{.length}$
+              \State $n_1 \gets \frac n2$
+              \State $n_2 \gets n-n_1$
+              \For{$i \in \left\lbrace 0, \dots, A\texttt{.length} - 1 \right\rbrace$}
+              \If{$i < n_1$}
+              \State $S^-\texttt{.add}\left(A\left[i\right]\right)$
+              \Else
+              \State $S^+\texttt{.add}\left(A\left[i\right]\right)$
+              \EndIf
+              \EndFor
+              \State $S^+ \gets \textsc{MergeSort}\left(S^+\right)$
+              \State $S^- \gets \textsc{MergeSort}\left(S^-\right)$
+              % merge
+              \State $i\gets 0$ \Comment{Merge $S^+$ and $S^-$}
+              \State $j\gets 0$
+              \While{$i<n_1$ \textbf{and} $j<n_2$}
+              \If{$S^-\left[i\right]\leq S^+\left[j\right]$}
+              \State $R\texttt{.add}\left(S^-\left[i\right]\right)$
+              \State $i \gets i+1$
+              \Else
+              \State $R\texttt{.add}\left(S^+\left[j\right]\right)$
+              \State $j \gets j+1$
+              \EndIf
+              \EndWhile
+              \State Concatenate remaining elements to $R$
+              \State \Return $R$
+              \EndFunction
+            \end{algorithmic}
+            \end{algorithm}
+            
+        
+\newpage
     \subsubsection{Heapsort}\label{Heapsort}
+        Heapsort $\mathcal{O}(n \log n)$ - Dieser Sortieralgorithmus arbeitet, indem er alle Schlüssel in einen Min-Heap einfügt und iterativ das Minimum (die Wurzel) in konstanter Zeit extrahiert und an die Liste der sortierten Knoten anhängt. Er macht dies $n$ Mal; die Gesamtlaufzeit hängt von der Komplexität der Standard-Heap-Operationen ab.
+        
+        \begin{algorithm}[h]
+            \caption{Heap sort}
+            \label{alg:HeapSort}
+            \begin{algorithmic} 
+            \State $H \gets \textsc{CreateMinHeap}\left(\right)$
+            \For{$i \in \left\lbrace 0, \dots, A\texttt{.length}-1 \right\rbrace$}
+            \State $H\texttt{.insert}\left(A\left[i\right]\right)$
+            \EndFor
+            \For{$i \in \left\lbrace 0, \dots, A\texttt{.length}-1 \right\rbrace$}
+            \State $v \gets H\texttt{.pop}\left(\right)$
+            \State $R\texttt{.add}\left(v\right)$
+            \EndFor
+            \State \Return $R$
+            \end{algorithmic}
+        \end{algorithm}
+        
 
+    \subsubsection{Kosten von Sortieralgorithmen}
+    Hier werden die minimalen und maximalen Kosten für einige Sortieralgorithmen auf der Grundlage ihrer Eingabegröße n angegeben, sowie die besondere Art der Eingabe, die zu dieser besonderen Komplexität führt.
+    \begin{table}[H]
+      \centering
+      \footnotesize
+      \caption{Best and worst case costs für sortier Algorithmen}
+      \label{Sorting 1}
+      ~\\
+      \hspace{-1.6cm}
+      \begin{tabular}{|l | c c | c c | c c | c c |}
+        \cline{2-9}
+        \multicolumn{1}{c|}{} & \multicolumn{2}{c|}{\textbf{bubblesort}} & \multicolumn{2}{c|}{\textbf{insertion sort}} & \multicolumn{2}{c|}{\textbf{selection sort}} & \multicolumn{2}{c|}{\textbf{quicksort}} \\
+        \multicolumn{1}{c|}{}             & best case                & worst case                & best case                  & w.c.                  & best case                  & w.c.                  & best case               & w.c.               \\
+        \hline
+        \# comparisons  & $\Theta(n)$                  & $\Theta(n^2)$                  & $\Theta(n)$                    & $\Theta(n^2)$                    & $\Theta(n^2)$                    & $\Theta(n^2)$                    & $\Theta(n \log n)$                                  & $\Theta(n^2)$                 \\
+        \# permutations & $0$                   & $\Theta(n^2)$                  & $0$                     & $\Theta(n^2)$                    & $0$                     & $\Theta(n)$                    & $\Theta(n)$                   & $\Theta(n \log n)$                 \\
+        \hline
+        corresponding order             & A                 & B                 & A                   & B & A                   & C                   & C                    & C                 \\
+        \hline
+      \end{tabular}
+      \begin{itemize}
+      \item A = already ordered
+      \item B = inverse order
+      \item C = special order
+      \end{itemize}
+    
+    
+    \end{table}
+    
+     
+    \subsubsection{Lower-bound für sortier Algorithmen}
+    Jegliche Sortieralgorithmen haben eine worst-case runtime von $\Omega(n \log n)$. Mehr dazu in \textit{Algorithmen und Wahrscheinlichkeiten, ConvexHull}
+        
+        
 
 
 %%Chapter 04
+ERGÄNZUNGEN MACHEN ZU HEAPSORT, RSP BEISPIELE WIE SICH DIES DURCHSPIELEN LÄSST
+\section{GraphenTheorie}
+ERGÄNZUNGEN MACHEN ZU HEAPSORT, RSP BEISPIELE WIE SICH DIES DURCHSPIELEN LÄSST
+\subsection{Grundlagen}
+ERGÄNZUNGEN MACHEN ZU HEAPSORT, RSP BEISPIELE WIE SICH DIES DURCHSPIELEN LÄSST
+\subsection{Tiefensuche}
+    
+\subsection{Breitensuche}
+    
+\subsection{Zusammenhangskompontente}
+    
+\subsection{Shortest-path...}
+    
+\subsubsection{...mit uniformen Kantengewichten}
+    
+\subsubsection{...mit nicht-negativen Kantengewichten}
+    
+\subsubsection{...mit allgemeinen Kantengewichten}
+    
+\subsubsection{...zwischen allen Paaren von Knoten}
+    
+    
+%%Chapter 05
 \section{Dynamisches Programmieren}
 
 \subsection{Längste aufsteigende Teilfolge}
@@ -800,27 +967,7 @@ This algorithm doesn't have a worst case asymptotic time as it is not guaranteed
 
 \subsection{Knap Sack Problem}
 
-%%Chapter 05
 
-\section{GraphenTheorie}
-
-\subsection{Grundlagen}
-
-\subsection{Tiefensuche}
-
-\subsection{Breitensuche}
-
-\subsection{Zusammenhangskompontente}
-
-\subsection{Shortest-path...}
-
-\subsubsection{...mit uniformen Kantengewichten}
-
-\subsubsection{...mit nicht-negativen Kantengewichten}
-
-\subsubsection{...mit allgemeinen Kantengewichten}
-
-\subsubsection{...zwischen allen Paaren von Knoten}
 
 
 

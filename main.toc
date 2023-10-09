@@ -21,29 +21,35 @@
 \contentsline {subsubsection}{\numberline {3.3.3}Entfernen}{13}{subsubsection.3.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.4}Rotationen}{14}{subsubsection.3.3.4}%
 \contentsline {subsubsection}{\numberline {3.3.5}Operationen und Komplexität}{14}{subsubsection.3.3.5}%
-\contentsline {subsection}{\numberline {3.4}Sortier-Algorithmen}{14}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Bogo sort}{15}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Bubblesort}{15}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}InsertionSort}{16}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}SelectionSort}{17}{subsubsection.3.4.4}%
-\contentsline {subsubsection}{\numberline {3.4.5}Quicksort}{18}{subsubsection.3.4.5}%
-\contentsline {subsubsection}{\numberline {3.4.6}Mergesort}{18}{subsubsection.3.4.6}%
-\contentsline {subsubsection}{\numberline {3.4.7}Heapsort}{18}{subsubsection.3.4.7}%
-\contentsline {section}{\numberline {4}Dynamisches Programmieren}{18}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Längste aufsteigende Teilfolge}{18}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Längste gemeinsame Teilfolge}{18}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Minimale Editierdistanz}{18}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Matrixkettenmultiplikation}{18}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Subset Sum Problem}{18}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Knap Sack Problem}{18}{subsection.4.6}%
-\contentsline {section}{\numberline {5}GraphenTheorie}{18}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Grundlagen}{18}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Tiefensuche}{18}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Breitensuche}{18}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Zusammenhangskompontente}{18}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Shortest-path...}{18}{subsection.5.5}%
-\contentsline {subsubsection}{\numberline {5.5.1}...mit uniformen Kantengewichten}{18}{subsubsection.5.5.1}%
-\contentsline {subsubsection}{\numberline {5.5.2}...mit nicht-negativen Kantengewichten}{18}{subsubsection.5.5.2}%
-\contentsline {subsubsection}{\numberline {5.5.3}...mit allgemeinen Kantengewichten}{18}{subsubsection.5.5.3}%
-\contentsline {subsubsection}{\numberline {5.5.4}...zwischen allen Paaren von Knoten}{18}{subsubsection.5.5.4}%
-\contentsline {section}{\numberline {6}Sprachunterschiede}{18}{section.6}%
+\contentsline {subsection}{\numberline {3.4}Sortier-Algorithmen}{15}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Eigenschaften von Sortier-Algorithmen}{15}{subsubsection.3.4.1}%
+\contentsline {paragraph}{Stability}{15}{section*.23}%
+\contentsline {paragraph}{In-place}{15}{section*.24}%
+\contentsline {subsubsection}{\numberline {3.4.2}Bogo sort}{15}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Stalin-Sort}{15}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Bubblesort}{16}{subsubsection.3.4.4}%
+\contentsline {subsubsection}{\numberline {3.4.5}InsertionSort}{17}{subsubsection.3.4.5}%
+\contentsline {subsubsection}{\numberline {3.4.6}SelectionSort}{18}{subsubsection.3.4.6}%
+\contentsline {subsubsection}{\numberline {3.4.7}Quicksort}{19}{subsubsection.3.4.7}%
+\contentsline {subsubsection}{\numberline {3.4.8}Mergesort}{20}{subsubsection.3.4.8}%
+\contentsline {subsubsection}{\numberline {3.4.9}Heapsort}{21}{subsubsection.3.4.9}%
+\contentsline {subsubsection}{\numberline {3.4.10}Kosten von Sortieralgorithmen}{21}{subsubsection.3.4.10}%
+\contentsline {subsubsection}{\numberline {3.4.11}Lower-bound für sortier Algorithmen}{21}{subsubsection.3.4.11}%
+\contentsline {section}{\numberline {4}GraphenTheorie}{21}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Grundlagen}{21}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Tiefensuche}{22}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Breitensuche}{22}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Zusammenhangskompontente}{22}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Shortest-path...}{22}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}...mit uniformen Kantengewichten}{22}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}...mit nicht-negativen Kantengewichten}{22}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}...mit allgemeinen Kantengewichten}{22}{subsubsection.4.5.3}%
+\contentsline {subsubsection}{\numberline {4.5.4}...zwischen allen Paaren von Knoten}{22}{subsubsection.4.5.4}%
+\contentsline {section}{\numberline {5}Dynamisches Programmieren}{22}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Längste aufsteigende Teilfolge}{22}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Längste gemeinsame Teilfolge}{22}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Minimale Editierdistanz}{22}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Matrixkettenmultiplikation}{22}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Subset Sum Problem}{22}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Knap Sack Problem}{22}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Sprachunterschiede}{22}{section.6}%
