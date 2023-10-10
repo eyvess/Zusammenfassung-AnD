@@ -67,8 +67,7 @@ numberstyle = \tiny,
 
 %%Chapter 01
 \section{Vorwort}
-Dieses Skript dient dazu eine grobe Übersicht für die Vorlesung "Algorithmen und Datenstrukturen" zu geben. Jegliche Informationen dieses Skriptes sollte man an der Prüfung können.\\
-Für Fehler in diesem Skript wird keine Verantwortung übernommen.
+Ziel dieses Skriptes ist die Vermittlung eines groben Überblicks über die Vorlesung "Algorithmen und Datenstrukturen". Für die Prüfung sollten die in diesem Skript enthaltenen Informationen vorausgesetzt werden. Für Fehler in diesem Skript wird keine Haftung übernommen.
 
 %%Chapter 02
 \section{Mathematische Grundlagen}
@@ -116,11 +115,9 @@ Für Fehler in diesem Skript wird keine Verantwortung übernommen.
         $\lim_{x\to\infty}\frac{f(x)}{g(x)}=\lim_{x\to\infty}\frac{f'(x)}{g'(x)}$
 
 
-    
-
     \subsubsection{Definition O-Notation}
     In der Tabelle (\ref{tab:ONotation}) sehen wir jegliche Definition der $\mathcal{O}$-Notation.
-    Wir unterscheiden zwischen, $\Omega$ (Omega) [lower-bound], $\Theta$ (Theta) [tight-bound] und  $\mathcal{O}$ [upper-bound]. Damit dies noch mathematisch formuliert ist haben wird folgendes: \\
+    Wir unterscheiden zwischen, $\Omega$ (Omega) [lower-bound], $\Theta$ (Theta) [tight-bound] und  $\mathcal{O}$ [upper-bound]. Damit dies noch mathematisch formuliert ist haben wird folgendes:   \textbf{Wichtiger Hinweis:} Implikationspfeil anschauen: $\mathcal{O}(f) \implies \lim_{x\to\infty}\frac fg = \infty \ \lightning$ \\
     Let $f, g: \mathbb{R} \rightarrow \mathbb{R}^+$ such that the limit of $\frac f g$ exists. Then:
     
     \begin{equation*}
@@ -133,30 +130,46 @@ Für Fehler in diesem Skript wird keine Verantwortung übernommen.
     \lim_{x \rightarrow \infty} \frac fg = 0 \Rightarrow f \in\mathcal{O}(g) \text{ and } g \in\Omega(f) \\
     \end{equation*}
     
-    \subsubsection{*Upper bound (big-O)}
-    $$\mathcal{O}(g) :=\lbrace f: \mathbb{N}\to\mathbb{R}^+\mid\exists c\in\mathbb{R}^+, n_0\in\mathbb{N}, \forall n\geq n_0 : f(n)\leq c\cdot g(n)\rbrace$$
+    \subsubsection*{Upper bound (big-O)}
+    Let ${N}$ be a set of all possible inputs. For $f: N \to \mathbb{R}^+$
+    $$\mathcal{O}(f) :=\lbrace g: {N}\to\mathbb{R}^+\mid\exists C > 0 \ \forall n \in {N} \ g(n) \leq C \cdot f(n)\rbrace$$
     
-    $$\mathcal{O}(f) \leq O(g) \Leftrightarrow \exists c, n_0 . \forall n \geq n_0 . f(n) \leq c\cdot g(n)  $$
+    We write $f \leq \mathcal{O}(g)$ to denote $f \in \mathcal{O}(g)$. Some textbooks use here the notation $f = \mathcal{O}(g)$. \textit{Homework 03, HS23}
     
     \subsubsection*{Lower bound (big-Omega)}
-    $$\Omega(g) :=\lbrace f: \mathbb{N}\to\mathbb{R}^+\mid\exists c\in\mathbb{R}^+, n_0\in\mathbb{N}, \forall n\geq n_0 : f(n)\geq c\cdot g(n)\rbrace$$
+    Let ${N}$ be a set of all possible inputs. For $f: N \to \mathbb{R}^+$
+    $$\Omega(f) :=\lbrace g: {N} \to \mathbb{R}^+ \mid f \leq \mathcal{O}(g)\rbrace$$
     
-    $$\Omega(f) \geq \Omega(g) \Leftrightarrow \exists c, n_0 . \forall n \geq n_0 . f(n) \geq c\cdot g(n)  $$
+    We write $g \geq \Omega(f)$ instead of $g \in \Omega(f)$.
     
     \subsubsection*{Tight bound (big-Theta)}
-    $$\Theta(g) :=\lbrace f: \mathbb{N}\to\mathbb{R}^+\mid\exists c_1, c_2\in\mathbb{R}^+, n_0\in\mathbb{N}, \forall n\geq n_0 : 0 \leq c_1 g(n)\leq f(n)\leq c_2 g(n)\rbrace$$
+    Let ${N}$ be a set of all possible inputs. For $f: N \to \mathbb{R}^+$
+    $$\Theta(f) :=\lbrace g: {N}\to\mathbb{R}^+\mid g \leq \mathcal{O}(f) and \ f \leq \mathcal{O}(g)\rbrace$$
     
-    $$\Theta(f) = \Theta(g) \Leftrightarrow \exists c_1, c_2 n_1, n_2 . \forall n \geq n_1 . f(n) \leq c\cdot g(n) \land \forall n \geq n_2 . f(n) \geq c\cdot g(n)  $$
-    Therefore: 
-    $$\Theta(f) = \Theta(g) \Leftrightarrow O(f) \leq O(g) \text{ and } \Omega(f) \geq \Omega(g)$$
-    
-    
-    \textbf{Wichtiger Hinweis:} Implikationspfeil anschauen: $\mathcal{O}(f) \implies \lim_{x\to\infty}\frac fg = \infty \ \lightning$
-    
+    We write $g = \Theta(f)$ instead of $g \in \Theta(f)$.
     
 
+    \subsubsection*{Theorems for Big-O}
+    Let ${N}$ be an infinite subset of $\mathbb{N}$ and $f: N \to \mathbb{R}^+$ and $g: N \to \mathbb{R}^+$
 
-    \begin{table}
+    \begin{itemize}
+        \item If $\lim_{n\to \infty \frac{f(n)}{g(n)}} = 0,\  then \ f\leq \mathcal{O}(g),\ but f \neq \Theta(g).$ \textbf{or} $ f\leq \mathcal{O}(g), \ and \ g \nleq \mathcal{O}(f)$
+        \item If $\lim_{n\to \infty \frac{f(n)}{g(n)}} = C \in \mathbb{R}^+,\ then \ f = \Theta(g).$ 
+            \textbf{or} $ f\leq \mathcal{O}(g), \ and \ g \leq \mathcal{O}(f)$
+        \item If $\lim_{n\to \infty \frac{f(n)}{g(n)}} = \infty,\ then \ f \geq \Theta(g), but \ f \neq \Theta(g).$
+        \textbf{or} $ f\nleq \mathcal{O}(g), \ and \ g \nleq \mathcal{O}(f)$
+
+        \item Let $f,g,h :: N \to \mathbb{R}^+.$ If $f \leq \mathcal{O}(h)$ and $ g \leq \mathcal{O}(h),$ then
+        \begin{enumerate}
+            \item For every constant $c > 0, c \cdot f \leq \mathcal{O}(h)$
+            \item $f + g \leq \mathcal{O}(h)$
+        \end{enumerate}
+    \end{itemize}
+
+   
+
+
+    \begin{table}[h]
         \centering
         \small
         \begin{tabular}{c|c|c}
@@ -191,14 +204,14 @@ Für Fehler in diesem Skript wird keine Verantwortung übernommen.
     \subsubsection{Master Theorem}
     Damit das Rechnen mit solchen Grenzwerten schneller geht, haben wir das Master-Theorem, welches sehr praktische Anwendung mit sich bringt:
       \begin{equation} \label{MasterTheorem}
-  T(n) \leq aT(n/2)\ + Cn^b: =\begin{cases}      T(n) \leq \mathcal{O}(n^b), & \text{b >} \log_2(a)\\
+  T(n) \leq aT(\frac{n}{2})\ + Cn^b: =\begin{cases}      T(n) \leq \mathcal{O}(n^b), & \text{b >} \log_2(a)\\
       T(n) \leq \mathcal{O}(n^b\log(n)) &\text{b =} \log_2(a)\\
       T(n) \leq \mathcal{O}(n^{\log_2(a)}) & \text{b <} \log_2(a)
     \end{cases}         
   \end{equation}
 
     \subsubsection{Overview}
-    Damit wir nun einmal sehen können wie die asympotischen Grenzen sich verhalten, folgende Abbildung: 
+    Damit wir nun einmal sehen können wie die asymptotischen Grenzen sich verhalten, folgende Abbildung: 
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.3\textwidth]{Pictures/big-o-notation.jpg}
@@ -336,10 +349,10 @@ Genauer gesagt sind Min- (bzw. Max-) Heaps baumbasierte Datenstrukturen, die die
 
 
 \begin{figure}[h] 
-\caption{Beispiel eines Min-Heaps}
+\caption{Beispiel eines Min- und Max- Heaps}
 \centering
-\label{fig: Min-heap}
-\includegraphics[scale= 0.2]{Pictures/Heap.svg.png}
+\label{fig: Min/Max-heap}
+\includegraphics[scale= 0.7]{Pictures/max-heap-min-heap.png}
 \end{figure}
 
 \begin{figure}[h] 
@@ -633,7 +646,6 @@ LL und RR müssen jeweils nur eine Operation durchführen, wohingegen LR und RL 
 \subsubsection{Operationen und Komplexität}
     Der Baum braucht genau $\Theta (n)$ Speicher. Er verfügt über die Standartoperationen von Suchen, Einfügen und Entfernen, die eine Komplexität von $\mathcal{O}(\log n)$ haben. 
 
-    \newpage
 
 \subsection{Sortier-Algorithmen}
 Zunächst wollen wir das Sortierproblem genauer fixieren: Wir nehmen an, es sei eine
@@ -678,16 +690,29 @@ Bogo sort $\mathcal{O}(n\cdot n!)$ - This is a fairly inefficient sorting algori
 \end{algorithm}
 This algorithm doesn't have a worst case asymptotic time as it is not guaranteed to terminate within a given time. 
 
-\subsubsection{Stalin-Sort}
-The Stalin sort is a sort in which elements that are out of order get removed from a list. For example, [1, 2, 5, 3, 6, 4, 10] becomes [1, 2, 5, 6, 10]. It is said to runs in $\mathcal{O}(n)$ time but if coded that way, the final list may have fewer than the maximum number of elements possible. For example [10, 1, 2, 3, 4] would become [10].
 
-\newpage
 
     \subsubsection{Bubblesort}\label{Bubblesort}
     Bubblesort $\mathcal{O}(n^2)$ - ist ein Verfahren, welches nach dem Motto \textit{Sortierten durch Einfügen} leben. Bubblesort ist ein Sortierverfahren, das solange zwei jeweils
     benachbarte, nicht in der richtigen Reihenfolge stehende Elemente vertauscht, bis keine Vertauschungen mehr nötig sind.
     Um ein genaueres Verständnis zu erlangen ein Beispiel: \\
     
+\begin{algorithm}
+    \caption{Bubble sort}
+    \label{alg:BubbleSort}
+    \begin{algorithmic} 
+        \State $swapped \gets \texttt{true}$
+        \While{$swapped$}
+        \State $swapped \gets \texttt{false}$
+        \For {$i \in \left\lbrace 0, \dots, A\texttt{.length}-1 \right\rbrace$}
+        \If{$A\left[i\right]>A\left[i+1\right]$}
+        \State Swap $A\left[i\right]$ and $A\left[i+1\right]$
+        \State $swapped \gets \texttt{true}$
+        \EndIf
+        \EndFor
+        \EndWhile
+    \end{algorithmic}
+\end{algorithm}
     \begin{table}[h]
         \centering
         \begin{tabular}{c|c|c|c}
@@ -741,33 +766,9 @@ The Stalin sort is a sort in which elements that are out of order get removed fr
         \caption{Tabelle wird von oben nach unten, links nach rechts interpretiert}
         \label{tab:BubblesortTable}
     \end{table}
-
-\begin{algorithm}
-    \caption{Bubble sort}
-    \label{alg:BubbleSort}
-    \begin{algorithmic} 
-        \State $swapped \gets \texttt{true}$
-        \While{$swapped$}
-        \State $swapped \gets \texttt{false}$
-        \For {$i \in \left\lbrace 0, \dots, A\texttt{.length}-1 \right\rbrace$}
-        \If{$A\left[i\right]>A\left[i+1\right]$}
-        \State Swap $A\left[i\right]$ and $A\left[i+1\right]$
-        \State $swapped \gets \texttt{true}$
-        \EndIf
-        \EndFor
-        \EndWhile
-    \end{algorithmic}
-\end{algorithm}
-
 \newpage
  \subsubsection{InsertionSort}\label{Insertionsort}
     InsertionSort $\mathcal{O}(n^2)$ [worst and average case] - ist ein Algorithmus, der der Art und Weise, wie ein Mensch ein Kartenspiel sortiert, sehr ähnlich ist. Er geht so vor, dass er eine Folge von bereits sortierten Elementen behält und immer das nächste Element in der Folge berücksichtigt. Dieses Element wird dann an der richtigen Stelle in der sortierten Folge eingefügt, wobei alle größeren Elemente nach rechts verschoben werden.
-    \begin{figure}[h]
-        \centering
-        \includegraphics[scale=0.3]{Pictures/insertionsort_version1.png}
-        \caption{InsertionSort-Beispiel}
-        \label{fig:InsertionSort}
-    \end{figure}
 
 \begin{algorithm}
     \caption{Insertion sort}
@@ -787,17 +788,21 @@ The Stalin sort is a sort in which elements that are out of order get removed fr
     \end{algorithmic}
 \end{algorithm}
 
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.3]{Pictures/insertionsort_version1.png}
+        \caption{InsertionSort-Beispiel}
+        \label{fig:InsertionSort}
+    \end{figure}
+    
 \newpage
   \subsubsection{SelectionSort}\label{Selectionsort}
    Selection Sort $\Theta(n^2)$ - Dieser Algorithmus behält ebenfalls eine Folge von sortierten Elementen bei und erweitert sie iterativ um das größte der verbleibenden unsortierten Elemente. Dann tauscht er dieses Element mit demjenigen aus, das den sortierten Elementen am nächsten liegt. Dadurch wird das nächste Element ausgewählt, daher der Name.
-
-    \begin{figure}[h]
-        \centering
-        \includegraphics[scale=0.3]{Pictures/selectionsort_idee_version1.png}
-        \caption{SelectionSort-Beispiel}
-        \label{fig:SelectionSort}
-    \end{figure}
-
+ 
+ \subsubsection*{Complexity}
+    Worst case: $\mathcal{O}(n^2)$, Best case: $\mathcal{O}(n^2)$: \\
+    $\sum_{i=1}^{n-1} (n-i) = n(n-1)-\sum_{i=1}^{n-1} i = n^2 - n - \frac{n^2-n}{2} = \frac{n^2-n}{2} = \Theta(n^2)$
+    
 
     \begin{algorithm}[h]
         \caption{Selection sort}
@@ -817,11 +822,15 @@ The Stalin sort is a sort in which elements that are out of order get removed fr
           \EndFor
         \end{algorithmic}
     \end{algorithm}
-
-    \subsubsection*{Complexity}
-    Worst case: $\mathcal{O}(n^2)$, Best case: $\mathcal{O}(n^2)$: \\
-    $\sum_{i=1}^{n-1} (n-i) = n(n-1)-\sum_{i=1}^{n-1} i = n^2 - n - \frac{n^2-n}{2} = \frac{n^2-n}{2} = \Theta(n^2)$
     
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.3]{Pictures/selectionsort_idee_version1.png}
+        \caption{SelectionSort-Beispiel}
+        \label{fig:SelectionSort}
+    \end{figure}
+
+   
 \newpage    
 
     \subsubsection{Quicksort}\label{Quicksort}
@@ -849,6 +858,14 @@ The Stalin sort is a sort in which elements that are out of order get removed fr
         \EndFunction
         \end{algorithmic}
         \end{algorithm}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.4]{Pictures/Qcksort.jpeg}
+    \caption{Quicksort Algoritihmus}
+    \label{fig:QuickSort}
+\end{figure}
+
         
 \newpage
     \subsubsection{Mergesort}\label{Mergesort}
@@ -891,7 +908,13 @@ The Stalin sort is a sort in which elements that are out of order get removed fr
               \EndFunction
             \end{algorithmic}
             \end{algorithm}
-            
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale = 0.203]{Pictures/merge-sort-example_0.png} %.203 ist max :(
+        \caption{Wie MergeSort funktioniert}
+        \label{fig:MergeSort}
+    \end{figure}
         
 \newpage
     \subsubsection{Heapsort}\label{Heapsort}
@@ -913,7 +936,10 @@ The Stalin sort is a sort in which elements that are out of order get removed fr
             \end{algorithmic}
         \end{algorithm}
         
+    Damit Heapsort ein eher schwerer Algorithmus ist zum sich vorstellen ist die Abbildung im Anhang (\ref{fig:heapsort with array}) sehr nützlich. Diese Abbildung behandelt jedoch den \texttt{CreateMaxHeap}- Fall. Im oben beschriebenen Algorithmus wird der Fall \texttt{CreateMinHeap}  diskutiert. Der Unterschied bezüglich Min-, Max-Heap wurde in Figure \ref{fig: Min/Max-heap} beschrieben.\label{VerlinkzuHeapSortText}
 
+
+    
     \subsubsection{Kosten von Sortieralgorithmen}
     Hier werden die minimalen und maximalen Kosten für einige Sortieralgorithmen auf der Grundlage ihrer Eingabegröße n angegeben, sowie die besondere Art der Eingabe, die zu dieser besonderen Komplexität führt.
     \begin{table}[H]
@@ -944,18 +970,17 @@ The Stalin sort is a sort in which elements that are out of order get removed fr
     \end{table}
     
      
-    \subsubsection{Lower-bound für sortier Algorithmen}
+    \subsubsection{Lower-bound für Sortier-Algorithmen}
     Jegliche Sortieralgorithmen haben eine worst-case runtime von $\Omega(n \log n)$. Mehr dazu in \textit{Algorithmen und Wahrscheinlichkeiten, ConvexHull}
         
         
 
 
 %%Chapter 04
-ERGÄNZUNGEN MACHEN ZU HEAPSORT, RSP BEISPIELE WIE SICH DIES DURCHSPIELEN LÄSST
 \section{GraphenTheorie}
-ERGÄNZUNGEN MACHEN ZU HEAPSORT, RSP BEISPIELE WIE SICH DIES DURCHSPIELEN LÄSST
+
 \subsection{Grundlagen}
-ERGÄNZUNGEN MACHEN ZU HEAPSORT, RSP BEISPIELE WIE SICH DIES DURCHSPIELEN LÄSST
+
 \subsection{Tiefensuche}
     
 \subsection{Breitensuche}
@@ -996,7 +1021,18 @@ ERGÄNZUNGEN MACHEN ZU HEAPSORT, RSP BEISPIELE WIE SICH DIES DURCHSPIELEN LÄSST
 \section{Sprachunterschiede}
 
 
+\newpage
+\section{Anhang}
+\subsection{Stalin-Sort}
+The Stalin sort is a sort in which elements that are out of order get removed from a list. For example, [1, 2, 5, 3, 6, 4, 10] becomes [1, 2, 5, 6, 10]. It is said to runs in $\mathcal{O}(n)$ time but if coded that way, the final list may have fewer than the maximum number of elements possible. For example [10, 1, 2, 3, 4] would become [10].
 
+\subsection{HeapSort Veranschaulichung: \ref{VerlinkzuHeapSortText}} \href{https://www.programiz.com/dsa/heap-sort}{Vgl. Ablauf unter Link}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale = 0.189]{Pictures/heap_sort.jpeg}
+        \caption{Veranschaulichung des Heapsort-Algorithmus}
+        \label{fig:heapsort with array}
+    \end{figure}
 
 
 \end{document}
