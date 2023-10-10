@@ -147,6 +147,7 @@ Ziel dieses Skriptes ist die Vermittlung eines groben Überblicks über die Vorl
     $$\Theta(f) :=\lbrace g: {N}\to\mathbb{R}^+\mid g \leq \mathcal{O}(f) and \ f \leq \mathcal{O}(g)\rbrace$$
     
     We write $g = \Theta(f)$ instead of $g \in \Theta(f)$.
+    \textbf{Es gilt nicht}, dass $\Theta(n) \subseteq \Theta(n^2)$
     
 
     \subsubsection*{Theorems for Big-O}
@@ -975,14 +976,165 @@ This algorithm doesn't have a worst case asymptotic time as it is not guaranteed
         
         
 
-
+\newpage
 %%Chapter 04
-\section{GraphenTheorie}
+\section{Graphen Theorie}
+Wie muss ein Rundweg durch Königsberg aussehen, auf dem ich jede Brücke über den Pregel genau einmal überquere und am Schluss zum Ausgangspunkt zurückkomme? Diese und viele andere Probleme lassen sich als Probleme in Graphen formulieren und mithilfe von Graphenalgorithmen lösen. In einem Graphen wird dabei die wesentliche Struktur des Problems, befreit von unbedeutenden Nebenaspekten, repräsentiert.
+In diesem Kapitel wird auf Englisch geschrieben, da dies den Stoff vereinfacht und sowieso fast alles gleich ist. Somit: technical terms are given in both English and \textcolor{blue}{{Deutsch}}.Always make sure that your vocabulary is consistent.
 
-\subsection{Grundlagen}
+\subsection{Definitions}
+
+We usually note $G=(V,E)$ with
+\begin{itemize}
+\item $V=\{v_1, ..., v_n\}$, $|V|=n$ the set of nodes (\textcolor{blue}{{Knotenmenge}});
+\item $E=\{e_1, ..., e_m\}$, $|E|=m$ the set of edges (\textcolor{blue}{{Kantenmenge}}).
+\end{itemize}
+
+\subsubsection{Undirected graph (\textcolor{blue}{{ungerichteter Graph}})}
+Here $E\subseteq \{\{u,v\} \mid u,v\in V\}$ contains undirected edges which are denoted as $e_k=\left\lbrace v_i, v_j \right\rbrace$. Note that here $v_i$ and $v_j$ are in one \textbf{set}, which in particular implies $\left\lbrace v_i, v_j \right\rbrace = \left\lbrace v_j, v_i \right\rbrace$. Vertices $v_i$ and $v_j$ are called adjacent (\textcolor{blue}{{benachbart}} or \textcolor{blue}{{adjazent)}} iff $\left\lbrace v_i, v_j \right\rbrace \in E$ and a vertex $v_i$ and an edge $e_k$ are incident (\textcolor{blue}{{inzident}}) iff $v_i \in e_k$.
+
+
+\subsubsection{Directed graph (\textcolor{blue}{{gerichteter Graph}})}
+Here $E\subseteq V\times V$ are directed edges which are denoted as ordered pairs $e_k=\left(v_i, v_j\right)$. Now, $\left(v_i, v_j\right) \neq \left(v_j, v_i\right)$. Vertices $v_i$ and $v_j$ are called adjacent (\textcolor{blue}{{benachbart}} or \textcolor{blue}{{adjazent}}) iff $\left(v_i, v_j \right) \in E$ and a vertex $v_i$ and an edge $e_k$ are incident (\textcolor{blue}{{inzident}}) iff $v_i \in e_k$.
+
+\subsubsection{Bipartite graph (\textcolor{blue}{{bipartiter Graph}})}
+A graph is bipartite iff we can decompose its set of vertices into $V=U\uplus W$ two disjoint sets of nodes ($U \cap W=\emptyset$) such that
+\begin{itemize}
+\item Either $E\subseteq \left\lbrace \left\lbrace u,w \right\rbrace \mid u\in U, w\in W \right\rbrace$ (undirected bipartite graph); or
+\item $E\subseteq (U\times W) \cup (W\times U)$ (directed bipartite graph).
+\end{itemize}
+We will get to see more about bipartite graphs in \textit{Algorithmen und Wahrscheinlichkeiten}.
+
+\subsubsection{Tree (\textcolor{blue}{{Baum}}) and forest (\textcolor{blue}{{Wald}})}
+A tree is a graph that is both connected (\textcolor{blue}{{zusammenhängend}}, i.e. there exists a path between all pairs of points) and acyclic (\textcolor{blue}{{azyklisch}}, i.e. contains no cycle, see below). A connected graph is a tree iff it has exactly $m=n-1$ edges.
+
+A forest is a graph that is acyclic, but not necessarily connected. Hence, a forest can have several connected components (\textcolor{blue}{{Zusammenhangskomponenten}}), each of which is a tree. In short, a forest is a collection of trees. (See Figure \ref{fig:tree/forest})
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.2]{Pictures/TreeAnDForest.png}
+    \caption{Tree and forest. Forest has two \textcolor{blue}{Zusammenhangskomponenten}}
+    \label{fig:tree/forest}
+\end{figure}
+
+\subsubsection{Adjacency lists (\textcolor{blue}{{Adjazenzlisten}})}
+The adjacency lists $L$ associate to each $v_i \in V$ the list $L\left[i\right]$ of its neighbors (\textcolor{blue}{{Nachbarn}}) in $G$, i.e.
+$$L\left[i\right] = \left\lbrace v_j \in V \mid v_i\text{ and }v_j\text{ are adjacent} \right\rbrace.$$
+
+
+  
+\subsubsection{Adjacency matrix (\textcolor{blue}{{Adjazenzmatrix}})}
+Let $n=|V|$. The adjacency matrix $A$ is defined as:
+$$A\in \{0,1\}^{n\times n}$$
+where
+$$a_{i,j}=\begin{cases} 1 & \text{if }v_i\text{ and }v_j\text{ are adjacent} \\ 0 & \text{otherwise} \end{cases}$$
+In particular, this definition implies that, for undirected graphs, $A$ is symmetric.
+The particular case $a_{i,i}=1$ means that there is a loop on node $v_i$. This is possible on both directed and undirected graphs, and depends on the definition of graph given and the allowed cases.
+
+\subsubsection{What can or cannot we have in a graph?}
+
+\emph{In general}, `standard' graphs (=what will be called graphs in the exam) \textbf{do not}
+\begin{itemize}
+\item Contain several parallel edges between the same pair of nodes---allowing this to happen would make our graph a \textbf{multigraph} (\textcolor{blue}{{Multigraph}}); (See Figure \ref{fig:Multigraph})
+\item Contain hyperedges, i.e. edges with more than two endpoints---allowing this to happen would make our graph a \textbf{hypergraph} (\textcolor{blue}{{Hypergraph}}) (See Figure \ref{fig:Hypergraph}).
+\end{itemize}
+`Standard' graphs may or may not contain (self-)loops (\textcolor{blue}{{Schleifen}}). The A\&D Skript considers that `standard' graphs may contain loops.
+
+\begin{figure}
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Pictures/Multi-pseudograph.svg.png}
+        \caption{How a multigraph looks like}
+        \label{fig:Multigraph}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Pictures/1200px-Hypergraph-wikipedia.svg.png}
+         \caption{How a hypergraph looks like}
+        \label{fig:Hypergraph}
+    \end{subfigure}
+\caption{Multi- und Hypergraph}
+\label{fig:MultiHyperGraph}
+\end{figure}
+    
+\subsubsection{Sequences}
+
+Consider the sequence of vertices
+$$\langle v_1, v_2, ..., v_k\rangle \in V^k.$$
+
+This sequence is
+\begin{itemize}
+\item A \textbf{walk} (\textcolor{blue}{{Weg}}) iff there are edges between $v_i$ and $v_{i+1}$ for all $i\in\{1, \dots, k-1\}$; in this case, the length of the walk is $k-1$;
+\item A \textbf{path} (\textcolor{blue}{{Pfad}}) iff it is a walk whose vertices are all distinct;
+\item A \textbf{tour} (\textcolor{blue}{{Reise}}) iff it is a walk whose edges are all distinct;
+\item A \textbf{circuit} (\textcolor{blue}{{Zyklus}}) iff it is a walk with $v_1 = v_k$ (starts and ends at the same vertex);
+\item A \textbf{cycle} (\textcolor{blue}{{Kreis}}) iff it is a circuit for which no vertex, except the first/last one, is visited more than once;
+\item A \textbf{loop} (\textcolor{blue}{{Schleife}}) iff it is a cycle $\langle v_i, v_i\rangle$ of length 1.
+\end{itemize}
+
+When the considered objects cover all vertices or all objects, this gives rise to the following definitions:
+\begin{itemize}
+\item A \textbf{Eulerian walk} (\textcolor{blue}{{Eulerweg}}) is a walk that visits all edges exactly once, i.e. a walk of length $m = |E|$.
+
+\item A \textbf{Eulerian circuit} (\textcolor{blue}{{Eulerkreis}} \footnote{Note that this terminology is not consistent with the above definition of \textcolor{blue}{Kreis}; The German translation of the following definition is \textcolor{blue}{"Ein Eulerkreis ist ein \textbf{Zyklus}, der alle Kanten des Graphens genau einmal durchläuft, d.h. ein Zyklus der Länge $m$.}}) is a circuit that visits all edges exactly once, i.e. a walk of length $m = |E|$.
+\item A \textbf{Hamiltonian path} (\textcolor{blue}{{Hamiltonpfad}}) is a path that visits all vertices exactly one, i.e. a path of length $n-1$.
+\item A \textbf{Hamiltonian circuit} (\textcolor{blue}{{Hamiltonkreis}} \footnote{No consistency problem here; the German definition is \textcolor{blue}{"Ein Hamiltonkreis ist ein Kreis, der alle Knoten durchläuft, d.h. ein Kreis der Länge $n$.}}) is a cycle that visits all vertices, i.e. a cycle of length $n$.
+\end{itemize}
+
+
+\subsubsection{Degree of a vertex}
+The degree (or valency) of a vertex $v$ of a graph is the number of edges incident to this vertex, with loops counted twice. It is denoted by $\deg(v)$.
+
+In directed graphs, we distinguish between the \textit{in-degree} $\deg^-(v)$ and the \textit{out-degree} $\deg^+(v)$.
+
+\subsubsection{Neighborhood}
+The neighborhood of some vertex $v$ (set of vertices adjacent to $v$) is denoted by $N(v)$. We have $\deg\left(v\right)=\left\lvert N\left(v\right) \right\rvert$.
+
+In directed graphs, we again distinguish between $N^-\left(v\right)$ and $N^+\left(v\right)$. We have $\deg^-(v)=|N^-(v)|$ and $\deg^+(v)=|N^+(v)|$.
+
+\subsubsection{Degree-sum formula (handshaking lemma)}
+$$\sum_{v\in V} \deg(v)=2|E|=2m$$
+
+
+\newpage
+\subsubsection{Runtimes of Adjacency matrix and Adjacency List}
+The big difference between the adjacency matrix and the adjacency list is in the operations that are carried out. The following table shows how long it takes to perform each interaction or operation on the corresponding list or matrix:
+   \begin{table}[h]
+        \centering
+        \begin{tabular}{c|c|c}
+            \textbf{Operation}    & 
+            \textbf{Matrix}    & 
+            \textbf{List}    \\
+     
+            \hline
+            Find all neighbours of $v$ &
+            $\Theta(n)$ &
+            $\Theta(deg_{out}(v))$ \\
+
+            Find $v \in V$ without neighbours &
+            $\mathcal{O}(n^2)$ &
+            $\mathcal{O}(n)$ \\
+
+            Is $(u,v) \in V$ ?&
+            $\mathcal{O}(1)$ &
+            $\mathcal{O}(deg_{out}(v))$ \\
+
+            Insert edge &
+            $\mathcal{O}(1)$ &
+            $\mathcal{O}(1)$ \\
+
+            Remove edge &
+            $\mathcal{O}(1)$ &
+            $\mathcal{O}(deg_{out}(v))$ \\
+
+        \end{tabular}
+        \caption{Table shows the runtimes of Operations in matrix and list}
+        \label{tab:RuntimesMatrix and List}
+    \end{table}
 
 \subsection{Tiefensuche}
-    
+
 \subsection{Breitensuche}
     
 \subsection{Zusammenhangskompontente}
