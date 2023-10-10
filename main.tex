@@ -67,8 +67,8 @@ numberstyle = \tiny,
 
 %%Chapter 01
 \section{Vorwort}
-Dieses Skript dient dazu eine grobe Übersicht für die Vorlesung "Algorithmen und Datenstrukturen" zu geben. Jegliches aufgeführte Informationen sollte man an der Prüfung können.\\
-Für etliche Fehler in diesem Skript wird keine Verantwortung übernommen.
+Dieses Skript dient dazu eine grobe Übersicht für die Vorlesung "Algorithmen und Datenstrukturen" zu geben. Jegliche Informationen dieses Skriptes sollte man an der Prüfung können.\\
+Für Fehler in diesem Skript wird keine Verantwortung übernommen.
 
 %%Chapter 02
 \section{Mathematische Grundlagen}
@@ -132,7 +132,28 @@ Für etliche Fehler in diesem Skript wird keine Verantwortung übernommen.
     \begin{equation*}
     \lim_{x \rightarrow \infty} \frac fg = 0 \Rightarrow f \in\mathcal{O}(g) \text{ and } g \in\Omega(f) \\
     \end{equation*}
+    
+    \subsubsection{Upper bound (big-O)}
+    $$\mathcal{O}(g) :=\lbrace f: \mathbb{N}\to\mathbb{R}^+\mid\exists c\in\mathbb{R}^+, n_0\in\mathbb{N}, \forall n\geq n_0 : f(n)\leq c\cdot g(n)\rbrace$$
+    
+    $$\mathcal{O}(f) \leq O(g) \Leftrightarrow \exists c, n_0 . \forall n \geq n_0 . f(n) \leq c\cdot g(n)  $$
+    
+    \subsubsection{Lower bound (big-Omega)}
+    $$\Omega(g) :=\lbrace f: \mathbb{N}\to\mathbb{R}^+\mid\exists c\in\mathbb{R}^+, n_0\in\mathbb{N}, \forall n\geq n_0 : f(n)\geq c\cdot g(n)\rbrace$$
+    
+    $$\Omega(f) \geq \Omega(g) \Leftrightarrow \exists c, n_0 . \forall n \geq n_0 . f(n) \geq c\cdot g(n)  $$
+    
+    \subsubsection{Tight bound (big-Theta)}
+    $$\Theta(g) :=\lbrace f: \mathbb{N}\to\mathbb{R}^+\mid\exists c_1, c_2\in\mathbb{R}^+, n_0\in\mathbb{N}, \forall n\geq n_0 : 0 \leq c_1 g(n)\leq f(n)\leq c_2 g(n)\rbrace$$
+    
+    $$\Theta(f) = \Theta(g) \Leftrightarrow \exists c_1, c_2 n_1, n_2 . \forall n \geq n_1 . f(n) \leq c\cdot g(n) \land \forall n \geq n_2 . f(n) \geq c\cdot g(n)  $$
+    Therefore: 
+    $$\Theta(f) = \Theta(g) \Leftrightarrow O(f) \leq O(g) \text{ and } \Omega(f) \geq \Omega(g)$$
+    
+    
     \textbf{Wichtiger Hinweis:} Implikationspfeil anschauen: $\mathcal{O}(f) \implies \lim_{x\to\infty}\frac fg = \infty \ \lightning$
+    
+    
 
 
     \begin{table}
