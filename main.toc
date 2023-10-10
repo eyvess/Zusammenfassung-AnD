@@ -5,11 +5,9 @@
 \contentsline {subsection}{\numberline {2.2}Wichtige Annäherungen}{3}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Big-O Notation}{4}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}Definition O-Notation}{4}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Upper bound (big-O)}{4}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Lower bound (big-Omega)}{4}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}Tight bound (big-Theta)}{4}{subsubsection.2.3.4}%
-\contentsline {subsubsection}{\numberline {2.3.5}Master Theorem}{5}{subsubsection.2.3.5}%
-\contentsline {subsubsection}{\numberline {2.3.6}Overview}{5}{subsubsection.2.3.6}%
+\contentsline {subsubsection}{\numberline {2.3.2}*Upper bound (big-O)}{4}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Master Theorem}{5}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Overview}{5}{subsubsection.2.3.4}%
 \contentsline {subsection}{\numberline {2.4}Erster Algorithmus}{6}{subsection.2.4}%
 \contentsline {subsubsection}{\numberline {2.4.1}Maximum Subarray Sum}{6}{subsubsection.2.4.1}%
 \contentsline {section}{\numberline {3}Suchen und Sortieren}{7}{section.3}%
@@ -26,8 +24,8 @@
 \contentsline {subsubsection}{\numberline {3.3.5}Operationen und Komplexität}{15}{subsubsection.3.3.5}%
 \contentsline {subsection}{\numberline {3.4}Sortier-Algorithmen}{16}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Eigenschaften von Sortier-Algorithmen}{16}{subsubsection.3.4.1}%
-\contentsline {paragraph}{Stability}{16}{section*.23}%
-\contentsline {paragraph}{In-place}{16}{section*.24}%
+\contentsline {paragraph}{Stability}{16}{section*.25}%
+\contentsline {paragraph}{In-place}{16}{section*.26}%
 \contentsline {subsubsection}{\numberline {3.4.2}Bogo sort}{16}{subsubsection.3.4.2}%
 \contentsline {subsubsection}{\numberline {3.4.3}Stalin-Sort}{16}{subsubsection.3.4.3}%
 \contentsline {subsubsection}{\numberline {3.4.4}Bubblesort}{17}{subsubsection.3.4.4}%
