@@ -89,13 +89,13 @@ Ziel dieses Skriptes ist die Vermittlung eines groben Überblicks über die Vorl
         
     \subsection{Wichtige Annäherungen}
     Damit wir schnelle Resultate erhalten können, sind Approximationen ein fundamentaler Bestandteil. Aus diesem Grund folgende Liste:
-
+%% ERGÄNZUNGEN ERSTELLEN GEORG WEEK 3 => WEEK 4
     \begin{itemize}
-        \item  $n! \leq n^n, $ for $  n\geq 1 $
+        \item  $n! \leq n^n, $ for $  n\geq 1 $ 
         \item $\big(\frac{n}{2}\big)^{{n}/{2}} \leq n!, \ for\ n\geq 1 $
         \item $ \sum_{i=0}^{n} \log n  = \ \log\prod_{i=1}^{n}n = \log{n!} \ \approx n\log n \to\mathcal{O}(n \log n)$
         \item $\sum_{i=0}^{n} 1 = (n+1)  \to \mathcal{O}(n)$
-        \item $\sum_{i=0}^{n} i = \frac{n(n+1)}{2} \to \mathcal{O}(n^2)$
+        \item $\sum_{i=0}^{n} i = \frac{n(n+1)}{2} = \sum_{j=1}^n\sum_{k=1}^i 1 \to \mathcal{O}(n^2)$
         \item $\sum_{i=0}^{n} i^2 = \frac{n(n+1)(2n+1)}{6} \to \mathcal{O}(n^3)$
         \item $\sum_{i=0}^{n} i^3 = \frac{n^2(n+1)^2}{4}  \to\mathcal{O}(n^4)$
         \item binomial coefficient: $\binom{n}{k}= \frac{n!}{k!(n-k)!}$
@@ -651,8 +651,13 @@ LL und RR müssen jeweils nur eine Operation durchführen, wohingegen LR und RL 
 \subsection{Sortier-Algorithmen}
 Zunächst wollen wir das Sortierproblem genauer fixieren: Wir nehmen an, es sei eine
 Menge von Sätzen gegeben; jeder Satz besitzt einen Schlüssel. Zwischen Schlüsseln ist
-eine Ordnungsrelation „<" oder „$\leq$" erklärt. Außer der Schlüsselkomponente können
-Sätze weitere Komponenten als „eigentliche“ Information enthalten.
+eine Ordnungsrelation „<" oder „$\leq$" erklärt. Ausser der Schlüsselkomponente können
+Sätze weitere Komponenten als „eigentliche“ Information enthalten. Im Allgemeinen gilt, dass nicht schneller als $\Omega(n\log n)$ sortiert werden kann, da folgendes gilt: $2^{h+1} \geq \#Vertices \geq \#$possible Outputs $= n!$, wobei $h$ die Tiefe rsp \# Vergleiche eines Binärbaumes darstellt.
+
+\begin{equation*}
+    \implies 2^{h+1} \geq \#Vertices \geq n! \\
+    \implies h \geq \log_2(n!) -1 \geq \Omega(n\log n)
+\end{equation*}
 
 
 \subsubsection{Eigenschaften von Sortier-Algorithmen}
@@ -726,41 +731,41 @@ This algorithm doesn't have a worst case asymptotic time as it is not guaranteed
             6 5 3 1 8 7 2 4 & 
             \textcolor{red}{3 5} 1 6 7 2 4 8  &
             1 \textcolor{red}{3 5} 6 2 4 7 8 & 
-            1 3 \textcolor{red}{2 5} 4 6 7 9 \\
+            1 3 \textcolor{red}{2 5} 4 6 7 8 \\
             
             \textcolor{red}  {5 6} 3 1 8 7 2 4 &
             3\textcolor{red} {1 5} 6 7 2 4 8 &
             1 3 \textcolor{red}{5 6} 2 4 7 8 & 
-            1 3 2 \textcolor{red}{4 5} 6 7 9 \\
+            1 3 2 \textcolor{red}{4 5} 6 7 8 \\
             
             5 \textcolor{red}{3 6} 1 8 7 2 4 &
             3 1 \textcolor{red}{5 6} 7 2 4 8 &
             1 3 5 \textcolor{red}{2 6} 4 7 8 &
-            1 3 2 4 \textcolor{red}{5 6} 7 9 \\
+            1 3 2 4 \textcolor{red}{5 6} 7 8 \\
 
             5 3 \textcolor{red}{1 6} 8 7 2 4 & 
             3 1 5 \textcolor{red}{6 7} 2 4 8 &
             1 3 5 2 \textcolor{red}{4 6} 7 8 &
-            1 3 2 4 5 \textcolor{red}{6 7} 9 \\
+            1 3 2 4 5 \textcolor{red}{6 7} 8 \\
 
             5 3 1 \textcolor{red}{6 8} 7 2 4 &
             3 1 5 6 \textcolor{red}{2 7} 4 8 &
             1 3 5 2 4 \textcolor{red}{6 7} 8 &
-            1 3 2 4 5 6 \textcolor{red}{7 9} \\
+            1 3 2 4 5 6 \textcolor{red}{7 8} \\
 
             5 3 1 6 \textcolor{red}{7 8} 2 4 &
             3 1 5 6 2 \textcolor{red}{4 7} 8 &
             1 3 5 2 4 6 \textcolor{red}{7 8} &
-            \textcolor{red}{1 3} 2 4 5 6 7 9\\
+            \textcolor{red}{1 3} 2 4 5 6 7 8\\
 
             5 3 1 6 7  \textcolor{red}{2 8} 4 &
             3 1 5 6 2 4  \textcolor{red}{7 8} &
-             \textcolor{red}{1 3} 5 2 4 6 7 9 &
-            1  \textcolor{red}{2 3} 4 5 6 7 9 \\
+             \textcolor{red}{1 3} 5 2 4 6 7 8 &
+            1  \textcolor{red}{2 3} 4 5 6 7 8 \\
 
             5 3 1 6 7 2 \textcolor{red}{4 8} & 
           \textcolor{red}{1 3} 5 6 2 4 7 8 &
-            1 \textcolor{red}{3 5} 2 4 6 7 9 &
+            1 \textcolor{red}{3 5} 2 4 6 7 8 &
             \\
        
         \end{tabular}
@@ -796,7 +801,6 @@ This algorithm doesn't have a worst case asymptotic time as it is not guaranteed
         \label{fig:InsertionSort}
     \end{figure}
     
-\newpage
   \subsubsection{SelectionSort}\label{Selectionsort}
    Selection Sort $\Theta(n^2)$ - Dieser Algorithmus behält ebenfalls eine Folge von sortierten Elementen bei und erweitert sie iterativ um das größte der verbleibenden unsortierten Elemente. Dann tauscht er dieses Element mit demjenigen aus, das den sortierten Elementen am nächsten liegt. Dadurch wird das nächste Element ausgewählt, daher der Name.
  
@@ -870,8 +874,7 @@ This algorithm doesn't have a worst case asymptotic time as it is not guaranteed
         
 \newpage
     \subsubsection{Mergesort}\label{Mergesort}
-        Mergesort $\mathcal{O}(n \log n)$ - Dieser Algorithmus arbeitet ebenfalls rekursiv. Er teilt die Eingabe in zwei Mengen auf und ruft sich dann selbst rekursiv auf diesen Mengen auf. Nachdem die beiden Mengen sortiert zurückgegeben wurden, führt er sie in linearer Zeit zusammen. Der Name leitet sich von diesem letzten Teil des Algorithmus ab.
-        
+        Mergesort $\mathcal{O}(n \log n)$ - Dieser Algorithmus arbeitet ebenfalls rekursiv. Er teilt die Eingabe in zwei Mengen auf und ruft sich dann selbst rekursiv auf diesen Mengen auf. Nachdem die beiden Mengen sortiert zurückgegeben wurden, führt er sie in linearer Zeit zusammen. Der Name leitet sich von diesem letzten Teil des Algorithmus ab. Für detaillierte Ansicht wie der Algorithmus funktioniert (Vgl. Figure \ref{fig:MergeSort2}).        
         \begin{algorithm}[h]
             \caption{Merge sort}
             \label{alg:MergeSort}
@@ -914,10 +917,16 @@ This algorithm doesn't have a worst case asymptotic time as it is not guaranteed
         \centering
         \includegraphics[scale = 0.203]{Pictures/merge-sort-example_0.png} %.203 ist max :(
         \caption{Wie MergeSort funktioniert}
-        \label{fig:MergeSort}
+        \label{fig:MergeSort1}
+    \end{figure}
+
+        \begin{figure}[h]
+        \centering
+        \includegraphics[width = \textwidth]{Pictures/MergeSort, Vergleiche und Schreiboperationen.png} %.203 ist max :(
+        \caption{Wie MergeSort funktioniert, letzter Schritt: beide linken Elemente werden verglichen und in Array gesetzt}
+        \label{fig:MergeSort2}
     \end{figure}
         
-\newpage
     \subsubsection{Heapsort}\label{Heapsort}
         Heapsort $\mathcal{O}(n \log n)$ - Dieser Sortieralgorithmus arbeitet, indem er alle Schlüssel in einen Min-Heap einfügt und iterativ das Minimum (die Wurzel) in konstanter Zeit extrahiert und an die Liste der sortierten Knoten anhängt. Er macht dies $n$ Mal; die Gesamtlaufzeit hängt von der Komplexität der Standard-Heap-Operationen ab.
         
@@ -1008,7 +1017,7 @@ We will get to see more about bipartite graphs in \textit{Algorithmen und Wahrsc
 \subsubsection{Tree (\textcolor{blue}{{Baum}}) and forest (\textcolor{blue}{{Wald}})}
 A tree is a graph that is both connected (\textcolor{blue}{{zusammenhängend}}, i.e. there exists a path between all pairs of points) and acyclic (\textcolor{blue}{{azyklisch}}, i.e. contains no cycle, see below). A connected graph is a tree iff it has exactly $m=n-1$ edges.
 
-A forest is a graph that is acyclic, but not necessarily connected. Hence, a forest can have several connected components (\textcolor{blue}{{Zusammenhangskomponenten}}), each of which is a tree. In short, a forest is a collection of trees. (See Figure \ref{fig:tree/forest})
+A forest is a graph that is acyclic, but not necessarily connected. Hence, a forest can have several connected components (\textcolor{blue}{{Zusammenhangskomponenten}} \ref{ZSMkomponenten}), each of which is a tree. In short, a forest is a collection of trees. (See Figure \ref{fig:tree/forest})
 
 \begin{figure}[h]
     \centering
@@ -1096,8 +1105,6 @@ In directed graphs, we again distinguish between $N^-\left(v\right)$ and $N^+\le
 \subsubsection{Degree-sum formula (handshaking lemma)}
 $$\sum_{v\in V} \deg(v)=2|E|=2m$$
 
-
-\newpage
 \subsubsection{Runtimes of Adjacency matrix and Adjacency List}
 The big difference between the adjacency matrix and the adjacency list is in the operations that are carried out. The following table shows how long it takes to perform each interaction or operation on the corresponding list or matrix:
    \begin{table}[h]
@@ -1133,22 +1140,456 @@ The big difference between the adjacency matrix and the adjacency list is in the
         \label{tab:RuntimesMatrix and List}
     \end{table}
 
-\subsection{Tiefensuche}
+    \newpage
+    
+\subsection{Overall Data Structures}
+\subsubsection*{Abstrakte Datentypen (ADT)}
+ADT beschreiben die \textbf{Ziele:} \underline{Was} wollen wir mit den Daten tun? \\
+ADT: \textsc{Objekte + Operationen}, Hier: \textsc{Objekte} = Schlüssel $\in \mathbb{N}$\\
 
-\subsection{Breitensuche}
+
+\subsubsection*{Datenstruktur = Implementierung eines ADT}
+Datenstrukturen beschreiben: \underline{Wie} realisieren wir einen ADT im Speicher?
+
+\begin{itemize}
+    \item ADT-Liste
+    \item Array
+    \item Linked-List
+    \item Doubly-Linked-List
+\end{itemize}
+Jede dieser Datenstrukuten verfügt über die in Section (\ref{common operations}) besprochenen Operationen:
+\begin{itemize}
+    \item \texttt{insert}$(K, L)$, fügt ein Objekt mit Schlüssel $K$ am Ende der Liste an
+    \item \texttt{get}$(i L)$,  gibt $i$-ten Schlüssel aus
+    \item \texttt{delete}$(o, L)$, lösche Objekt $o$ aus Liste
+    \item \texttt{insertAfter}$(o, K, L)$, füge Objekt mit Schlüssel $K$ hinter $o$ ein
+\end{itemize}
+
+    \begin{table}[H]
+      \centering
+      \footnotesize
+      \caption{Kosten für Operationen auf versch. Datenstrukturen; mit $^*$ markierte bedeuten, dass wir im Speicherort das Objekt $o$ kennen}
+      \label{tab:Costs on Datastructures}
+      ~\\ 
+      \hspace{-1.6cm}
+      \begin{tabular}{|l | c | c | c | c |}
+      \hline
+        \textbf{} & 
+        \textbf{\texttt{insert}} & 
+        \textbf{\texttt{get}} &
+        \textbf{\texttt{delete}} &
+        \textbf{\texttt{insertAfter}} \\
+        \hline
+        Array & 
+        $\mathcal{O}(1)$ & 
+        $\mathcal{O}(1)$ &
+        $\mathcal{O}(n)$ &
+        $\mathcal{O}(n)$ \\
+        Linked-List & 
+        $\mathcal{O}(n)$ & 
+        $\mathcal{O}(n)$ &
+        $\mathcal{O}(n)$ &
+        $\mathcal{O}(1)^*$ \\
+        Doubly-LinkedList & 
+        $\mathcal{O}(1)$ & 
+        $\mathcal{O}(n)$ &
+        $\mathcal{O}(1)^*$ &
+        $\mathcal{O}(1)^*$ \\
+        \hline
+      \end{tabular}
+    \end{table}
+
+\subsubsection{Stacks and Queues}
+Stacks and queues are two elementary ADS that can be implemented with (doubly-)linked lists.
+
+\subsubsection*{Stack}
+\texttt{LIFO} - Last in, First out data structure: Inserted elements are retrieved by inverse order of insertion
+    \begin{itemize}
+        \item \texttt{PUSH}$(x)$ : push an object $x$ on top of the stack
+        \item \texttt{POP} : removes \textbf{last} object added to stack. Throws error if stack is empty.
+    \end{itemize}
     
-\subsection{Zusammenhangskompontente}
+\subsubsection*{Queue}
+\texttt{FIFO} - First in, First out data structure: Inserted elements are retrieved by order of insertion
+    \begin{itemize}
+        \item \texttt{ENQUEUE}$(x)$ : adds an object $x$ at the end of the queue.
+        \item \texttt{DEQUEUE} : removes \textbf{first} object added to the queue. Throws error if stack is empty.
+    \end{itemize}
+
+\subsubsection*{Additional methods about Stack and Queue}
+
+Methods \textsc{enqueue} and \texttt{dequeue} might be also called \texttt{push} and \texttt{pop}. In addition, stacks and queues might share several methods which allow for testing emptyness (\texttt{isEmpty}), returning length (\texttt{length}), returning the head element (top or end) without deleting it (\texttt{head})  or deleting all elements (\texttt{clear}).
+An essential observation is that all operations above (except \texttt{clear}) have constant-time runtime complexity.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.5]{Pictures/Stack and Queue.png}
+    \caption{Stack and Queue visualized}
+    \label{fig:Queue and Stack}
+\end{figure}
+
     
-\subsection{Shortest-path...}
-    
-\subsubsection{...mit uniformen Kantengewichten}
-    
-\subsubsection{...mit nicht-negativen Kantengewichten}
-    
-\subsubsection{...mit allgemeinen Kantengewichten}
-    
-\subsubsection{...zwischen allen Paaren von Knoten}
-    
+\subsection{ Depth-first Search (\textcolor{blue}{Tiefensuche})}
+Depth-first search $\mathcal{O}(n+m)$ is an algorithm for traversing or searching tree or graph data structures. The algorithm starts at the root node (can be selected arbitrary in a graph) and explores as far as possible along each branch before backtracking. The following Figure \ref{fig:DFS-Veranschaulichung} shows us how the DFS algorithm traverses through the graph. The Algorithm uses $\mathcal{O}(n+m)$ auxiliary space, since an extra visited array of size $V$ is needed and a stack size for iterative call to DFS function.
+
+\begin{figure}[h]
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics[scale = 0.4, width=\textwidth]{Pictures/DFS-StartGraph.png}
+        \caption{Originial Graph that needs to be traversed with starting point 1}
+        \label{fig:DFS-Start}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics[scale= 0.4,  width=\textwidth]{Pictures/DFS-EndGraph.png}
+         \caption{How the DFS-Algorithm traversed through graph}
+        \label{fig:DFS-End}
+    \end{subfigure}
+\caption{Traversing through graph with DFS}
+\label{fig:DFS-Veranschaulichung}
+\end{figure}
+
+The DFS-Algorithm can be implemented by two methods: Recursive or iterative.
+\begin{algorithm}[H]
+  \caption{Depth-first search, recursive style}
+  \begin{algorithmic}
+    \Function{DFS}{$v$, $G$, $D = \emptyset$}
+    \State /*do something with $v$*/
+    \For{$w$ s.t. $v$ and $w$ are adjacent in $G$}
+    \If{$w \not\in D$}
+    \State $D \gets D \cup \left\lbrace w \right\rbrace$
+    \State $\textsc{DFS}\left(w, G, D \right)$
+    \EndIf
+    \EndFor
+    \EndFunction
+    \label{alg:DFS-Recursive}
+    \State $\textsc{DFS}\left(s, G\right)$
+  \end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+  \caption{Depth-first search, imperative style}
+  \begin{algorithmic}
+    \State $S \gets \texttt{new}~\texttt{stack}\left(\right)$
+    \State $S\textsc{.push}\left(r\right)$
+    \State $D \gets \left\lbrace r \right\rbrace$
+    \While{$\neg S\textsc{.isEmpty}\left(\right)$}
+    \State $v \gets S\textsc{.pop}\left(\right)$
+    \State /*do something with $v$*/
+    \For{$w$ s.t. $v$ and $w$ are adjacent in $G$}
+    \If{$w \not\in D$}
+    \State $S\textsc{.push}\left(w\right)$
+    \State $D \gets D \cup \left\lbrace w \right\rbrace$
+    \EndIf
+    \EndFor
+    \EndWhile
+        \label{alg:DFS-Iterative}
+  \end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Zusammenhangskompontenten}\label{ZSMkomponenten}
+    As seen in Figure \ref{fig:tree/forest} we have so called "Zusammenhangskomponenten". These ZHK's can be sectioned into three groups: \textbf{ back-edges, forward-edges, cross-edges}.
+
+    To get a better understanding of how those three edges are being constructed we first have to introduce \textcolor{red}{pre/post}-numbers. We best look at them in an example to see what they are doing and how we can picture them. 
+\begin{figure}[h]
+    \begin{subfigure}{1\textwidth}
+        \centering
+        \includegraphics[scale = 0.7, width=\textwidth]{Pictures/PrePost.png}
+        \caption{\textcolor{red}{Pre-/Post} numbers}
+        \label{fig:Pre/PostNumbers}
+        \end{subfigure}
+    \hfill \\
+    \begin{subfigure}{1\textwidth}
+        \centering
+        \includegraphics[scale = 0.7, width=\textwidth]{Pictures/PrePostIntrval.png}
+         \caption{How \textcolor{red}{Pre-/Post} numbers can be displayed (not scaled)}
+        \label{fig:DFS-End}
+    \end{subfigure}
+\caption{\textcolor{red}{Pre-/Post} numbers visualized}
+\label{fig:BFS-Veranschaulichung}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.35]{Pictures/PrePostIntrvalOrdered.png}
+    \caption{Rearranged Graph}
+    \label{fig:BackCrossForwardEdges}
+\end{figure}
+We see that if we rearrange our graph we get can clearly see the \textcolor{purple}{back-}, \textcolor{cyan}{forward-} and \textcolor{yellow}{cross-edges}. Where if we analyize their intervals it looks like: 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.3]{Pictures/PrePostIntrvalOrderedIn.png}
+    \caption{Intervals of \textcolor{purple}{back-}, \textcolor{cyan}{forward-} and \textcolor{yellow}{cross-edges} }
+    \label{fig:IntervalsofCrossEdges}
+\end{figure}
+
+We can now make following Observations: 
+\begin{enumerate}
+    \item $\exists$ \textcolor{purple}{back}-edge $\implies \exists$ gerichteter Zyklus
+    \item $\forall$ nicht-\textcolor{purple}{back}-edge $(u,v) \in E$ : $post(u) \geq post(v)$ \\
+    $\implies \nexists$ gerichteter Zyklus $\implies \nexists$  \textcolor{purple}{back}-edge $\implies$ umgekehrte $post$-order ist \textbf{topologische Sortierung} (Vgl. Figure \ref{fig:topOrdering})
+\end{enumerate}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.35]{Pictures/Topologicalordering.png}
+    \caption{Topological-Ordering}
+    \label{fig:topOrdering}
+\end{figure}
+
+\newpage 
+\subsection{Breadth-First Search (\textcolor{blue}{Breitensuche})}
+    Breadth-first search $\mathcal{O}(n+m)$ is an algorithm used to search a graph data structure for a node that meets a set of criteria. It starts at the root of the graph and visits all nodes at the current depth level before moving on to the nodes at the next depth level.
+
+    \begin{figure}[h]
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics[scale = 0.4, width=\textwidth]{Pictures/BFS-StartGraph.png}
+        \caption{Originial Graph that needs to be traversed with starting point 2}
+        \label{fig:BFS-Start}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.35\textwidth}
+        \centering
+        \includegraphics[scale= 0.4,  width=\textwidth]{Pictures/BFS-EndGraph.png}
+         \caption{How the BFS-Algorithm traversed through graph}
+        \label{fig:DFS-End}
+    \end{subfigure}
+\caption{Traversing through graph with BFS}
+\label{fig:BFS-Veranschaulichung}
+\end{figure}
+
+In BFS, nodes are explored from a root $r$ by order of increasing distance to the root.
+\begin{algorithm}[H]
+  \caption{Breadth-first search}
+  \begin{algorithmic}
+    \State $Q \gets \texttt{new}~\texttt{queue}\left(\right)$
+    \State $Q\textsc{.push}\left(r\right)$
+    \State $D \gets \left\lbrace r \right\rbrace$ \Comment{Stores nodes that are done (in $Q$ or already processed)}
+    \While{$\neg Q\textsc{.isEmpty}\left(\right)$}
+    \State $v \gets Q\textsc{.pop}\left(\right)$
+    \State /*do something with $v$*/
+    \For{$w$ s.t. $v$ and $w$ are adjacent in $G$}
+    \If{$w \not\in D$}
+    \State $Q\textsc{.push}\left(w\right)$
+    \State $D \gets D \cup \left\lbrace w \right\rbrace$
+    \EndIf
+    \EndFor
+    \EndWhile
+    \label{alg:BFS-Algorithm}
+  \end{algorithmic}
+\end{algorithm}
+
+The complexity of BFS is $\mathcal{O}(n + m)$: each node is considered exactly once and each edge exactly twice. The time at which an element $v$ is first added to the queue and the time at which all elements in the subtree of root $v$, including $v$, have been processed, are called pre- and post-time of $v$ respectively and denoted by $\mathrm{pre}\left(v\right)$ and $\mathrm{post}\left(v\right)$. The same terminology can also be used for BFS. 
+
+
+\subsubsection{Topological sort}
+A topological sorting $\mathcal{O}(n + m)$- of a graph $G$ is an ordering $\prec$ of $V$ such that for all $u$, $v$ s.t. $u$ and $v$ are adjacent, $u \prec v$. If a topological sorting exists, it can be produced by running DFS on the graph and adding each node to the ordering after handling its children. The multiple runs of DFS in the algorithm below handle possible non-connectedness. As seen in section \ref{ZSMkomponenten}: 
+\begin{quote}
+    If $G$ is acyclic, then the reversed post-order is a topological sorting
+\end{quote}
+
+\begin{algorithm}[H]
+  \caption{Topological sort}
+  \begin{algorithmic}
+    \Function{DFS}{$s$, $G$, $T$, $D$}
+    \For{$w$ s.t. $v$ and $w$ are adjacent in $G$}
+    \If{$w \not\in D$}
+    \State $D \gets D \cup \left\lbrace w \right\rbrace$
+    \State $\textsc{DFS}\left(w, G, T, D\right)$
+    \EndIf
+    \EndFor
+    \State $T \gets T \cup \left\lbrace s \right\rbrace$
+    \EndFunction
+    \State $T \gets \left[\right]$
+    \State $D \gets \emptyset$
+    \For{$v \in V$}
+    \If{$v \not\in D$}
+    \State $\textsc{DFS}\left(v, G, T, D\right)$
+    \EndIf
+    \EndFor
+  \end{algorithmic}
+\end{algorithm}
+
+
+\subsection{Shortest-path algorithms}
+
+
+Shortest path algorithms in graphs solve the problem of finding a path between two vertices, minimizing the sum of edge costs along the path. The cost (or weight) for a given edge $e=(v_i, v_j)$ is given as $w_{ij}$ or $w(i,j)$. Recall that $n = \left\lvert V \right\rvert$, $m = \left\lvert E \right\rvert$.
+
+There are essentially three types of shortest path algorithms: one-to-one (computes distance between a pair of nodes), one-to-all (computes distance between one node and all other nodes), all-to-all (computes distances between all pairs of nodes).
+
+For any nodes $u$ and $v$ in a graph, whenever $v$ is accessible from $u$ and there exists a negative weight cycle which is also accessible for $u$, parts of arbitrarily low cost can be found between $u$ and $v$. Therefore, most shortest path algorithm require that there are no negative cycles in the graph, which can be tested using e.g. Bellman-Ford's algorithm. \\
+To get an simplified overview for the runtimes of the following algorithms:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| l| c | c | c|}
+         \hline
+            {}    &
+        \textbf{Complexity} &
+        \textbf{Input restrictions} & 
+        \textbf{Type} \\
+        
+         \hline
+         BFS &
+         $\Theta(n+m)$&
+         All edge weights equal &
+         One-to-one or one-to-all\\
+         
+         Floyd-Warshall &
+         $\Theta(n^3)$ &
+         No negative cycles&
+         All-to-all\\
+         
+         Dijkstra &
+         $\mathcal{O}(m + n\log n)$&
+         No negative edge weights&
+         One-to-all\\
+         
+         Bellman-Ford &
+         $\mathcal{O}(n\cdot m)$ &
+         No negative cycles &
+         One-to-all\\
+         
+         Johnson &
+         $\mathcal{O}(n^2\log n + nm)$ &
+         No negative cycles & 
+         One-to-all\\
+         
+         \hline
+    \end{tabular}
+    \caption{Runtime of shortest path algorithms}
+    \label{tab:shortest path algorithm runtime}
+\end{table}
+\newpage
+
+\subsubsection{BFS (again)}
+
+\paragraph{Type} One-to-one or one-to-all
+
+\paragraph{Complexity} $\Theta\left(n+m\right)$
+
+\paragraph{Restriction on input} All edges weights are equal
+
+\paragraph{Idea} One-to-one: run DFS from source and stop as soon as you reach the destination; one-to-all: run DFS from source and choose first path you find to any other node.
+
+\subsubsection{Floyd-Warshall's algorithm}
+
+\paragraph{Type} All-to-all
+
+\paragraph{Complexity} $\Theta\left(n^3\right)$
+
+\paragraph{Restriction on input} No negative cycles
+
+\paragraph{Idea} A DP algorithm, finds shortest path between all pairs in an incremental fashion, using previously stored results. More precisely, for all $1 \leq i,j,k \leq n$, it computes $sp(i,j,k)$, which is the shortest path from $v_i$ to $v_j$ using only vertices from the set $\{v_1, ..., v_k\}$. To compute the next intermediate result $sp(i,j,k+1)$, we can use the previous results: the new shortest path can still be computed either using only vertices from that set or combining a path from $v_i$ to $v_{k+1}$ with a path from $v_{k+1}$ to $v_j$:
+\begin{align*}
+  sp(i,j,0) &= w(i,j) \\
+  sp(i,j,k+1) &= \min\{sp(i,j,k), sp(i,k+1,k)+sp(k+1,j,k)\}
+\end{align*}
+
+\subsubsection{Dijkstra's algorithm}
+
+\paragraph{Type} One-to-all
+
+\paragraph{Complexity} $O\left(m+n\log n\right)$
+
+\paragraph{Restriction on input} No negative edge weights
+
+\paragraph{Idea} For each node, stores the best path from source and previous node along this path. Iterates along unvisited nodes, always picking the previously unvisited node with least distance to the root. If neighbor $v$ of current visited node $u$ has higher cost from source than the sum of cost of $u$ and path $w(u,v)$, sets its new cost to this sum and previous node to $u$. Mark $u$ as visited and repeat.
+
+The actual cost of the algorithm is $O(m\cdot T_{dk} + n\cdot T_{em})$, with $T_{dk}$ the time to decrease a key in the ADS and $E_{em}$ the time to extract the minimum of the DS. If we use adjacency lists and a binary heap, we reach our time above.
+
+\paragraph{Dijsktra's algorithm is one of the most important---if not the most important---algorithm in CS. You should know its structure, its complexity, and be able to implement in pseudo-code and in Java when an implementation of the required ADS is provided.}
+
+\subsubsection{Bellman-Ford's algorithm}
+
+\paragraph{Type} One-to-all
+
+\paragraph{Complexity} $O\left(n\cdot m\right)$
+
+\paragraph{Restriction on input} No negative cycles
+
+\paragraph{Idea} Very similar to Dijkstra, but instead of repeatedly picking the node with minimal cost, processes them all $n-1$ times. This allows the shortest path to propagate in the graph correctly. Worse time than Dijkstra's but negative edges are accepted.
+
+\subsubsection{Johnson's algorithm}
+
+\paragraph{Type} One-to-all
+
+\paragraph{Complexity} $O\left(n^2\log n + nm\right)$
+
+\paragraph{Restriction on input} No negative cycles
+
+\paragraph{Idea} Starts with a transformation applied on the original graph that removes all negative edges. For this, adds a new node $q$ connected to all existing ones with weight $0$. Finds the cost of the shortest path from $q$ to $v$, $h(v)$, using Bellman-Ford. The costs of the edges of the original graph are updated to $w_n(u,v):=w(u,v)+h(u)-h(v)$. At the end, node $q$ is removed and Dijkstra's algorithm used on the new graph without negative weights $w_n$. Then uses Dijkstra's algorithm on this new graph.
+
+\subsection{Minimal spanning trees}
+
+A minimal spanning tree (MST, \textcolor{blue}{{minimaler Spannbaum}}) of a graph $G=\left(V,E\right)$ is a tree $T$ with vertices $V\left(T\right) = V$ and edges $E\left(T\right) \subset E$ such that $\sum_{e \in E} w\left(e\right)$ is minimal among all such trees. 
+
+\paragraph{Note} When analyzing the complexity of algorithms that involve the number of vertices $n$ as well as the number of edges $m$, be aware that as $m \leq n^2$, we also have $\log m \leq \log\left(n^2\right) = 2\log\left(n\right) = O\left(\log n\right)$.
+
+To get ourself an overview over each algorithm following table:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| l| c | c |}
+         \hline
+            {}    &
+        \textbf{Complexity} \\
+        
+         \hline
+         Bor\r{u}vka &
+         $\mathcal{O}(m\log n)$\\
+         
+         Prim &
+         $\mathcal{O}(m\log n)$\\
+         
+         Kruskal &
+         $\mathcal{O}(m\log n)$\\
+         
+         Union-find &
+         $\mathcal{O}(\log n)$\\
+         
+         Johnson &
+         $\mathcal{O}(n^2\log n + nm)$ \\
+         
+         \hline
+    \end{tabular}
+    \caption{Runtime of MST-algorithms}
+    \label{tab:MST algorithm runtime}
+\end{table}
+
+\subsubsection{Bor\r{u}vka's algorithm}
+
+\paragraph{Complexity} $O\left(m \log n\right)$
+
+\paragraph{Idea} Constructs a spanning forest iteratively until it becomes a spanning tree. Starts with each vertex in a distinct component (a trivial tree with one vertex and zero edge). All vertices select their nearest neighbor simultaneously, and all corresponding edges are added. This results in a number of trees being formed. Then, all of these trees select again their smallest outgoing edge, which are added to the forest, dividing the number of trees by two at each iteration. The process goes on for at most $\Theta\left(\log n\right)$ rounds until only one connected component remains.
+
+\subsubsection{Prim's algorithm}
+
+\paragraph{Complexity} $O\left(m \log n\right)$ (binary heap and adjacency lists), can be improved to $O\left(m + n\log n\right)$ with Fibonacci heaps
+
+\paragraph{Idea} A variant of Dijkstra's algorithm, where for each vertex $v$ not already processed, we keep the cost of the shortest edge connecting $v$ to the tree under construction. Just as in Dijkstra, extends the current tree with the edge $e=\left(w,v\right)$ and vertex $v$ of minimal cost, updating the costs of neighbors of $v$. Repeats until all vertices are covered.
+
+\subsubsection{Kruskal's algorithm}
+
+\paragraph{Complexity} $O\left(m \log n\right)$
+
+\paragraph{Idea} Sorts edges by increasing order of weight and tries to add them in this order, abstaining from it whenever adding the new edge would result in a cycle. The final set of edges is a spanning tree.
+
+\subsubsection{Union-find}
+
+Both Bor\r{u}vka's and Kruskal's algorithms require an ADS that allow us to retrieve the connected component of a vertex and unify two connected components efficiently. One such ADS is union-find, which typically provides the following interface:
+\begin{itemize}
+\item $\textsc{Create}\left(n\right)$ initializes a union-find structure with $n$ objects $\left\lbrace 0, \dots, n-1\right\rbrace$ that all have their own connected component ($n$ of them in total), each indexed by some $i \in \left\lbrace 0, \dots, n-1\right\rbrace$;
+\item $\textsc{Find}\left(i\right)$ returns the index of the connected component of object $i$;
+\item $\textsc{Union}\left(i,j\right)$ finds the indices of the connected components of objects $i$ and $j$ and merges these two connected components into one.
+\end{itemize}
+Reasonably simple implementations have an amortized $O\left(\log n\right)$ running time for both \textsc{Union} and \textsc{Find}; more elaborated ones yield an amortized $O\left(\alpha\left(n\right)\right)$ time, where $\alpha$ is the extremely slowly growing (quasi-constant) inverse Ackermann function.
+
+
+
+
+
     
 %%Chapter 05
 \section{Dynamisches Programmieren}
@@ -1168,9 +1609,34 @@ The big difference between the adjacency matrix and the adjacency list is in the
 
 
 
-
+\newpage
 %%Chapter 06
 \section{Sprachunterschiede}
+Important: Do not mix languages in your exam submissions! Choose the language you are most comfortable with!
+
+\subsection{Deutsch}
+
+Das Wort \emph{Graph} hei\ss t im Genitiv/Dativ/Akkusativ Singular \emph{Graphen}, also: \emph{betrachten wir einen Graphen}, nicht *\emph{betrachten wir einen Graph}.
+
+\subsection{English}
+
+The singular of \emph{vertices} is \emph{vertex}, not *\emph{vertice} (the Italian word for `summit').
+
+German \emph{Kreis} = English \emph{cycle}; German \emph{Zyklus} = English \emph{circuit}.
+
+Forms of the relative pronoun \emph{who}: \emph{who} (Nom.), \emph{whom} (Dat./Akk.), \emph{whose} (Gen.). The relative pronoun \emph{who} is only used for people, not for objects, for which you should use \emph{that} or \emph{which}.
+
+Distinguish between the noun \emph{half} (pl. \emph{halves}) (\textcolor{blue}{Hälfte, -n}) and the verb \emph{to halve} (\textcolor{blue}{halbieren}). Distinguish between the noun \emph{proof} and the verb \emph{to prove}.
+
+Do not put commas before relative pronouns! Write \emph{every number that is} and not \emph{every number, that is}.
+
+Another word with an irregular plural is \emph{leaf} (pl. \emph{leaves}).
+
+Avoid colloquial contractions (\emph{gonna} etc.).
+
+Do not translate German \emph{also} by English \emph{also}. The German word \emph{also} means \emph{therefore}, \emph{hence}.
+
+Use \emph{once}, \emph{twice} and not \emph{one time}, \emph{two times}.
 
 
 \newpage
