@@ -15,55 +15,97 @@
 \contentsline {subsubsection}{\numberline {3.1.2}Heaps}{8}{subsubsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.2}Binärer Suchbaum}{10}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Begrifflichkeiten}{10}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}ADT- Wörterbuch}{10}{subsubsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.3}AVL-Trees}{11}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Suchen, Einfügen und Entfernen in AVL-Bäumen}{12}{subsubsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {3.3.2}Einfügen}{12}{subsubsection.3.3.2}%
 \contentsline {subsubsection}{\numberline {3.3.3}Entfernen}{14}{subsubsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.4}Rotationen}{15}{subsubsection.3.3.4}%
-\contentsline {subsubsection}{\numberline {3.3.5}Operationen und Komplexität}{15}{subsubsection.3.3.5}%
+\contentsline {subsubsection}{\numberline {3.3.4}Rotationen}{14}{subsubsection.3.3.4}%
 \contentsline {subsection}{\numberline {3.4}Sortier-Algorithmen}{15}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Eigenschaften von Sortier-Algorithmen}{15}{subsubsection.3.4.1}%
-\contentsline {paragraph}{Stability}{15}{section*.27}%
-\contentsline {paragraph}{In-place}{15}{section*.28}%
-\contentsline {subsubsection}{\numberline {3.4.2}Bogo sort}{16}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Bubblesort}{16}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}InsertionSort}{17}{subsubsection.3.4.4}%
-\contentsline {subsubsection}{\numberline {3.4.5}SelectionSort}{18}{subsubsection.3.4.5}%
-\contentsline {subsubsection}{\numberline {3.4.6}Quicksort}{19}{subsubsection.3.4.6}%
-\contentsline {subsubsection}{\numberline {3.4.7}Mergesort}{20}{subsubsection.3.4.7}%
-\contentsline {subsubsection}{\numberline {3.4.8}Heapsort}{21}{subsubsection.3.4.8}%
-\contentsline {subsubsection}{\numberline {3.4.9}Kosten von Sortieralgorithmen}{21}{subsubsection.3.4.9}%
-\contentsline {subsubsection}{\numberline {3.4.10}Lower-bound für Sortier-Algorithmen}{21}{subsubsection.3.4.10}%
-\contentsline {section}{\numberline {4}Graphen Theorie}{22}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Definitions}{22}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Undirected graph (\textcolor {blue}{{ungerichteter Graph}})}{22}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Directed graph (\textcolor {blue}{{gerichteter Graph}})}{22}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Bipartite graph (\textcolor {blue}{{bipartiter Graph}})}{22}{subsubsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.4}Tree (\textcolor {blue}{{Baum}}) and forest (\textcolor {blue}{{Wald}})}{22}{subsubsection.4.1.4}%
-\contentsline {subsubsection}{\numberline {4.1.5}Adjacency lists (\textcolor {blue}{{Adjazenzlisten}})}{22}{subsubsection.4.1.5}%
-\contentsline {subsubsection}{\numberline {4.1.6}Adjacency matrix (\textcolor {blue}{{Adjazenzmatrix}})}{23}{subsubsection.4.1.6}%
-\contentsline {subsubsection}{\numberline {4.1.7}What can or cannot we have in a graph?}{23}{subsubsection.4.1.7}%
-\contentsline {subsubsection}{\numberline {4.1.8}Sequences}{24}{subsubsection.4.1.8}%
-\contentsline {subsubsection}{\numberline {4.1.9}Degree of a vertex}{24}{subsubsection.4.1.9}%
-\contentsline {subsubsection}{\numberline {4.1.10}Neighborhood}{24}{subsubsection.4.1.10}%
-\contentsline {subsubsection}{\numberline {4.1.11}Degree-sum formula (handshaking lemma)}{24}{subsubsection.4.1.11}%
-\contentsline {subsubsection}{\numberline {4.1.12}Runtimes of Adjacency matrix and Adjacency List}{25}{subsubsection.4.1.12}%
-\contentsline {subsection}{\numberline {4.2}Tiefensuche}{25}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Breitensuche}{25}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Zusammenhangskompontente}{25}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Shortest-path...}{25}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}...mit uniformen Kantengewichten}{25}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.2}...mit nicht-negativen Kantengewichten}{25}{subsubsection.4.5.2}%
-\contentsline {subsubsection}{\numberline {4.5.3}...mit allgemeinen Kantengewichten}{25}{subsubsection.4.5.3}%
-\contentsline {subsubsection}{\numberline {4.5.4}...zwischen allen Paaren von Knoten}{25}{subsubsection.4.5.4}%
-\contentsline {section}{\numberline {5}Dynamisches Programmieren}{25}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Längste aufsteigende Teilfolge}{25}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Längste gemeinsame Teilfolge}{25}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Minimale Editierdistanz}{25}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Matrixkettenmultiplikation}{25}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Subset Sum Problem}{25}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Knap Sack Problem}{25}{subsection.5.6}%
-\contentsline {section}{\numberline {6}Sprachunterschiede}{25}{section.6}%
-\contentsline {section}{\numberline {7}Anhang}{26}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Stalin-Sort}{26}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}HeapSort Veranschaulichung: \ref {VerlinkzuHeapSortText}}{26}{subsection.7.2}%
+\contentsline {paragraph}{Stability}{15}{section*.22}%
+\contentsline {paragraph}{In-place}{15}{section*.23}%
+\contentsline {subsubsection}{\numberline {3.4.2}Bogo sort}{15}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Bubblesort}{15}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}InsertionSort}{16}{subsubsection.3.4.4}%
+\contentsline {subsubsection}{\numberline {3.4.5}SelectionSort}{16}{subsubsection.3.4.5}%
+\contentsline {subsubsection}{\numberline {3.4.6}Quicksort}{17}{subsubsection.3.4.6}%
+\contentsline {subsubsection}{\numberline {3.4.7}Mergesort}{18}{subsubsection.3.4.7}%
+\contentsline {subsubsection}{\numberline {3.4.8}Heapsort}{18}{subsubsection.3.4.8}%
+\contentsline {subsubsection}{\numberline {3.4.9}Kosten von Sortieralgorithmen}{19}{subsubsection.3.4.9}%
+\contentsline {subsubsection}{\numberline {3.4.10}Lower-bound für Sortier-Algorithmen}{19}{subsubsection.3.4.10}%
+\contentsline {section}{\numberline {4}Graphen Theorie}{20}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Definitions}{20}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Undirected graph (\textcolor {blue}{{ungerichteter Graph}})}{20}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Directed graph (\textcolor {blue}{{gerichteter Graph}})}{20}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Bipartite graph (\textcolor {blue}{{bipartiter Graph}})}{21}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Tree (\textcolor {blue}{{Baum}}) and forest (\textcolor {blue}{{Wald}})}{21}{subsubsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.5}Adjacency lists (\textcolor {blue}{{Adjazenzlisten}})}{21}{subsubsection.4.1.5}%
+\contentsline {subsubsection}{\numberline {4.1.6}Adjacency matrix (\textcolor {blue}{{Adjazenzmatrix}})}{21}{subsubsection.4.1.6}%
+\contentsline {subsubsection}{\numberline {4.1.7}What can or cannot we have in a graph?}{22}{subsubsection.4.1.7}%
+\contentsline {subsubsection}{\numberline {4.1.8}Sequences}{22}{subsubsection.4.1.8}%
+\contentsline {subsubsection}{\numberline {4.1.9}Degree of a vertex}{23}{subsubsection.4.1.9}%
+\contentsline {subsubsection}{\numberline {4.1.10}Neighborhood}{23}{subsubsection.4.1.10}%
+\contentsline {subsubsection}{\numberline {4.1.11}Degree-sum formula (handshaking lemma)}{23}{subsubsection.4.1.11}%
+\contentsline {subsubsection}{\numberline {4.1.12}Runtimes of Adjacency matrix and Adjacency List}{23}{subsubsection.4.1.12}%
+\contentsline {subsection}{\numberline {4.2}Overall Data Structures}{24}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Stacks and Queues}{24}{subsubsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.3} Depth-first Search (\textcolor {blue}{Tiefensuche})}{25}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Zusammenhangskompontenten}{26}{subsubsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.4}Breadth-First Search (\textcolor {blue}{Breitensuche})}{28}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Topological sort}{28}{subsubsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.5}Shortest-path algorithms}{29}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}BFS (again)}{30}{subsubsection.4.5.1}%
+\contentsline {paragraph}{Type}{30}{section*.50}%
+\contentsline {paragraph}{Complexity}{30}{section*.51}%
+\contentsline {paragraph}{Restriction on input}{30}{section*.52}%
+\contentsline {paragraph}{Idea}{30}{section*.53}%
+\contentsline {subsubsection}{\numberline {4.5.2}Floyd-Warshall's algorithm}{30}{subsubsection.4.5.2}%
+\contentsline {paragraph}{Type}{30}{section*.54}%
+\contentsline {paragraph}{Complexity}{30}{section*.55}%
+\contentsline {paragraph}{Restriction on input}{30}{section*.56}%
+\contentsline {paragraph}{Idea}{30}{section*.57}%
+\contentsline {subsubsection}{\numberline {4.5.3}Dijkstra's algorithm}{30}{subsubsection.4.5.3}%
+\contentsline {paragraph}{Type}{30}{section*.58}%
+\contentsline {paragraph}{Complexity}{30}{section*.59}%
+\contentsline {paragraph}{Restriction on input}{30}{section*.60}%
+\contentsline {paragraph}{Idea}{30}{section*.61}%
+\contentsline {paragraph}{Dijsktra's algorithm is one of the most important---if not the most important---algorithm in CS. You should know its structure, its complexity, and be able to implement in pseudo-code and in Java when an implementation of the required ADS is provided.}{30}{section*.62}%
+\contentsline {subsubsection}{\numberline {4.5.4}Bellman-Ford's algorithm}{30}{subsubsection.4.5.4}%
+\contentsline {paragraph}{Type}{30}{section*.63}%
+\contentsline {paragraph}{Complexity}{30}{section*.64}%
+\contentsline {paragraph}{Restriction on input}{30}{section*.65}%
+\contentsline {paragraph}{Idea}{31}{section*.66}%
+\contentsline {subsubsection}{\numberline {4.5.5}Johnson's algorithm}{31}{subsubsection.4.5.5}%
+\contentsline {paragraph}{Type}{31}{section*.67}%
+\contentsline {paragraph}{Complexity}{31}{section*.68}%
+\contentsline {paragraph}{Restriction on input}{31}{section*.69}%
+\contentsline {paragraph}{Idea}{31}{section*.70}%
+\contentsline {subsection}{\numberline {4.6}Minimal spanning trees}{31}{subsection.4.6}%
+\contentsline {paragraph}{Note}{31}{section*.71}%
+\contentsline {subsubsection}{\numberline {4.6.1}Bor\r {u}vka's algorithm}{31}{subsubsection.4.6.1}%
+\contentsline {paragraph}{Complexity}{31}{section*.73}%
+\contentsline {paragraph}{Idea}{31}{section*.74}%
+\contentsline {subsubsection}{\numberline {4.6.2}Prim's algorithm}{31}{subsubsection.4.6.2}%
+\contentsline {paragraph}{Complexity}{31}{section*.75}%
+\contentsline {paragraph}{Idea}{31}{section*.76}%
+\contentsline {subsubsection}{\numberline {4.6.3}Kruskal's algorithm}{32}{subsubsection.4.6.3}%
+\contentsline {paragraph}{Complexity}{32}{section*.77}%
+\contentsline {paragraph}{Idea}{32}{section*.78}%
+\contentsline {subsubsection}{\numberline {4.6.4}Union-find}{32}{subsubsection.4.6.4}%
+\contentsline {section}{\numberline {5}Dynamisches Programmieren}{33}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Maximum Subarray Sum }{33}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Jump Game}{34}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Längste gemeinsame Teilfolge}{35}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Minimale Editierdistanz}{36}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Matrixkettenmultiplikation}{37}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Subset Sum Problem}{37}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Knap Sack Problem}{37}{subsection.5.7}%
+\contentsline {section}{\numberline {6}Sprachunterschiede}{38}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Deutsch}{38}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}English}{38}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Anhang}{39}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Stalin-Sort}{39}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}HeapSort Veranschaulichung: \ref {VerlinkzuHeapSortText}}{39}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Detaillierte Ansticht von AVL-Trees}{40}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Entfernen:}{40}{subsubsection.7.3.1}%
