@@ -23,6 +23,8 @@
 \usepackage{subcaption}
 \usepackage{xcolor}
 \usepackage{stmaryrd}
+\usepackage{listings}
+\usepackage{mathtools}
 
 
 
@@ -225,8 +227,8 @@ Ziel dieses Skriptes ist die Vermittlung eines groben Überblicks über die Vorl
     $\mathcal{O}(1) \in [\mathcal{O}(\frac{1}{n^2}) \in \mathcal{O}(\frac{1}{n}) \in \ ] \  \mathcal{O}(\log \log n)\in \mathcal{O}(\log n) \in \mathcal{O}(\sqrt{n}) \in \mathcal{O}(n) \in \mathcal{O}(n\log n) \in [\mathcal{O}({n^c}) \in \mathcal{O}(c^n) \in \ ] \mathcal{O}(n^2) \in \mathcal{O}(2^n) \in \mathcal{O}(2^{n^{2}}) \in \mathcal{O}(n!) $
 
 \newpage
-\subsection{Erster Algorithmus}
-    \subsubsection{Maximum Subarray Sum}
+\subsection{Erster Algorithmus} 
+    \subsubsection{Maximum Subarray Sum}\label{MSS-Abschnitt}
     Für einen ersten Algorithmus schauen wir den \texttt{Maximum Subarray Sum} Algorithmus an. Dieser Algorithmus enthält ein Array von $n$ rationalen Zahlen $a_1,..., a_n$ und gesucht ist ein Teilstück mit maximaler Summe.  \\
     \textbf{Beispiel}: \\
     Sei ein Array [-2, -5, 6, -2, -3, 1, 5, -6] gegeben, so ist die maximale Teilsumme dieses Array 7, nämlich $ 6 + (-2) + (-3) + 1 + 5 = 7$. \\
@@ -466,7 +468,7 @@ Ein weiterer Begriff, der wichtig ist im Kontext mit Bäumen ist die \textbf{Hö
 Man fasst die Knoten eines Baumes gleicher Tiefe zu \textbf{Niveaus} zusammen. Die Knoten auf dem Niveau $i$ sind alle Knoten der Tiefe $i$. Die Höhe des Beispiels (\ref{fig: binarytree}) wäre also der Pfad von $(15-5-12-10-6-7) + 1 = 6 $ und die Tiefe vom Knoten 20 wäre: 2. \\
 Zusätzlich gilt: die Tiefe eines binary tree ist gleich wie die Höhe eines binary trees.\footnote{\href{https://www.baeldung.com/cs/binary-tree-height}{weitere Beispiele \& Erklärungen}}
 Des weiteren heisst ein Baum \textbf{vollständig} wenn er auf jedem Niveau die maximal mögiche Knotenanzahl hat und sämtliche Blätter dieselbe Tiefe haben. 
-Auch wie bei dem Heap gelten die "Basic operations": Einfügen, löschen, suchen eines Elementes und das Traversieren des Baumes (Vgl. \ref{common operations}).
+Auch wie bei dem Heap gelten die "Basic operations": Einfügen, löschen, suchen eines Elementes und das Traversieren des Baumes (Vgl. \ref{common operations}). 
 
 \begin{figure}[h] 
 \caption{Beispiel eines geordneten Binärbaumes}
@@ -476,9 +478,21 @@ Auch wie bei dem Heap gelten die "Basic operations": Einfügen, löschen, suchen
 \end{figure}
 
 
+\subsubsection{ADT- Wörterbuch}
+Wir wollen ein Wörterbuch $W$ welches über 
+\begin{enumerate}
+    \item \texttt{search}$(x,W)$ : ist \texttt{int} $x$ in $W$?
+    \item \texttt{insert}$(x,W)$ : füge \texttt{int} $x$ in $W$ ein
+    \item \texttt{delete}$(x,W)$ : lösche \texttt{int} $x$ in $W$
+\end{enumerate} verfügt und jedes Element $x$ nur einmal vorkommen darf. Dieses Wörterbuch können wir einfach in einem binärern Suchbaum implementieren, wobei für jeden Knoten $x$ alle Schlüssel im linken Teilbaum $< x$ und alle Schlüssel im rechten Teilbaum $> x$ (Vgl. Figure \ref{fig: binarytree}). Die Laufzeit des Einfügens in den Suchbaum dauert für das \texttt{search}: $\mathcal{O}(h)$, \texttt{insert}: $\mathcal{O}(h)$ und für das \texttt{remove}$(x)$ gilt folgendes:
+\begin{itemize}
+    \item Fall 1: $x$ hat keine Kinder
+    \item Fall 2: $x$ hat genau ein Kind, Parent zum Kind anhängen
+    \item Fall 3: $x$ hat zwei Kinder: Wenn wir dens Schlüssel $15$ in Figure: \ref{fig: binarytree} löschen $\implies$ wir nehmen das kleinste Element im rechten Teilbaum, hier Schlüssel $16$, ersetzen diesen mit dem zu löschenden Element und löschen den Schlüssel $16$ an der alten Position. $\mathcal{O}(h)$
+\end{itemize}
+Problem bei diesen Binärenbäume: $h$ kann sehr gross werden wenn wir z.B 2, 5, 8, 10, 12 ,15 nacheinander einsetzen würden. Um $h = \mathcal{O}(h)$ zu erlangen nutzen wir AVL-Bäume (\ref{AVL-Abschnitt}).
 
-
-\subsection{AVL-Trees}
+\subsection{AVL-Trees} \label{AVL-Abschnitt}
 Ein binärer Suchbaum ist \textit{AVL-ausgegelichen} oder höhenbalanciert. Kurz: Ein AVL Baum, wenn für jeden Knoten $p$ des Baumes gilt, dass sich die Höhe des linken Teilbaumes von der Höhe des rechten Teilbaumes von $p$ um höchstens 1 unterscheidet. In der folgenden Abbildung(\ref{fig: AVL-trees}) ist in (a)  und (c) ein AVL-Baum zu sehen. (b) hingegen ist kein AVL-Baum.\footnote{\href{https://www.cs.usfca.edu/~galles/visualization/AVLtree.html}{Animationen von AVL-Trees}}
 
 \begin{figure}[h] 
@@ -493,50 +507,50 @@ AVL-Bäume mit $N$ inneren Knoten und $N+1$ Blättern haben eine höhe von $\mat
 \begin{figure}[h] 
 \caption{AVL-Baum mit Höhe 1 und 2}
 \centering
-\includegraphics[scale= 0.5]{Pictures/AVL-trees-height.png}
+\includegraphics[width = 0.6\textwidth]{Pictures/AVL-trees-height.png}
 \label{fig: AVL-trees-height}
 \end{figure}
 
 \begin{figure}[t] 
-\caption{AVL-Baum }
+\caption{AVL-Baum}
 \centering
-\includegraphics[scale= 0.5]{Pictures/AVL-trees-allg.png}
+\includegraphics[width = 0.8\textwidth]{Pictures/AVL-trees-allg.png}
 \label{fig: AVL-trees-allg}
 \end{figure}
 
 \newpage
 \subsubsection{Suchen, Einfügen und Entfernen in AVL-Bäumen}
-Da AVL-Bäume eigentlich binäre Suchbäume sind, kann man ihnen nach einem Schlüssel genauso suchen wie in einem natürlichen Baum. Im schlechtesten Fall ist die Suche nach einem Schlüssel von Wurzel bis zu einem Blatt. Da die Höhe logarithmisch beschränkt ist, wird dies im worst case $\mathcal{O} (\log N)$ Schritte benötigen, wobei der worst case in einem normalen binären Suchbaum $\mathcal{O} (N)$ ist (alle links oder rechts an der Wurzel). 
+Da AVL-Bäume eigentlich binäre Suchbäume sind, kann man ihnen nach einem Schlüssel genauso suchen wie in einem natürlichen Baum. Im schlechtesten Fall ist die Suche nach einem Schlüssel von Wurzel bis zu einem Blatt. Da die Höhe logarithmisch beschränkt ist, wird dies im worst case $\mathcal{O} (\log N)$ Schritte benötigen, wobei der worst case in einem normalen binären Suchbaum $\mathcal{O} (N)$ ist (alle links oder rechts an der Wurzel). Die AVL-Bäume brauchen genau $\Theta (n)$ Speicher. Sie verfügen über die Standartoperationen von Suchen, Einfügen und Entfernen, die eine Komplexität von $\mathcal{O}(\log n)$ haben. 
 
 \subsubsection{Einfügen}\label{subsection EinfügenAVL}
 Damit der Schlüssel eingefügt werden kann, überprüfen wir in einem ersten Schritt nach dem Schlüssel im Baum. Wenn dieser Schlüssel bereits vorhanden ist, endet der Vorgang. Sofern dieser aber nicht in dem Baum ist fügen wird diesen ein wie bei einem normalen Baum.
 
-Das Problem welches wir nun erhalten ist die Aufrechterhaltung der AVL-Eigenschaft. Wenn wir bei Figure (\ref{fig: AVL-ausgangslage}) den Key 5 einfügen wollen, wird im nächsten Schritt Figure (\ref{fig:AVL-verletzt}) die Bedingung verletzt, da die Höhen des linken und rechten Teilbaumes sich um mehr als 1 unterscheiden. Man muss also die AVLAusgeglichenheit wieder herstellen. Dazu läuft man von der Einfügestelle den Suchpfad entlang zur Wurzel zurück und prüft an jedem Knoten (Vgl. \ref{eqn: bal(p)}, ob die Höhendifferenz  zwischen linkem und rechtem Teilbaum noch innerhalb der vorgeschriebenen Grenzen liegt. Ist das nicht der Fall, führt man eine so genannte Rotation oder eine Doppelrotation durch (Vgl. \ref{Rotationsabschnitt}), die die Sortierung der Schlüssel nicht beeinflusst, aber die Höhendifferenzen in den richtigen Bereich bringt.
+Das Problem welches wir nun erhalten ist die Aufrechterhaltung der AVL-Eigenschaft. Wenn wir bei Figure (\ref{fig: AVL-ausgangslage}) den Key 5 einfügen wollen, wird im nächsten Schritt Figure (\ref{fig:AVL-verletzt}) die Bedingung verletzt, da die Höhen des linken und rechten Teilbaumes sich um mehr als 1 unterscheiden. Man muss also die AVL-Ausgeglichenheit wieder herstellen. Dazu läuft man von der Einfügestelle den Suchpfad entlang zur Wurzel zurück und prüft an jedem Knoten (Vgl. Equation: (\ref{eqn: bal(p)}), ob die Höhendifferenz  zwischen linkem und rechtem Teilbaum noch innerhalb der vorgeschriebenen Grenzen liegt. Ist das nicht der Fall, führt man eine so genannte Rotation oder eine Doppelrotation durch (Vgl. \ref{Rotationsabschnitt}), die die Sortierung der Schlüssel nicht beeinflusst, aber die Höhendifferenzen in den richtigen Bereich bringt.
+ Es genügt, an jedem inneren Knoten $p$ den so genannten \textbf{Balancefaktor} $bal(p)$ mitzuführen, der wie folgt definiert ist:
+\begin{equation} \label{eqn: bal(p)}
+    bal(p) = \text{Höhe des rechten Teilbaumes von } p - \text{Höhe des linken Teilbaumes von } p
+\end{equation}
+AVL-Bäume sind offenbar gerade dadurch charakterisiert, dass für jeden inneren Knoten $p$ gilt: $bal(p) \in \{ -1, 0, +1\}$. Die drei Fälle sind in Figure \ref{fig: bal(p) für alle} abgebildet.
+
+
 \begin{figure}[h] 
    \centering
      \begin{subfigure}[h]{0.5\textwidth}
          \centering
-         \includegraphics[scale = 0.3]{Pictures/AVL-einfügen1.png}
+         \includegraphics[width = 0.45\textwidth]{Pictures/AVL-einfügen1.png}
          \caption{Ausgangslage}
          \label{fig: AVL-ausgangslage}
      \end{subfigure}
      \hfill
      \begin{subfigure}[h]{0.45\textwidth}
          \centering
-         \includegraphics[scale = 0.4]{Pictures/AVL.einfügen2.png}         \caption{AVL-Bedingung verletzt}
+         \includegraphics[width = 0.45\textwidth]{Pictures/AVL.einfügen2.png}         \caption{AVL-Bedingung verletzt}
          \label{fig:AVL-verletzt}
      \end{subfigure}
      \caption{Wie die AVL-Eigenschaft verletzt werden kann}
     \label{fig: AVL-ausgangslage-verletzt}
 \end{figure}
 
-Man könnte vermuten, dass man zur Prüfung der Höhenbedingung an einem Knoten
-im Baum die Höhen der Teilbäume des Knotens kennen muss. Das ist jedoch glücklicherweise nicht der Fall. Es genügt, an jedem inneren Knoten p den so genannten \textbf{Balancefaktor} $bal(p)$ mitzuführen, der wie folgt definiert ist:
-\begin{equation} \label{eqn: bal(p)}
-    bal(p) = \text{Höhe des rechten Teilbaumes von } p - \text{Höhe des linken Teilbaumes von } p
-\end{equation}
-\newpage
-AVL-Bäume sind offenbar gerade dadurch charakterisiert, dass für jeden inneren Knoten $p$ gilt: $bal(p) \in \{ -1, 0, +1\}$. Um diese drei Fälle anzusehen, vergleichen wir diese in den folgenden Abbildungen \ref{fig: bal(p) für alle}:
 
 \begin{figure}[h!]
 \centering
@@ -547,13 +561,13 @@ AVL-Bäume sind offenbar gerade dadurch charakterisiert, dass für jeden inneren
 \end{subfigure}
 \hfill
 \begin{subfigure}{0.6\textwidth}
-    \includegraphics[width=\textwidth]{Pictures/AVL-bal(-1).png}
+    \includegraphics[width=0.8\textwidth]{Pictures/AVL-bal(-1).png}
         \caption{$bal(p) = -1$}
         \label{fig: bal(p) = -1}
 \end{subfigure}
 
 \begin{subfigure}{0.6\textwidth}
-    \includegraphics[width=\textwidth]{Pictures/AVL-bal(0).png}
+    \includegraphics[width=0.8\textwidth]{Pictures/AVL-bal(0).png}
         \caption{$bal(p) = 0$}
         \label{fig: bal(p) = 0}
 \end{subfigure}
@@ -562,75 +576,9 @@ AVL-Bäume sind offenbar gerade dadurch charakterisiert, dass für jeden inneren
 \label{fig: bal(p) für alle}
 \end{figure}
 
-\newpage
 \subsubsection{Entfernen}\label{subsection EntfernenAVL}
-Wie beim Einfügen in den AVL-Tree gehen wir zuerst so vor wie in natürlichen Suchbäumen. Man sucht den zu entfernenden Schlüssel, findet man diesen nciht, so ist das Entfernen beendet. Falls dies nicht der Fall ist, haben wir drei Fälle der Entfernung. 
+Wie beim Einfügen in den AVL-Tree gehen wir zuerst so vor wie in natürlichen Suchbäumen. Man sucht den zu entfernenden Schlüssel, findet man diesen nicht, so ist das Entfernen beendet. Falls dies nicht der Fall ist, haben wir drei Fälle der Entfernung, die auch mithilfe des Balancefaktors $bal(p)$ (Vgl. \ref{eqn: bal(p)}) analysiert werden können. Eine detailliertere Ansicht über das Entfernen in Abschnitt \ref{AVL-Trees-Anhang}.
 
-\subsubsection*{Fall 1}
-
-Knoten $n$ hat zwei blätter als Kinder. Sei $p$ der Elternknoten von $n \implies $ Anderer Teilbaum hat Höhe $h' =$ 0, 1 oder 2.
-\begin{itemize}
-    \item $h' = $1: $bal(p)$ anpassen
-    \item $h' = $0: $bal(p)$ anpassen. Aufruf von $upout(p)$
-    \item $h' = $2: Rebalancieren des Teilbaumes. Aufruf von $upout(p)$
-\end{itemize}
-
-
-
-\subsubsection*{Fall 2}
-Knoten $n$ hat einen inneren Knoten $k$ als Kind
-\begin{itemize}
-    \item Ersetze $n$ durch $k$ -  $upout(k)$ \ref{fig: upout(p)}
-\end{itemize}
-
-
-
-\subsubsection*{Fall 3}
-Knoten $n$ hat zwei inneren Knoten als Kinder
-\begin{itemize}
-    \item Ersetze $n$ durch symmetrischen Nachfolger-  $upout(k)$ \ref{fig: upout(p)}
-    \item Löschen des symmetrischen Nachfolgers wie in Fall 1 oder 2.
-\end{itemize}
-
-
-\subsubsection*{upout(p)}
-Sei $pp$ der Elternknoten von $p$
-\begin{itemize}
-    \item $p$ linkes Kind von $pp$
-        \begin{enumerate}
-            \item $bal(pp) = -1 \implies bal(s) \gets 0 \ \textbf{$upout(pp)$}$
-            \item $bal(pp) = 0 \implies bal(s) \gets 1 $
-            \item $bal(pp) = +1 \implies $ (Vgl. unten \ref{fig: upout(p)})
-        \end{enumerate}
-    \item $p$ rechtes Kind von $pp$: Symmetrische Fälle unter Veratuschung von -1 und +1
-\end{itemize}
-
-\begin{figure}[h!]
-\centering
-\begin{subfigure}{0.38\textwidth}
-    \includegraphics[width=\textwidth]{Pictures/upout1.png}
-        \caption{Erster Schritt}
-        \label{fig: upout1}
-\end{subfigure}
-\hfill
-\begin{subfigure}{0.38\textwidth}
- \includegraphics[width=\textwidth]{Pictures/upout2.png}  
- \caption{Zweiter Schritt}
-        \label{fig: upout2}
-\end{subfigure}
-
-\begin{subfigure}{0.38\textwidth}
- \includegraphics[width=\textwidth]{Pictures/upout3.png}
-        \caption{Dritter Schritt}
-        \label{fig: upout3}
-\end{subfigure}
-        
-\caption{$upout(p)$, Mit (a) ist der Erste bullet point ($p$ linkes Kind von $pp$) gemeint}
-\label{fig: upout(p)}
-\end{figure}
-
-
-\newpage
 
 
 \subsubsection{Rotationen} \label{Rotationsabschnitt}
@@ -639,15 +587,13 @@ LL und RR müssen jeweils nur eine Operation durchführen, wohingegen LR und RL 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale = 0.4]{Pictures/AVL-Rotations.png}
+    \includegraphics[width = \textwidth]{Pictures/AVL-Rotations.png}
     \caption{Alle Fälle zum AVL-Tree zu balancieren}
     \label{fig:AVL-rotations}
 \end{figure}
 
-\subsubsection{Operationen und Komplexität}
-    Der Baum braucht genau $\Theta (n)$ Speicher. Er verfügt über die Standartoperationen von Suchen, Einfügen und Entfernen, die eine Komplexität von $\mathcal{O}(\log n)$ haben. 
 
-
+\newpage
 \subsection{Sortier-Algorithmen}
 Zunächst wollen wir das Sortierproblem genauer fixieren: Wir nehmen an, es sei eine
 Menge von Sätzen gegeben; jeder Satz besitzt einen Schlüssel. Zwischen Schlüsseln ist
@@ -1590,15 +1536,259 @@ Reasonably simple implementations have an amortized $O\left(\log n\right)$ runni
 
 
 
-    
+\newpage
 %%Chapter 05
 \section{Dynamisches Programmieren}
+Das Ziel im dynamischen Programmieren ist, dass wir durch die Rekrusion keine polynomielle Laufzeit erhalten und mit bereits berechneten Teilresultaten das Schlussresultat erhalten können. Dabei sind Invarianten sehr hilfreich für zum Bearbeiten der Daten. Damit ein Teilresultat nicht mehrfach berechnet werden muss, gibt es zwei Ansätze diese zu lösen: in einer Tabelle $T$ oder in einer memo map $M$.
+\begin{itemize}
+    \item Mit einer Tabelle $T$ lösen wir generell die Probleme \textit{bottom-up}:   Alle Teilprobleme müssen gelöst werden 
+    \item Mit Momoization (memo map $M$) lösen wir generell die Probleme \textit{top-down}: Nur die nützlichen Teilprobleme müssen berechnet werden und ist oftmals einfacher, da der rekursive Ansatz zu einem \textsc{Stackoverflow} tendieren kann
+\end{itemize}
+Um dies an einem Beispiel zu Veranschaulichen finden wir wieder die Fibonacci-Zahlen. In einem naiven ersten Ansatz schlagen wir folgenden Algorithmus \ref{alg:Fibonacci naive} vor, der jedoch in Laufzeit $\mathcal{O}(2^{n/2})$ läuft.
+\begin{algorithm}[h]
+\caption{Fibonacci numbers - naive}
+\label{alg:Fibonacci naive}
+\begin{algorithmic}
+  \Function{F}{$n$}
+  \If{$n = 0$}
+    \State \Return $0$
+  \EndIf
+  \If{$n \leq 2$}
+    \State $f: \gets 1$  
+  \Else
+     \State $f \gets Fib(n-1) + Fib(n-2)$
+  \EndIf
+  \State \Return $f$
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
 
-\subsection{Längste aufsteigende Teilfolge}
+Damit wir dies verbessern können, verwenden wir den \textit{bottom-up} Ansatz (iterativ): Nun läuft der Algorithmus \ref{alg:Fibonacci-bottomUp} in $\mathcal{O}(n)$
+
+\begin{algorithm}[h]
+\caption{Fibonacci numbers -- bottom-up/imperative/table}
+ \label{alg:Fibonacci-bottomUp}
+\begin{algorithmic}
+  \Function{F}{$n$}
+  \If{$n = 0$}
+  \State \Return $0$
+  \EndIf
+  \State $v \gets \texttt{new}~\texttt{int}\left[n+1\right]$
+  \State $v\left[0\right] \gets 0$
+  \State $v\left[1\right] \gets 1$
+  \For{$i \in \left\lbrace 2, \dots, n \right\rbrace$}
+  \State $v\left[i\right] \gets v\left[i-1\right] + v\left[i-2\right]$
+  \EndFor
+  \State \Return $v\left[n\right]$
+  \EndFunction
+\end{algorithmic}
+ 
+\end{algorithm}
+
+
+\subsection{Maximum Subarray Sum }
+Wir haben bereits im Abschnitt \ref{MSS-Abschnitt} einen ersten Ansatz für dieses Problem gesehen. Nun wollen wir dies mithilfe von dynamischer Programmierung lösen.
+Unser erster Schritt ist ein Teilproblem zu definieren: \\
+$Randmax \ R_k = \max_{i\leq j} S_{ij}, (S_{ij} = a_i + \dots + a_j)$ und dessen Rekursion: $R_j := \max\lbrace a_j,a_j+R_{j-1}\rbrace$ \\
+Die Lösung lesen wir wie folgt aus: $S^* = \max\lbrace R_1, \dots, R_n, 0 \rbrace$. Bildlich dargestellt sieht dies wie folgt aus:
+\begin{figure}
+    \centering
+    \includegraphics[width = \textwidth]{Pictures/MSS-DPVersion.jpeg}
+    \caption{Wie die Rekursion aussieht}
+    \label{fig:MSS-DP}
+\end{figure}
+
+\subsection{Jump Game}
+Das Jump-Game ist ähnlich aufgebaut wie das MSS Problem. Wir hapen als \textbf{Input:} ein Array $A[1\dots n], \ n \in \mathbb{N}$.
+Das Spiel startet in Position $1$ und dürfen von Position $i$ höchstens $A[i]$ nach vorne (auf eine beliebige Position zwischen $i+1, \dots, i+A[i]$) springen. \textbf{Gesucht:} Minimale Anzahl an Sprüngen um $n$ zu erreichen.
+\subsubsection*{Erster Ansatz}
+Teilproblem: $S[i] :=$ Mindestanzahl an Sprüngen um $i$ zu erreichen\\
+Rekursion: $S[i] = \min\lbrace 1 + S[j] \mid 1 \leq j < i $ und "$j+ A[j] \geq i\rbrace$, wobei $j+A[j]\geq i$" =   "können $i$ von $j$ aus erreichen"
+
+\begin{algorithm}[h]
+\caption{Jump Game | Bottom-up}
+ \label{alg:JumpGame-bottomUp}
+\begin{algorithmic}
+  \State $S[1] \gets 0$
+  \For{$i = 2 \dots n$} 
+    \State $S[i] \gets \infty$  \Comment{Zahl die garantiert grösser ist als Ergebnis}
+    \For{$j = 1 \dots i-1$}
+    \If{$j+A[j] \geq i$}
+    \State $S[i] \gets \mid\lbrace S[i], 1+S[j] \rbrace$
+    \EndIf
+    \EndFor
+ \EndFor
+\State \Return $S[n]$
+\end{algorithmic}
+\end{algorithm}
+
+Die Laufzeit dieses Algorithmus ist: $\Theta\big(\sum_{i=1}^n(i-1)\big) = \Theta(n^2)$
+\subsubsection*{Zweiter Ansatz}
+Teilproblem: $M[k] :=$ maximaler Index, den wir in $k$ Sprüngen erreichen \\
+Rekursion: $M[k] \gets \max\lbrace i+A[i] \mid M[k-2] < i \leq M[k-1]\rbrace$ 
+
+\begin{algorithm}[h]
+\caption{Jump Game zweiter Ansatz| Bottom-up}
+ \label{alg:JumpGame2-bottomUp}
+\begin{algorithmic}
+  \State $k \gets 0$
+  \State $M[0] \gets 1$
+  \State $M[-1] \gets 0$
+  \While{$M[k] < n$}
+    \State $l \gets k+1$
+    \State $M[k] \gets \max\lbrace i+A[i] \mid M[k-2] < i \leq M[k-1]\rbrace$ 
+    \EndWhile
+\State \Return $k$
+\end{algorithmic}
+\end{algorithm}
+Die Laufzeit dieses Algorithmus ist: $\mathcal{O}(n)$
+Auch in $\mathcal{O}(n)$ laufender Code, der dasselbe Ergebnis liefert:
+
+\begin{lstlisting}[language = Java , commentstyle=\color{teal}]
+public int jump(int[] nums) {
+    // The starting range of the first jump is [0, 0]
+    int answer = 0, n = nums.length;
+    int curEnd = 0, curFar = 0;
+        
+    for (int i = 0; i < n - 1; ++i) {
+        // Update the farthest reachable index of this jump.
+        curFar = Math.max(curFar, i + nums[i]);
+            
+        // If we finish the starting range of this jump,
+        // Move on to the starting range of the next jump.
+        if (i == curEnd) {
+
+            answer++;
+            curEnd = curFar;
+        }
+    }
+    return answer;
+}
+\end{lstlisting}
+
 
 \subsection{Längste gemeinsame Teilfolge}
+Was ist die LGT von \textsc{SEMESTER} $= A[1\dots n]$ und \textsc{VERBESSERN} $= B[1\dots m]$? Diese lautet \textsc{EESER}.
+Wir wollen in diesem Abschnitt eine Teilfolge finden, die die LGT sucht. Lücken zwischen den einzelnen Buchstaben ist egal, dafür muss die Reihenfolge stimmen. Wir formulieren wieder unser Teilproblem:\\
+Teilproblem : für alle $i,j$ Wie gross ist $L(i,j) :=$ Länge eines LGT von $A[1\dots i]$ und $B[1\dots j]$ ?
+Rekursion: $i = 0$ oder $j = 0 \implies L(i,j) = 0$, wenn $i,j > 0$   folgt:
+\begin{enumerate}
+    \item Möglichkeit: Verwende $A[i]$ und $B[j]$. Geht nur wenn $A[i] = B[i]$
+    \item Möglichkeit: Verwende $A[i]$ und nicht $B[j]$.
+    \item Möglichkeit: Verwende $A[i]$ nicht, dafür $B[j]$.
+\end{enumerate}
+$\rightarrow$ Falls  $A[i] = B[j]$, dann $L(i,j) = \max\lbrace 1 + L(i-1, j-1), L(i-1, j), L(i, j-1) \rbrace$ \\
+$\rightarrow$ Falls  $A[i] \neq B[j]$, dann $L(i,j) = \max\lbrace L(i-1, j), L(i, j-1) \rbrace$
+
+Zur Berechnung nutzen wir eine \textbf{DP-Tabelle}. In diesem Programm steht die LGT zum Zeitpunkt $L(i,j)$
+Wir gehen diesen Prozess einmal durch. Man soll bedenken wenn $A[i] = B[i]$, nehmen wir das in der DP-Tabelle stehende $L(i-1,j-1)$-te Element addieren $+1$ dazu (Vgl. blauer Pfeil Fig. \ref{fig:LGT01}) 
+Die Laufzeit dieses Algorithmus \& dessen benötigten Speicher ist $\mathcal{O}(nm)$.
+
+\begin{lstlisting}[language = Java , commentstyle=\color{teal}]
+public int LGT(String X, String Y, int m, int n, int[][] dp) {
+     if (m == 0 || n == 0) return 0; //dp[][] initial to -1
+     if (dp[m][n] != -1) return dp[m][n]; //we have already calculated value
+     if (X.charAt(m - 1) == Y.charAt(n - 1)) {
+        dp[m][n] = 1 + LGT(X, Y, m - 1, n - 1, dp);
+         return dp[m][n];
+     }
+        dp[m][n] = Math.max(LGT(X, Y, m, n - 1, dp), LGT(X, Y, m - 1, n, dp));
+        return dp[m][n];
+}
+\end{lstlisting}
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{Pictures/LGT0.jpg}
+        \caption{"Base Case"}
+        \label{fig:LGT00}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.45\textwidth}
+ \includegraphics[width=\textwidth]{Pictures/LGT1.jpg}  
+ \caption{Erste Veränderung: $A[i] = B[j]$}
+        \label{fig:LGT01}
+\end{subfigure}
+
+\begin{subfigure}{0.7\textwidth}
+ \includegraphics[width=\textwidth]{Pictures/LGT2.jpg}
+        \caption{Finale DP-Tabelle}
+        \label{fig:LGT02}
+\end{subfigure}
+\caption{LGT-Ablauf von Base case zu finaler DP-Tabelle}
+\label{fig:LGT-Ablauf}
+\end{figure}
 
 \subsection{Minimale Editierdistanz}
+Was ist die minimale Editierdistanz von \textsc{TIGER} $= A[1\dots n]$ und \textsc{ZIEGE} $= B[1\dots m]$, sodass $A = B$ ?
+Die Operationen die benötigt werden dürfen für dieses Problem sind:
+\begin{itemize}
+    \item \texttt{ändern}: TIGER $\rightarrow$ ZIGER
+    \item \texttt{einfügen}: TIGER $\rightarrow$ ZIEGER
+    \item \texttt{löschen}: TIGER $\rightarrow$ ZIEGE    
+\end{itemize}
+
+Teilproblem: $ED(i, j) :=$ [Edits von $A[1\dots i] nach B[1\dots j]$] \\
+
+Fallunterscheidung:
+\begin{enumerate}
+    \item Fall: $A[i]$ gelöscht $\rightarrow$ kann man gleich machen $\implies ED(i, j) = 1 + ED(i-1, j)$ 
+    \item Fall: $A[i]$ am Ende auf ein Element von $B[1\dots j-1]$ gematcht. $\implies B[j]$ muss irgendwann eingefügt werden $\rightarrow$ kann man direkt machen $\implies ED(i, j) = 1 + ED(i, j)-1$
+    \item Fall: $A[i]$ wird auf B[j] gematcht. 
+    \begin{equation*}
+    \implies ED(i, j)  =
+        \begin{cases*}
+           $ ED(i-1, j-1)$ &  falls $ A[i] = B[j] $\\
+           $ 1 + ED(i-1, j-1)$ &  falls $ A[i] \neq B[i]$ 
+        \end{cases*}
+    \end{equation*}
+\end{enumerate}
+
+    Also folgt daraus dass für $i, j > 0$: 
+\begin{equation*}
+    {ED}(i, j) = \min \left( \begin{array}{c}
+    {ED}(i-1, j) + 1 \text{ (A[i] löschen)}\\
+    {ED}(i, j-1) + 1 \text{ (B[i] einfügen)}\\
+    {ED}(i-1, j-1) + \begin{cases}
+    0 & \text{if } A[i] = B[j] \\
+    1 & \text{if } A[i] \neq B[j] \text{ (A[i] durch B[j] ersetzen)}
+    \end{cases} \\
+    ED(i, 0) = i \\
+    ED(0, j) = j
+    \end{array} \right)
+\end{equation*}
+
+Durchspielen eines Beispieles:
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{Pictures/ED0.jpg}
+        \caption{"Base Case"}
+        \label{fig:ED00}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.45\textwidth}
+ \includegraphics[width=\textwidth]{Pictures/ED1.jpg}  
+ \caption{Case $ED(j-1, j-1) + 1$, da $A[i] \neq B[j]$}
+        \label{fig:ED01}
+\end{subfigure}
+
+\begin{subfigure}{0.45\textwidth}
+ \includegraphics[width=\textwidth]{Pictures/ED2.jpg}
+        \caption{Finale DP-Tabelle}
+        \label{fig:ED02}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}
+ \includegraphics[width=\textwidth]{Pictures/ED3.jpg}
+        \caption{DP-Tabelle und Rückverfolgung}
+        \label{fig:ED03}
+\end{subfigure}
+\caption{ED-Ablauf von Base case zu finaler DP-Tabelle mit Rückverfolgung}
+\label{fig:ED-Ablauf}
+\end{figure}
+
+Die Laufzeit dieses Algorithmus \& dessen benötigten Speicher ist $\mathcal{O}(nm)$.
 
 \subsection{Matrixkettenmultiplikation}
 
@@ -1610,6 +1800,7 @@ Reasonably simple implementations have an amortized $O\left(\log n\right)$ runni
 
 
 \newpage
+
 %%Chapter 06
 \section{Sprachunterschiede}
 Important: Do not mix languages in your exam submissions! Choose the language you are most comfortable with!
@@ -1652,5 +1843,69 @@ The Stalin sort is a sort in which elements that are out of order get removed fr
         \label{fig:heapsort with array}
     \end{figure}
 
+\subsection{Detaillierte Ansticht von AVL-Trees} \label{AVL-Trees-Anhang} 
+\subsubsection{Entfernen:}
+\subsubsection*{Fall 1}
+
+Knoten $n$ hat zwei blätter als Kinder. Sei $p$ der Elternknoten von $n \implies $ Anderer Teilbaum hat Höhe $h' =$ 0, 1 oder 2.
+\begin{itemize}
+    \item $h' = $1: $bal(p)$ anpassen
+    \item $h' = $0: $bal(p)$ anpassen. Aufruf von $upout(p)$
+    \item $h' = $2: Rebalancieren des Teilbaumes. Aufruf von $upout(p)$
+\end{itemize}
+
+
+
+\subsubsection*{Fall 2}
+Knoten $n$ hat einen inneren Knoten $k$ als Kind
+\begin{itemize}
+    \item Ersetze $n$ durch $k$ -  $upout(k)$ \ref{fig: upout(p)}
+\end{itemize}
+
+
+
+\subsubsection*{Fall 3}
+Knoten $n$ hat zwei inneren Knoten als Kinder
+\begin{itemize}
+    \item Ersetze $n$ durch symmetrischen Nachfolger-  $upout(k)$ \ref{fig: upout(p)}
+    \item Löschen des symmetrischen Nachfolgers wie in Fall 1 oder 2.
+\end{itemize}
+
+
+\subsubsection*{upout(p)}
+Sei $pp$ der Elternknoten von $p$
+\begin{itemize}
+    \item $p$ linkes Kind von $pp$
+        \begin{enumerate}
+            \item $bal(pp) = -1 \implies bal(s) \gets 0 \ \textbf{$upout(pp)$}$
+            \item $bal(pp) = 0 \implies bal(s) \gets 1 $
+            \item $bal(pp) = +1 \implies $ (Vgl. unten \ref{fig: upout(p)})
+        \end{enumerate}
+    \item $p$ rechtes Kind von $pp$: Symmetrische Fälle unter Veratuschung von -1 und +1
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.38\textwidth}
+    \includegraphics[width=\textwidth]{Pictures/upout1.png}
+        \caption{Erster Schritt}
+        \label{fig: upout1}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.38\textwidth}
+ \includegraphics[width=\textwidth]{Pictures/upout2.png}  
+ \caption{Zweiter Schritt}
+        \label{fig: upout2}
+\end{subfigure}
+
+\begin{subfigure}{0.38\textwidth}
+ \includegraphics[width=\textwidth]{Pictures/upout3.png}
+        \caption{Dritter Schritt}
+        \label{fig: upout3}
+\end{subfigure}
+        
+\caption{$upout(p)$, Mit (a) ist der Erste bullet point ($p$ linkes Kind von $pp$) gemeint}
+\label{fig: upout(p)}
+\end{figure}
 
 \end{document}
