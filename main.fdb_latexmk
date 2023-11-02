@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1698415963 "/Users/yvesberger/Desktop/ETH/HS23/Algorithmen und Datenstrukturen/Zusammenfassung/Zusammenfassung-AnD/main.tex" "main.pdf" "main" 1698415969 0
-  "/Users/yvesberger/Desktop/ETH/HS23/Algorithmen und Datenstrukturen/Zusammenfassung/Zusammenfassung-AnD/main.tex" 1698415957 94561 2fcd9c987edf37c5cab6626fd223126a ""
+["pdflatex"] 1698926891 "/Users/yvesberger/Desktop/ETH/HS23/Algorithmen und Datenstrukturen/Zusammenfassung/Zusammenfassung-AnD/main.tex" "main.pdf" "main" 1698926897 0
+  "/Users/yvesberger/Desktop/ETH/HS23/Algorithmen und Datenstrukturen/Zusammenfassung/Zusammenfassung-AnD/main.tex" 1698926891 101350 dc13b73b34dbebddedfe049f5a73506f ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -229,6 +229,9 @@
   "/usr/local/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty" 1655478651 22555 6d8e155cfef6d82c3d5c742fea7c992e ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty" 1665067230 13815 760b0c02f691ea230f5359c4e1de23a7 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1673989714 30429 213676d4c7327a21d91ddaed900e7b81 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty" 1677186603 6107 5cfea8a675c58918b8c04be10261e48c ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty" 1675461949 4674 257c150d9d5c2fbc229303c8beaf6228 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty" 1675461949 6812 3c152a1c8d562d7b7291c4839b61a5c3 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1279039959 678 4792914a8f45be57bb98413425e4c7af ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty" 1575499565 5766 13a9e8766c47f30327caf893ece86ac8 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/listings/listings.cfg" 1677530001 1829 d8258b7d94f5f955e70c623e525f9f45 ""
@@ -253,6 +256,7 @@
   "/usr/local/texlive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657483315 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/stmaryrd/Ustmry.fd" 1137110872 1766 216b0f832c406513647608b5bb9bb8ff ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty" 1302307949 11080 aa7f81da60ce104f0dbb8b827dd14383 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/tikzmark/tikzlibrarytikzmark.code.tex" 1666814390 29192 15678a70708058bb7b2a574cb81e86a4 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/tools/calc.sty" 1654720880 10214 de3e21cfc0eccc98ca7f8dac0ef263d2 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/tools/multicol.sty" 1654720880 32329 5d201ab4b4c773e7c876c2a052b07be3 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/ucs/utf8x.def" 1660425649 8944 1cf5de165d8b3a9de8975b4e3f40e814 ""
@@ -307,10 +311,10 @@
   "Pictures/upout1.png" 1696774332 186445 75b50b6d5f9fa5a93dd2e616e1de1525 ""
   "Pictures/upout2.png" 1696774332 173998 9bafe96933086eba0cbd37cd95c6f79d ""
   "Pictures/upout3.png" 1696774332 218670 6f2470ae227bb238c79f7fd218e8a6ad ""
-  "main.aux" 1698415969 35666 2beb6b3449798ca2c29cfbde005317c3 "pdflatex"
-  "main.out" 1698415969 13203 184f31770bd7b0deb6f0033434e702aa "pdflatex"
-  "main.tex" 1698415957 94561 2fcd9c987edf37c5cab6626fd223126a ""
-  "main.toc" 1698415969 9449 26352537c4088b8a5df642da34645d85 "pdflatex"
+  "main.aux" 1698926897 37125 73303d13fc3605887c198461a4ca79a3 "pdflatex"
+  "main.out" 1698926897 13436 7a4a11316725191738e7da377fac0b26 "pdflatex"
+  "main.tex" 1698926891 101350 dc13b73b34dbebddedfe049f5a73506f ""
+  "main.toc" 1698926897 9565 1a5a1bc5f2d159f34962a81b831ea2ee "pdflatex"
   (generated)
   "main.aux"
   "main.log"

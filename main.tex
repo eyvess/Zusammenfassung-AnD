@@ -1904,7 +1904,33 @@ $\rightarrow I = \lbrace 1,2\rbrace$ ist optimal, aber a) nimmt $I = \lbrace 3\r
     (v_1,w_1) = (1,1) ; (v_2,w_2) = (9,10) ; w = 10
 \end{equation*}
 $\rightarrow I = \lbrace 2\rbrace$ ist optimal, aber b) und c) nehmen $I = \lbrace 1\rbrace$ an.
-\textbf{DP-Teilproblem:} $MW(i, w) :=$ maximaler Wert 
+\subsubsection*{DP-Teilproblem:} $MW(i, w) :=$ maximaler Wert, den man aus $1 \dots n$ mit Höchstgewicht $w$ erreichen kann. \\
+\textbf{Rekrusion:} $MW(i,w) = \max \lbrace MW(i-1, w) , v_i + MW(i-1,w-w_i)\rbrace$, wobei 
+\begin{itemize}
+    \item $MW(i-1, w) :=$ verwende item $i$ nicht
+    \item $v_i + MW(i-1,w-w_i) :=$ verwende item $i$. Nur möglich, falls $w_i \leq w$.
+\end{itemize}
+Tabelle:
+%%Tabelle hier noch einfügen, keine lust gerade :oooo 
+
+
+
+%%Ende Tabelle woni kei bock ha zum ihfüege
+Die Laufzeit dieses Algorithmus und dessen benötigten Speicher ist $\mathcal{O}(nW)$ (\textbf{pseudo-polynomiell}).
+
+\subsubsection*{Alternativ-DP:} 
+\textbf{Teilproblem:} $MG(i, v) :=$ minimales Gewicht, das man braucht, um aus$1 \dots i$ einen Wert $\geq v$ zu erzeugen ($MG(i, v) = \infty)$, wenn $v$ gar nicht erreicht werden kann \\
+\textbf{Rekrusion:} $MG(i,v)= \min\lbrace MG(i-1, v), w_i + MG(i-1, v-v_1)\rbrace$ ($MG(i-1, v-v_1) = 0$, falls $v_i \geq v$)
+
+
+%%Tabelle hier noch einfügen, keine lust gerade :oooo
+
+
+
+%%Ende Tabelle woni kei bock ha zum ihfüege
+
+Die Laufzeit dieses Algorithmus ist $\mathcal{O}(nV)$.
+
 
 \subsection{Longest Ascending Subsequence}
 

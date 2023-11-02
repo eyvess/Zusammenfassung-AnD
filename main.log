@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.27)  27 OCT 2023 16:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.27)  2 NOV 2023 13:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1040,7 +1040,24 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@expandcount=\count332
  (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+))) (/usr/local/texlive/2023/texmf-dist/tex/latex/tikzmark/tikzlibrarytikzmark.code.tex
+File: tikzlibrarytikzmark.code.tex 2022/08/24 v1.15 TikZ library for marking positions in a document
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2023-02-22 L3 programming layer (loader) 
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count333
+\l__pdf_internal_box=\box112
+)) (/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2023-02-02 LaTeX2e option processing using LaTeX3 keys
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2023-02-02 L3 Experimental document command parser
+)
+\l__sn_x_dim=\dimen296
+\l__sn_y_dim=\dimen297
+\l__sn_xa_dim=\dimen298
+\l__sn_ya_dim=\dimen299
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/02/19 v1.6 Sub-captions (AR)
@@ -1048,49 +1065,49 @@ Package: subcaption 2023/02/19 v1.6 Sub-captions (AR)
 Package: caption 2023/03/12 v3.6j Customizing captions (AR)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/03/12 v2.4 caption3 kernel (AR)
-\caption@tempdima=\dimen296
-\captionmargin=\dimen297
-\caption@leftmargin=\dimen298
-\caption@rightmargin=\dimen299
-\caption@width=\dimen300
-\caption@indent=\dimen301
-\caption@parindent=\dimen302
-\caption@hangindent=\dimen303
+\caption@tempdima=\dimen300
+\captionmargin=\dimen301
+\caption@leftmargin=\dimen302
+\caption@rightmargin=\dimen303
+\caption@width=\dimen304
+\caption@indent=\dimen305
+\caption@parindent=\dimen306
+\caption@hangindent=\dimen307
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count333
-\c@continuedfloat=\count334
+\c@caption@flags=\count334
+\c@continuedfloat=\count335
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: wrapfig package is loaded.
 )
 Package caption Info: New subtype `subfigure' on input line 239.
-\c@subfigure=\count335
+\c@subfigure=\count336
 Package caption Info: New subtype `subtable' on input line 239.
-\c@subtable=\count336
+\c@subtable=\count337
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
 Package: stmaryrd 1994/03/03 St Mary's Road symbol package
 \symstmry=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
 (Font)                  U/stmry/m/n --> U/stmry/b/n on input line 89.
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count337
-\lst@gtempboxa=\box112
+\lst@mode=\count338
+\lst@gtempboxa=\box113
 \lst@token=\toks47
-\lst@length=\count338
-\lst@currlwidth=\dimen304
-\lst@column=\count339
-\lst@pos=\count340
-\lst@lostspace=\dimen305
-\lst@width=\dimen306
-\lst@newlines=\count341
-\lst@lineno=\count342
-\lst@maxwidth=\dimen307
+\lst@length=\count339
+\lst@currlwidth=\dimen308
+\lst@column=\count340
+\lst@pos=\count341
+\lst@lostspace=\dimen309
+\lst@width=\dimen310
+\lst@newlines=\count342
+\lst@lineno=\count343
+\lst@maxwidth=\dimen311
  (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count343
-\lst@skipnumbers=\count344
-\lst@framebox=\box113
+\c@lstnumber=\count344
+\lst@skipnumbers=\count345
+\lst@framebox=\box114
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
@@ -1099,30 +1116,30 @@ Package: listings 2023/02/27 1.9 (Carsten Heinz)
 Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
  (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count345
-\calc@Bcount=\count346
-\calc@Adimen=\dimen308
-\calc@Bdimen=\dimen309
+\calc@Acount=\count346
+\calc@Bcount=\count347
+\calc@Adimen=\dimen312
+\calc@Bdimen=\dimen313
 \calc@Askip=\skip60
 \calc@Bskip=\skip61
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count347
+\calc@Ccount=\count348
 \calc@Cskip=\skip62
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
-\g_MT_multlinerow_int=\count348
-\l_MT_multwidth_dim=\dimen310
+\g_MT_multlinerow_int=\count349
+\l_MT_multwidth_dim=\dimen314
 \origjot=\skip63
-\l_MT_shortvdotswithinadjustabove_dim=\dimen311
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen312
-\l_MT_above_intertext_sep=\dimen313
-\l_MT_below_intertext_sep=\dimen314
-\l_MT_above_shortintertext_sep=\dimen315
-\l_MT_below_shortintertext_sep=\dimen316
-\xmathstrut@box=\box114
-\xmathstrut@dim=\dimen317
+\l_MT_shortvdotswithinadjustabove_dim=\dimen315
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen316
+\l_MT_above_intertext_sep=\dimen317
+\l_MT_below_intertext_sep=\dimen318
+\l_MT_above_shortintertext_sep=\dimen319
+\l_MT_below_shortintertext_sep=\dimen320
+\xmathstrut@box=\box115
+\xmathstrut@dim=\dimen321
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/courier.sty
 Package: courier 2020/03/25 PSNFSS-v9.3 (WaS) 
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/geometry/geometry.sty
@@ -1130,22 +1147,18 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/local/texlive/2023/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count349
-\Gm@cntv=\count350
-\c@Gm@tempcnt=\count351
-\Gm@bindingoffset=\dimen318
-\Gm@wd@mp=\dimen319
-\Gm@odd@mp=\dimen320
-\Gm@even@mp=\dimen321
-\Gm@layoutwidth=\dimen322
-\Gm@layoutheight=\dimen323
-\Gm@layouthoffset=\dimen324
-\Gm@layoutvoffset=\dimen325
+\Gm@cnth=\count350
+\Gm@cntv=\count351
+\c@Gm@tempcnt=\count352
+\Gm@bindingoffset=\dimen322
+\Gm@wd@mp=\dimen323
+\Gm@odd@mp=\dimen324
+\Gm@even@mp=\dimen325
+\Gm@layoutwidth=\dimen326
+\Gm@layoutheight=\dimen327
+\Gm@layouthoffset=\dimen328
+\Gm@layoutvoffset=\dimen329
 \Gm@dimlist=\toks48
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count352
-\l__pdf_internal_box=\box115
 ) (./main.aux
 
 LaTeX Warning: Label `fig:DFS-End' multiply defined.
@@ -1165,34 +1178,34 @@ LaTeX Warning: Label `fig:BFS-Veranschaulichung' multiply defined.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count353
-\scratchdimen=\dimen326
+\scratchdimen=\dimen330
 \scratchbox=\box116
 \nofMPsegments=\count354
 \nofMParguments=\count355
 \everyMPshowfont=\toks49
 \MPscratchCnt=\count356
-\MPscratchDim=\dimen327
+\MPscratchDim=\dimen331
 \MPnumerator=\count357
 \makeMPintoPDFobject=\count358
 \everyMPtoPDFconversion=\toks50
@@ -1202,7 +1215,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 61.
+Package hyperref Info: Link coloring OFF on input line 64.
  (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
@@ -1246,20 +1259,20 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 63.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 66.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 63.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 66.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 63.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 66.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-<Pictures/eth_logo_kurz_pos Kopie.png, id=328, 186.6975pt x 68.1747pt>
+<Pictures/eth_logo_kurz_pos Kopie.png, id=332, 186.6975pt x 68.1747pt>
 File: Pictures/eth_logo_kurz_pos Kopie.png Graphic file (type png)
 <use Pictures/eth_logo_kurz_pos Kopie.png>
-Package pdftex.def Info: Pictures/eth_logo_kurz_pos Kopie.png  used on input line 64.
+Package pdftex.def Info: Pictures/eth_logo_kurz_pos Kopie.png  used on input line 67.
 (pdftex.def)             Requested size: 186.69704pt x 68.17451pt.
  (./main.toc [1
 
@@ -1268,21 +1281,21 @@ Package pdftex.def Info: Pictures/eth_logo_kurz_pos Kopie.png  used on input lin
 \openout5 = `main.toc'.
 
  [2]
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 88.
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 91.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 83--91
+Underfull \hbox (badness 10000) in paragraph at lines 86--94
 
  []
 
 
-Overfull \hbox (2.96481pt too wide) in paragraph at lines 93--95
+Overfull \hbox (2.96481pt too wide) in paragraph at lines 96--98
 \T1/cmr/m/n/10 Damit wir schnelle Re-sul-tate er-hal-ten k�n-nen, sind Ap-prox-i-ma-tio-nen ein fun-da-men-taler Be-standteil.
  []
 
 [3{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-Overfull \hbox (28.41385pt too wide) in paragraph at lines 178--203
+Overfull \hbox (28.41385pt too wide) in paragraph at lines 181--206
  [][] 
  []
 
@@ -1290,104 +1303,104 @@ Overfull \hbox (28.41385pt too wide) in paragraph at lines 178--203
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [4]
-<Pictures/big-o-notation.jpg, id=464, 1468.48625pt x 1006.76125pt>
+<Pictures/big-o-notation.jpg, id=469, 1468.48625pt x 1006.76125pt>
 File: Pictures/big-o-notation.jpg Graphic file (type jpg)
 <use Pictures/big-o-notation.jpg>
-Package pdftex.def Info: Pictures/big-o-notation.jpg  used on input line 220.
+Package pdftex.def Info: Pictures/big-o-notation.jpg  used on input line 223.
 (pdftex.def)             Requested size: 128.0387pt x 87.778pt.
  [5 <./Pictures/big-o-notation.jpg>]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 232.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 235.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 232--235
+Underfull \hbox (badness 10000) in paragraph at lines 235--238
 
  []
 
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 237.
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 240.
 [6{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 305--306
+Underfull \hbox (badness 10000) in paragraph at lines 308--309
 
  []
 
 [7]
-<Pictures/max-heap-min-heap.png, id=496, 457.71pt x 258.9675pt>
+<Pictures/max-heap-min-heap.png, id=501, 457.71pt x 258.9675pt>
 File: Pictures/max-heap-min-heap.png Graphic file (type png)
 <use Pictures/max-heap-min-heap.png>
-Package pdftex.def Info: Pictures/max-heap-min-heap.png  used on input line 358.
+Package pdftex.def Info: Pictures/max-heap-min-heap.png  used on input line 361.
 (pdftex.def)             Requested size: 320.39482pt x 181.27599pt.
-<Pictures/0-heap.png, id=497, 356.83313pt x 237.88875pt>
+<Pictures/0-heap.png, id=502, 356.83313pt x 237.88875pt>
 File: Pictures/0-heap.png Graphic file (type png)
 <use Pictures/0-heap.png>
-Package pdftex.def Info: Pictures/0-heap.png  used on input line 364.
+Package pdftex.def Info: Pictures/0-heap.png  used on input line 367.
 (pdftex.def)             Requested size: 178.41612pt x 118.94408pt.
  [8 <./Pictures/max-heap-min-heap.png> <./Pictures/0-heap.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 441--442
+Underfull \hbox (badness 10000) in paragraph at lines 444--445
 
  []
 
 [9]
-<Pictures/Pseudobinärersuchbaum.svg.png, id=526, 232.87pt x 200.75pt>
+<Pictures/Pseudobinärersuchbaum.svg.png, id=531, 232.87pt x 200.75pt>
 File: Pictures/Pseudobinärersuchbaum.svg.png Graphic file (type png)
 <use Pictures/Pseudobinärersuchbaum.svg.png>
-Package pdftex.def Info: Pictures/Pseudobinärersuchbaum.svg.png  used on input line 476.
+Package pdftex.def Info: Pictures/Pseudobinärersuchbaum.svg.png  used on input line 479.
 (pdftex.def)             Requested size: 163.00787pt x 140.52403pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [10]
-<Pictures/AVL-trees.png, id=541, 777.90625pt x 362.35374pt>
+<Pictures/AVL-trees.png, id=546, 777.90625pt x 362.35374pt>
 File: Pictures/AVL-trees.png Graphic file (type png)
 <use Pictures/AVL-trees.png>
-Package pdftex.def Info: Pictures/AVL-trees.png  used on input line 501.
+Package pdftex.def Info: Pictures/AVL-trees.png  used on input line 504.
 (pdftex.def)             Requested size: 388.95216pt x 181.17642pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/AVL-trees-height.png, id=544, 701.62125pt x 246.9225pt>
+<Pictures/AVL-trees-height.png, id=549, 701.62125pt x 246.9225pt>
 File: Pictures/AVL-trees-height.png Graphic file (type png)
 <use Pictures/AVL-trees-height.png>
-Package pdftex.def Info: Pictures/AVL-trees-height.png  used on input line 510.
+Package pdftex.def Info: Pictures/AVL-trees-height.png  used on input line 513.
 (pdftex.def)             Requested size: 256.07741pt x 90.12407pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/AVL-trees-allg.png, id=545, 563.10374pt x 288.07625pt>
+<Pictures/AVL-trees-allg.png, id=550, 563.10374pt x 288.07625pt>
 File: Pictures/AVL-trees-allg.png Graphic file (type png)
 <use Pictures/AVL-trees-allg.png>
-Package pdftex.def Info: Pictures/AVL-trees-allg.png  used on input line 517.
+Package pdftex.def Info: Pictures/AVL-trees-allg.png  used on input line 520.
 (pdftex.def)             Requested size: 341.43437pt x 174.67567pt.
 [11 <./Pictures/Pseudobinärersuchbaum.svg.png>]
-<Pictures/AVL-einfügen1.png, id=563, 206.7725pt x 249.93375pt>
+<Pictures/AVL-einfügen1.png, id=568, 206.7725pt x 249.93375pt>
 File: Pictures/AVL-einfügen1.png Graphic file (type png)
 <use Pictures/AVL-einfügen1.png>
-Package pdftex.def Info: Pictures/AVL-einfügen1.png  used on input line 540.
+Package pdftex.def Info: Pictures/AVL-einfügen1.png  used on input line 543.
 (pdftex.def)             Requested size: 96.02739pt x 116.07306pt.
-<Pictures/AVL.einfügen2.png, id=564, 206.7725pt x 294.09875pt>
+<Pictures/AVL.einfügen2.png, id=569, 206.7725pt x 294.09875pt>
 File: Pictures/AVL.einfügen2.png Graphic file (type png)
 <use Pictures/AVL.einfügen2.png>
-Package pdftex.def Info: Pictures/AVL.einfügen2.png  used on input line 547.
+Package pdftex.def Info: Pictures/AVL.einfügen2.png  used on input line 550.
 (pdftex.def)             Requested size: 86.42406pt x 122.92378pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/AVL-bal(+1).png, id=565, 768.8725pt x 278.03876pt>
+<Pictures/AVL-bal(+1).png, id=570, 768.8725pt x 278.03876pt>
 File: Pictures/AVL-bal(+1).png Graphic file (type png)
 <use Pictures/AVL-bal(+1).png>
-Package pdftex.def Info: Pictures/AVL-bal(+1).png  used on input line 558.
+Package pdftex.def Info: Pictures/AVL-bal(+1).png  used on input line 561.
 (pdftex.def)             Requested size: 256.07741pt x 92.60156pt.
-<Pictures/AVL-bal(-1).png, id=566, 768.8725pt x 278.03876pt>
+<Pictures/AVL-bal(-1).png, id=571, 768.8725pt x 278.03876pt>
 File: Pictures/AVL-bal(-1).png Graphic file (type png)
 <use Pictures/AVL-bal(-1).png>
-Package pdftex.def Info: Pictures/AVL-bal(-1).png  used on input line 564.
+Package pdftex.def Info: Pictures/AVL-bal(-1).png  used on input line 567.
 (pdftex.def)             Requested size: 204.8627pt x 74.08295pt.
-<Pictures/AVL-bal(0).png, id=567, 768.8725pt x 175.65625pt>
+<Pictures/AVL-bal(0).png, id=572, 768.8725pt x 175.65625pt>
 File: Pictures/AVL-bal(0).png Graphic file (type png)
 <use Pictures/AVL-bal(0).png>
-Package pdftex.def Info: Pictures/AVL-bal(0).png  used on input line 570.
+Package pdftex.def Info: Pictures/AVL-bal(0).png  used on input line 573.
 (pdftex.def)             Requested size: 204.8627pt x 46.8033pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1397,39 +1410,39 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: Text page 13 contains only floats.
 
 [13 <./Pictures/AVL-trees-allg.png> <./Pictures/AVL-einfügen1.png> <./Pictures/AVL.einfügen2.png> <./Pictures/AVL-bal(+1).png> <./Pictures/AVL-bal(-1).png> <./Pictures/AVL-bal(0).png>]
-<Pictures/AVL-Rotations.png, id=592, 1096.095pt x 822.07124pt>
+<Pictures/AVL-Rotations.png, id=597, 1096.095pt x 822.07124pt>
 File: Pictures/AVL-Rotations.png Graphic file (type png)
 <use Pictures/AVL-Rotations.png>
-Package pdftex.def Info: Pictures/AVL-Rotations.png  used on input line 590.
+Package pdftex.def Info: Pictures/AVL-Rotations.png  used on input line 593.
 (pdftex.def)             Requested size: 426.79135pt x 320.0922pt.
  [14 <./Pictures/AVL-Rotations.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 648--651
+Underfull \hbox (badness 10000) in paragraph at lines 651--654
 
  []
 
 [15]
-<Pictures/insertionsort_version1.png, id=608, 655.44875pt x 433.62pt>
+<Pictures/insertionsort_version1.png, id=613, 655.44875pt x 433.62pt>
 File: Pictures/insertionsort_version1.png Graphic file (type png)
 <use Pictures/insertionsort_version1.png>
-Package pdftex.def Info: Pictures/insertionsort_version1.png  used on input line 745.
+Package pdftex.def Info: Pictures/insertionsort_version1.png  used on input line 748.
 (pdftex.def)             Requested size: 196.63614pt x 130.087pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/selectionsort_idee_version1.png, id=609, 657.45625pt x 384.43625pt>
+<Pictures/selectionsort_idee_version1.png, id=614, 657.45625pt x 384.43625pt>
 File: Pictures/selectionsort_idee_version1.png Graphic file (type png)
 <use Pictures/selectionsort_idee_version1.png>
-Package pdftex.def Info: Pictures/selectionsort_idee_version1.png  used on input line 779.
+Package pdftex.def Info: Pictures/selectionsort_idee_version1.png  used on input line 782.
 (pdftex.def)             Requested size: 197.23839pt x 115.33176pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [16 <./Pictures/insertionsort_version1.png (PNG copy)>]
-<Pictures/Qcksort.jpeg, id=618, 580.1675pt x 589.20125pt>
+<Pictures/Qcksort.jpeg, id=623, 580.1675pt x 589.20125pt>
 File: Pictures/Qcksort.jpeg Graphic file (type jpg)
 <use Pictures/Qcksort.jpeg>
-Package pdftex.def Info: Pictures/Qcksort.jpeg  used on input line 815.
+Package pdftex.def Info: Pictures/Qcksort.jpeg  used on input line 818.
 (pdftex.def)             Requested size: 232.06288pt x 235.67632pt.
 
 
@@ -1439,15 +1452,15 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/merge-sort-example_0.png, id=628, 608.2725pt x 618.31pt>
+<Pictures/merge-sort-example_0.png, id=633, 608.2725pt x 618.31pt>
 File: Pictures/merge-sort-example_0.png Graphic file (type png)
 <use Pictures/merge-sort-example_0.png>
-Package pdftex.def Info: Pictures/merge-sort-example_0.png  used on input line 864.
+Package pdftex.def Info: Pictures/merge-sort-example_0.png  used on input line 867.
 (pdftex.def)             Requested size: 123.48079pt x 125.51843pt.
-<Pictures/MergeSort, Vergleiche und Schreiboperationen.png, id=629, 897.3525pt x 665.48625pt>
+<Pictures/MergeSort, Vergleiche und Schreiboperationen.png, id=634, 897.3525pt x 665.48625pt>
 File: Pictures/MergeSort, Vergleiche und Schreiboperationen.png Graphic file (type png)
 <use Pictures/MergeSort, Vergleiche und Schreiboperationen.png>
-Package pdftex.def Info: Pictures/MergeSort, Vergleiche und Schreiboperationen.png  used on input line 871.
+Package pdftex.def Info: Pictures/MergeSort, Vergleiche und Schreiboperationen.png  used on input line 874.
 (pdftex.def)             Requested size: 426.79135pt x 316.50528pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1456,107 +1469,107 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [18 <./Pictures/Qcksort.jpeg> <./Pictures/merge-sort-example_0.png>] [19] [20 <./Pictures/MergeSort, Vergleiche und Schreiboperationen.png>]
-<Pictures/TreeAnDForest.png, id=659, 1051.93pt x 804.00375pt>
+<Pictures/TreeAnDForest.png, id=664, 1051.93pt x 804.00375pt>
 File: Pictures/TreeAnDForest.png Graphic file (type png)
 <use Pictures/TreeAnDForest.png>
-Package pdftex.def Info: Pictures/TreeAnDForest.png  used on input line 970.
+Package pdftex.def Info: Pictures/TreeAnDForest.png  used on input line 973.
 (pdftex.def)             Requested size: 210.38226pt x 160.7979pt.
  [21 <./Pictures/TreeAnDForest.png>]
-<Pictures/Multi-pseudograph.svg.png, id=668, 1204.5pt x 1204.5pt>
+<Pictures/Multi-pseudograph.svg.png, id=673, 1204.5pt x 1204.5pt>
 File: Pictures/Multi-pseudograph.svg.png Graphic file (type png)
 <use Pictures/Multi-pseudograph.svg.png>
-Package pdftex.def Info: Pictures/Multi-pseudograph.svg.png  used on input line 1001.
+Package pdftex.def Info: Pictures/Multi-pseudograph.svg.png  used on input line 1004.
 (pdftex.def)             Requested size: 128.0387pt x 128.02927pt.
-<Pictures/1200px-Hypergraph-wikipedia.svg.png, id=669, 1204.5pt x 869.2475pt>
+<Pictures/1200px-Hypergraph-wikipedia.svg.png, id=674, 1204.5pt x 869.2475pt>
 File: Pictures/1200px-Hypergraph-wikipedia.svg.png Graphic file (type png)
 <use Pictures/1200px-Hypergraph-wikipedia.svg.png>
-Package pdftex.def Info: Pictures/1200px-Hypergraph-wikipedia.svg.png  used on input line 1008.
+Package pdftex.def Info: Pictures/1200px-Hypergraph-wikipedia.svg.png  used on input line 1011.
 (pdftex.def)             Requested size: 128.0387pt x 92.39445pt.
  [22 <./Pictures/Multi-pseudograph.svg.png> <./Pictures/1200px-Hypergraph-wikipedia.svg.png>] [23]
-Underfull \hbox (badness 10000) in paragraph at lines 1093--1095
+Underfull \hbox (badness 10000) in paragraph at lines 1096--1098
 
  []
 
-<Pictures/Stack and Queue.png, id=687, 524.96124pt x 228.855pt>
+<Pictures/Stack and Queue.png, id=692, 524.96124pt x 228.855pt>
 File: Pictures/Stack and Queue.png Graphic file (type png)
 <use Pictures/Stack and Queue.png>
-Package pdftex.def Info: Pictures/Stack and Queue.png  used on input line 1172.
+Package pdftex.def Info: Pictures/Stack and Queue.png  used on input line 1175.
 (pdftex.def)             Requested size: 262.47998pt x 114.42722pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [24]
-<Pictures/DFS-StartGraph.png, id=701, 179.67125pt x 164.615pt>
+<Pictures/DFS-StartGraph.png, id=706, 179.67125pt x 164.615pt>
 File: Pictures/DFS-StartGraph.png Graphic file (type png)
 <use Pictures/DFS-StartGraph.png>
-Package pdftex.def Info: Pictures/DFS-StartGraph.png  used on input line 1184.
+Package pdftex.def Info: Pictures/DFS-StartGraph.png  used on input line 1187.
 (pdftex.def)             Requested size: 71.86722pt x 65.84482pt.
-<Pictures/DFS-EndGraph.png, id=702, 248.93pt x 225.84375pt>
+<Pictures/DFS-EndGraph.png, id=707, 248.93pt x 225.84375pt>
 File: Pictures/DFS-EndGraph.png Graphic file (type png)
 <use Pictures/DFS-EndGraph.png>
-Package pdftex.def Info: Pictures/DFS-EndGraph.png  used on input line 1191.
+Package pdftex.def Info: Pictures/DFS-EndGraph.png  used on input line 1194.
 (pdftex.def)             Requested size: 99.57022pt x 90.33589pt.
 
-Underfull \hbox (badness 1648) in paragraph at lines 1192--1192
+Underfull \hbox (badness 1648) in paragraph at lines 1195--1195
 []\T1/cmr/m/n/9 (b) |How the DFS-Algorithm tra-versed
  []
 
 [25 <./Pictures/Stack and Queue.png (PNG copy)> <./Pictures/DFS-StartGraph.png> <./Pictures/DFS-EndGraph.png>]
-<Pictures/PrePost.png, id=714, 1119.18124pt x 476.78125pt>
+<Pictures/PrePost.png, id=719, 1119.18124pt x 476.78125pt>
 File: Pictures/PrePost.png Graphic file (type png)
 <use Pictures/PrePost.png>
-Package pdftex.def Info: Pictures/PrePost.png  used on input line 1244.
+Package pdftex.def Info: Pictures/PrePost.png  used on input line 1247.
 (pdftex.def)             Requested size: 783.42154pt x 333.74458pt.
-<Pictures/PrePostIntrval.png, id=715, 1145.27875pt x 413.545pt>
+<Pictures/PrePostIntrval.png, id=720, 1145.27875pt x 413.545pt>
 File: Pictures/PrePostIntrval.png Graphic file (type png)
 <use Pictures/PrePostIntrval.png>
-Package pdftex.def Info: Pictures/PrePostIntrval.png  used on input line 1251.
+Package pdftex.def Info: Pictures/PrePostIntrval.png  used on input line 1254.
 (pdftex.def)             Requested size: 801.68967pt x 289.4795pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1242--1255
+Underfull \hbox (badness 10000) in paragraph at lines 1245--1258
 
  []
 
-<Pictures/PrePostIntrvalOrdered.png, id=716, 667.49374pt x 529.47812pt>
+<Pictures/PrePostIntrvalOrdered.png, id=721, 667.49374pt x 529.47812pt>
 File: Pictures/PrePostIntrvalOrdered.png Graphic file (type png)
 <use Pictures/PrePostIntrvalOrdered.png>
-Package pdftex.def Info: Pictures/PrePostIntrvalOrdered.png  used on input line 1261.
+Package pdftex.def Info: Pictures/PrePostIntrvalOrdered.png  used on input line 1264.
 (pdftex.def)             Requested size: 233.62631pt x 185.32011pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/PrePostIntrvalOrderedIn.png, id=717, 1097.09875pt x 649.42625pt>
+<Pictures/PrePostIntrvalOrderedIn.png, id=722, 1097.09875pt x 649.42625pt>
 File: Pictures/PrePostIntrvalOrderedIn.png Graphic file (type png)
 <use Pictures/PrePostIntrvalOrderedIn.png>
-Package pdftex.def Info: Pictures/PrePostIntrvalOrderedIn.png  used on input line 1269.
+Package pdftex.def Info: Pictures/PrePostIntrvalOrderedIn.png  used on input line 1272.
 (pdftex.def)             Requested size: 329.13217pt x 194.82938pt.
 [26 <./Pictures/PrePost.png> <./Pictures/PrePostIntrval.png>]
-<Pictures/Topologicalordering.png, id=727, 991.20313pt x 146.04562pt>
+<Pictures/Topologicalordering.png, id=732, 991.20313pt x 146.04562pt>
 File: Pictures/Topologicalordering.png Graphic file (type png)
 <use Pictures/Topologicalordering.png>
-Package pdftex.def Info: Pictures/Topologicalordering.png  used on input line 1282.
+Package pdftex.def Info: Pictures/Topologicalordering.png  used on input line 1285.
 (pdftex.def)             Requested size: 346.92628pt x 51.11671pt.
  [27 <./Pictures/PrePostIntrvalOrdered.png> <./Pictures/PrePostIntrvalOrderedIn.png> <./Pictures/Topologicalordering.png>]
-<Pictures/BFS-StartGraph.png, id=740, 192.72pt x 168.63pt>
+<Pictures/BFS-StartGraph.png, id=745, 192.72pt x 168.63pt>
 File: Pictures/BFS-StartGraph.png Graphic file (type png)
 <use Pictures/BFS-StartGraph.png>
-Package pdftex.def Info: Pictures/BFS-StartGraph.png  used on input line 1294.
+Package pdftex.def Info: Pictures/BFS-StartGraph.png  used on input line 1297.
 (pdftex.def)             Requested size: 77.08662pt x 67.45079pt.
-<Pictures/BFS-EndGraph.png, id=741, 312.16624pt x 328.22626pt>
+<Pictures/BFS-EndGraph.png, id=746, 312.16624pt x 328.22626pt>
 File: Pictures/BFS-EndGraph.png Graphic file (type png)
 <use Pictures/BFS-EndGraph.png>
-Package pdftex.def Info: Pictures/BFS-EndGraph.png  used on input line 1301.
+Package pdftex.def Info: Pictures/BFS-EndGraph.png  used on input line 1304.
 (pdftex.def)             Requested size: 124.86427pt x 131.28816pt.
 
-Underfull \hbox (badness 2012) in paragraph at lines 1302--1302
+Underfull \hbox (badness 2012) in paragraph at lines 1305--1305
 []\T1/cmr/m/n/9 (b) |How the BFS-Algorithm tra-
  []
 
 [28 <./Pictures/BFS-StartGraph.png> <./Pictures/BFS-EndGraph.png>] [29] [30] [31] [32]
-<Pictures/MSS-DPVersion.jpeg, id=803, 1819.79875pt x 1114.1625pt>
+<Pictures/MSS-DPVersion.jpeg, id=808, 1819.79875pt x 1114.1625pt>
 File: Pictures/MSS-DPVersion.jpeg Graphic file (type jpg)
 <use Pictures/MSS-DPVersion.jpeg>
-Package pdftex.def Info: Pictures/MSS-DPVersion.jpeg  used on input line 1596.
+Package pdftex.def Info: Pictures/MSS-DPVersion.jpeg  used on input line 1599.
 (pdftex.def)             Requested size: 426.79135pt x 261.3012pt.
  [33]
 
@@ -1565,93 +1578,116 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) [34 <./Pictures/MSS-DPVersion.jpeg>]
-<Pictures/LGT0.jpg, id=819, 1216.545pt x 1216.545pt>
+<Pictures/LGT0.jpg, id=824, 1216.545pt x 1216.545pt>
 File: Pictures/LGT0.jpg Graphic file (type jpg)
 <use Pictures/LGT0.jpg>
-Package pdftex.def Info: Pictures/LGT0.jpg  used on input line 1703.
+Package pdftex.def Info: Pictures/LGT0.jpg  used on input line 1706.
 (pdftex.def)             Requested size: 192.0548pt x 192.05235pt.
-<Pictures/LGT1.jpg, id=820, 1228.59pt x 1228.59pt>
+<Pictures/LGT1.jpg, id=825, 1228.59pt x 1228.59pt>
 File: Pictures/LGT1.jpg Graphic file (type jpg)
 <use Pictures/LGT1.jpg>
-Package pdftex.def Info: Pictures/LGT1.jpg  used on input line 1709.
+Package pdftex.def Info: Pictures/LGT1.jpg  used on input line 1712.
 (pdftex.def)             Requested size: 192.0548pt x 192.0417pt.
-<Pictures/LGT2.jpg, id=821, 2142.0025pt x 1284.8pt>
+<Pictures/LGT2.jpg, id=826, 2142.0025pt x 1284.8pt>
 File: Pictures/LGT2.jpg Graphic file (type jpg)
 <use Pictures/LGT2.jpg>
-Package pdftex.def Info: Pictures/LGT2.jpg  used on input line 1715.
+Package pdftex.def Info: Pictures/LGT2.jpg  used on input line 1718.
 (pdftex.def)             Requested size: 298.75264pt x 179.18462pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [35]
-Underfull \hbox (badness 10000) in paragraph at lines 1732--1733
+Underfull \hbox (badness 10000) in paragraph at lines 1735--1736
 
  []
 
 [36 <./Pictures/LGT0.jpg> <./Pictures/LGT1.jpg> <./Pictures/LGT2.jpg>]
-<Pictures/ED0.jpg, id=871, 1264.725pt x 1264.725pt>
+<Pictures/ED0.jpg, id=876, 1264.725pt x 1264.725pt>
 File: Pictures/ED0.jpg Graphic file (type jpg)
 <use Pictures/ED0.jpg>
-Package pdftex.def Info: Pictures/ED0.jpg  used on input line 1766.
+Package pdftex.def Info: Pictures/ED0.jpg  used on input line 1778.
 (pdftex.def)             Requested size: 192.0548pt x 192.05493pt.
-<Pictures/ED1.jpg, id=872, 1423.3175pt x 1423.3175pt>
+<Pictures/ED1.jpg, id=877, 1423.3175pt x 1423.3175pt>
 File: Pictures/ED1.jpg Graphic file (type jpg)
 <use Pictures/ED1.jpg>
-Package pdftex.def Info: Pictures/ED1.jpg  used on input line 1772.
+Package pdftex.def Info: Pictures/ED1.jpg  used on input line 1784.
 (pdftex.def)             Requested size: 192.0548pt x 192.0527pt.
-<Pictures/ED2.jpg, id=873, 1152.305pt x 1152.305pt>
+<Pictures/ED2.jpg, id=878, 1152.305pt x 1152.305pt>
 File: Pictures/ED2.jpg Graphic file (type jpg)
 <use Pictures/ED2.jpg>
-Package pdftex.def Info: Pictures/ED2.jpg  used on input line 1778.
+Package pdftex.def Info: Pictures/ED2.jpg  used on input line 1790.
 (pdftex.def)             Requested size: 192.0548pt x 192.03864pt.
-<Pictures/ED3.jpg, id=874, 1049.9225pt x 1049.9225pt>
+<Pictures/ED3.jpg, id=879, 1049.9225pt x 1049.9225pt>
 File: Pictures/ED3.jpg Graphic file (type jpg)
 <use Pictures/ED3.jpg>
-Package pdftex.def Info: Pictures/ED3.jpg  used on input line 1783.
+Package pdftex.def Info: Pictures/ED3.jpg  used on input line 1795.
 (pdftex.def)             Requested size: 192.0548pt x 192.05383pt.
- [37 <./Pictures/ED0.jpg> <./Pictures/ED1.jpg> <./Pictures/ED2.jpg> <./Pictures/ED3.jpg>] [38]
-<Pictures/heap_sort.jpeg, id=887, 616.3025pt x 2787.41376pt>
+ [37 <./Pictures/ED0.jpg> <./Pictures/ED1.jpg> <./Pictures/ED2.jpg> <./Pictures/ED3.jpg>]
+Overfull \hbox (19.40614pt too wide) in paragraph at lines 1847--1847
+ [][] 
+ []
+
+
+Overfull \hbox (21.32176pt too wide) in paragraph at lines 1875--1875
+ [][] 
+ []
+
+[38]
+Overfull \hbox (18.20853pt too wide) in paragraph at lines 1919--1920
+[]\T1/cmr/m/n/10 Die Laufzeit dieses Al-go-rith-mus und dessen ben�tigten Spe-icher ist $\OMS/cmsy/m/n/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 nW\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 (\T1/cmr/bx/n/10 pseudo-polynomiell\T1/cmr/m/n/10 ). 
+ []
+
+[39]
+<Pictures/heap_sort.jpeg, id=907, 616.3025pt x 2787.41376pt>
 File: Pictures/heap_sort.jpeg Graphic file (type jpg)
 <use Pictures/heap_sort.jpeg>
-Package pdftex.def Info: Pictures/heap_sort.jpeg  used on input line 1841.
+Package pdftex.def Info: Pictures/heap_sort.jpeg  used on input line 1981.
 (pdftex.def)             Requested size: 116.47803pt x 526.80698pt.
- [39 <./Pictures/heap_sort.jpeg>]
-<Pictures/upout1.png, id=896, 978.65625pt x 513.92pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[40]
+<Pictures/upout1.png, id=918, 978.65625pt x 513.92pt>
 File: Pictures/upout1.png Graphic file (type png)
 <use Pictures/upout1.png>
-Package pdftex.def Info: Pictures/upout1.png  used on input line 1890.
+Package pdftex.def Info: Pictures/upout1.png  used on input line 2030.
 (pdftex.def)             Requested size: 162.18279pt x 85.1617pt.
-<Pictures/upout2.png, id=897, 992.70876pt x 486.81876pt>
+<Pictures/upout2.png, id=919, 992.70876pt x 486.81876pt>
 File: Pictures/upout2.png Graphic file (type png)
 <use Pictures/upout2.png>
-Package pdftex.def Info: Pictures/upout2.png  used on input line 1896.
+Package pdftex.def Info: Pictures/upout2.png  used on input line 2036.
 (pdftex.def)             Requested size: 162.18279pt x 79.5268pt.
-<Pictures/upout3.png, id=898, 977.6525pt x 500.87125pt>
+<Pictures/upout3.png, id=920, 977.6525pt x 500.87125pt>
 File: Pictures/upout3.png Graphic file (type png)
 <use Pictures/upout3.png>
-Package pdftex.def Info: Pictures/upout3.png  used on input line 1902.
+Package pdftex.def Info: Pictures/upout3.png  used on input line 2042.
 (pdftex.def)             Requested size: 162.18279pt x 83.08345pt.
- [40 <./Pictures/upout1.png> <./Pictures/upout2.png> <./Pictures/upout3.png>] (./main.aux)
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[41] [42 <./Pictures/heap_sort.jpeg>] [43 <./Pictures/upout1.png> <./Pictures/upout2.png> <./Pictures/upout3.png>] (./main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 184F31770BD7B0DEB6F0033434E702AA;13203.
+(rerunfilecheck)             Checksum: 7A4A11316725191738E7DA377FAC0B26;13436.
  ) 
 Here is how much of TeX's memory you used:
- 27785 strings out of 476025
- 507077 string characters out of 5790017
+ 28223 strings out of 476025
+ 517968 string characters out of 5790017
  2076388 words of memory out of 5000000
- 47401 multiletter control sequences out of 15000+600000
+ 47812 multiletter control sequences out of 15000+600000
  540121 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,15n,89p,1498b,2078s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,17n,89p,1498b,2078s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0500.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on main.pdf (40 pages, 5724385 bytes).
+Output written on main.pdf (43 pages, 5733112 bytes).
 PDF statistics:
- 1150 PDF objects out of 1200 (max. 8388607)
- 941 compressed objects within 10 object streams
- 285 named destinations out of 1000 (max. 500000)
- 873 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1182 PDF objects out of 1200 (max. 8388607)
+ 969 compressed objects within 10 object streams
+ 298 named destinations out of 1000 (max. 500000)
+ 881 words of extra memory for PDF output out of 10000 (max. 10000000)
 

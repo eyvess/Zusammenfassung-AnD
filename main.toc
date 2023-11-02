@@ -98,14 +98,15 @@
 \contentsline {subsection}{\numberline {5.2}Jump Game}{34}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Längste gemeinsame Teilfolge}{35}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Minimale Editierdistanz}{36}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Matrixkettenmultiplikation}{37}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Subset Sum Problem}{37}{subsection.5.6}%
-\contentsline {subsection}{\numberline {5.7}Knap Sack Problem}{37}{subsection.5.7}%
-\contentsline {section}{\numberline {6}Sprachunterschiede}{38}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Deutsch}{38}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}English}{38}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Anhang}{39}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Stalin-Sort}{39}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}HeapSort Veranschaulichung: \ref {VerlinkzuHeapSortText}}{39}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Detaillierte Ansticht von AVL-Trees}{40}{subsection.7.3}%
-\contentsline {subsubsection}{\numberline {7.3.1}Entfernen:}{40}{subsubsection.7.3.1}%
+\contentsline {subsection}{\numberline {5.5}Subset Sum Problem}{37}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Knap Sack Problem}{38}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Longest Ascending Subsequence}{39}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Matrixkettenmultiplikation}{39}{subsection.5.8}%
+\contentsline {section}{\numberline {6}Anhang}{40}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Sprachunterschiede}{40}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Deutsch}{40}{subsubsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.2}English}{40}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Stalin-Sort}{40}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}HeapSort Veranschaulichung: \ref {VerlinkzuHeapSortText}}{40}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Detaillierte Ansticht von AVL-Trees}{40}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}Entfernen:}{40}{subsubsection.6.5.1}%
