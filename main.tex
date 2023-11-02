@@ -19,6 +19,7 @@
 \usepackage{wrapfig}
 \usepackage{hyperref}
 \usepackage{tikz}  %
+\usetikzlibrary{tikzmark}
 \usetikzlibrary{positioning}
 \usepackage{subcaption}
 \usepackage{xcolor}
@@ -27,7 +28,9 @@
 \usepackage{mathtools}
 
 
-
+	% Eingekreiste Nummern für Aufzählungen
+	\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=1.2pt] (char) {#1};}}
 
 
 \usepackage{courier} %% Sets font for listing as Courier.
@@ -1668,8 +1671,8 @@ public int jump(int[] nums) {
 
 
 \subsection{Längste gemeinsame Teilfolge}
-Was ist die LGT von \textsc{SEMESTER} $= A[1\dots n]$ und \textsc{VERBESSERN} $= B[1\dots m]$? Diese lautet \textsc{EESER}.
-Wir wollen in diesem Abschnitt eine Teilfolge finden, die die LGT sucht. Lücken zwischen den einzelnen Buchstaben ist egal, dafür muss die Reihenfolge stimmen. Wir formulieren wieder unser Teilproblem:\\
+Was ist die LGT von \texttt{SEMESTER} $= A[1\dots n]$ und \texttt{VERBESSERN} $= B[1\dots m]$? Diese lautet \texttt{EESER}.
+Wir wollen in diesem Abschnitt eine Teilfolge finden, die die LGT sucht. Lücken zwischen den einzelnen Buchstaben ist egal, dafür muss die Reihenfolge stimmen. Wir formulieren wieder unser Teilproblem und dessen dazugehörige Rekrusion:\\
 Teilproblem : für alle $i,j$ Wie gross ist $L(i,j) :=$ Länge eines LGT von $A[1\dots i]$ und $B[1\dots j]$ ?
 Rekursion: $i = 0$ oder $j = 0 \implies L(i,j) = 0$, wenn $i,j > 0$   folgt:
 \begin{enumerate}
@@ -1721,7 +1724,7 @@ public int LGT(String X, String Y, int m, int n, int[][] dp) {
 \end{figure}
 
 \subsection{Minimale Editierdistanz}
-Was ist die minimale Editierdistanz von \textsc{TIGER} $= A[1\dots n]$ und \textsc{ZIEGE} $= B[1\dots m]$, sodass $A = B$ ?
+Was ist die minimale Editierdistanz von \textsc{TIGER} $= A[1\dots n]$ und \textsc{ZIEGE} $= B[1\dots m]$, sodass $String(A) = String(B)$ ?
 Die Operationen die benötigt werden dürfen für dieses Problem sind:
 \begin{itemize}
     \item \texttt{ändern}: TIGER $\rightarrow$ ZIGER
@@ -1745,7 +1748,17 @@ Fallunterscheidung:
     \end{equation*}
 \end{enumerate}
 
-    Also folgt daraus dass für $i, j > 0$: 
+
+
+\begin{equation*}
+    \text{Als Base case haben wir:}
+  \begin{cases}
+    ED(i, 0) = i & \text{erste Spalte}  \\
+    ED(0, j) = j & \text{erste Zeile}
+    \end{cases}   
+\end{equation*}
+
+\textbf{Für $i, j > 0$: }
 \begin{equation*}
     {ED}(i, j) = \min \left( \begin{array}{c}
     {ED}(i-1, j) + 1 \text{ (A[i] löschen)}\\
@@ -1754,10 +1767,9 @@ Fallunterscheidung:
     0 & \text{if } A[i] = B[j] \\
     1 & \text{if } A[i] \neq B[j] \text{ (A[i] durch B[j] ersetzen)}
     \end{cases} \\
-    ED(i, 0) = i \\
-    ED(0, j) = j
     \end{array} \right)
 \end{equation*}
+
 
 Durchspielen eines Beispieles:
 \begin{figure}[h]
@@ -1781,7 +1793,7 @@ Durchspielen eines Beispieles:
 \end{subfigure}
 \begin{subfigure}{0.45\textwidth}
  \includegraphics[width=\textwidth]{Pictures/ED3.jpg}
-        \caption{DP-Tabelle und Rückverfolgung}
+        \caption{Rückverfolgung von Figure(\ref{fig:ED02})}
         \label{fig:ED03}
 \end{subfigure}
 \caption{ED-Ablauf von Base case zu finaler DP-Tabelle mit Rückverfolgung}
@@ -1790,22 +1802,127 @@ Durchspielen eines Beispieles:
 
 Die Laufzeit dieses Algorithmus \& dessen benötigten Speicher ist $\mathcal{O}(nm)$.
 
-\subsection{Matrixkettenmultiplikation}
 
 \subsection{Subset Sum Problem}
+In diesen Problem haben wir als Input: Array $A = [1\dots n], b$, wobei alle Zahlen $\in \mathbb{N}$. Ziel dieses Problems ist, ob wir eine Teilmenge (rsp. Teilsumme) $I$ von dem Array $A$ finden können, so dass dies $b$ ergibt:
+$I \subseteq \lbrace 1\dots n\rbrace$, sodass $\sum_{i\in I}A[i] = b$.
+\subsubsection*{Beispiel:}
+Array $A = [5, 3, 10, 3, 1]$ mit $b$, wobei für $b$ verschiedene Fälle angesehen werden:
+\begin{equation*}
+ b = 
+    \begin{cases*}
+           $ 12 $ &  \checkmark\\
+           $ 2 $  &  $\lightning$ \\
+           $> 22$ &  $\lightning$ \\
+           $= 20$ &  $\lightning$
+        \end{cases*}
+\end{equation*}
+Wir definieren wieder unser Teilproblem und dessen Rekursion: \\
+Teilproblem : $T(i, s) :=$ "Ist $s$ eine Teilsumme von $A[1\dots i]$ ?" $\in \lbrace 0, 1 \rbrace$ (false, true) \\
+Rekursion: wir haben zwei Möglichkeiten 1.) wir benutzen $A[i]$ oder 2.) wir benutzen $A[i]$ nicht. 
+\begin{equation*}
+    \implies T(i, s) = T(i-1, s) \lor T(i-1, s-A[i]) 
+\end{equation*}
+Our base cases are defined by: $ T(i, 0) = 1,\ T(0, s) = 0, s > 0$
+
+Table for $b= 7$: 
+
+
+\begin{table}[h]
+\parbox{.45\linewidth}{
+\centering
+    \centering
+    \begin{tabular}{cc|cccccccc}
+        & $T(i,s)$ & 0 & 1 & 2 & 3  & 4  & 5  & 6 & 7*\\
+    \hline
+      i= 0 & /& 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+        1 & 5 & 1 &  &  &  &  &  &\\
+        2 & 3 & 1 &  &  &  &  &  &\\
+        3 & 10 &1 &  &  &  &  &  &\\
+        4 & 3 & 1 &  &  &  &  &  &\\
+        5 & 1 & 1 &  &  &  &  &  &\\
+    \end{tabular}
+    \caption{Base Case | *: $b=7$}
+    \label{tab:SubSetSum-Basecase}
+}
+\hfill
+\parbox{.45\linewidth}{
+\centering
+    \begin{tabular}{cc|cccccccc}
+        & $T(i,s)$  & 0 & 1 & 2 & 3  & 4  & 5  & 6 & 7*\\
+    \hline
+      i= 0 & /& 1\tikzmark{a}& 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      
+        1  & 5 & 1\tikzmark{b}& \textcolor{gray}{0}  & \textcolor{gray}{0}  & \textcolor{gray}{0} & \textcolor{gray}{0} &\textcolor{red}{1}  & \textcolor{gray}{0} & \textcolor{gray}{0}\\
+        
+        2 & 3 & 1& \textcolor{gray}{0}  & \textcolor{gray}{0}  & \tikzmark{c}\textcolor{red}{1}  & \textcolor{gray}{0} &\textcolor{red}{1}  & \textcolor{gray}{0} & \textcolor{gray}{0}\\
+        
+        3 & 10 &1& \textcolor{gray}{0}  & \textcolor{gray}{0}  & \tikzmark{d}\textcolor{red}{1} & \textcolor{gray}{0} &\textcolor{red}{1}  & \textcolor{gray}{0} & \textcolor{gray}{0}\\
+        
+        4 & 3 & 1& \textcolor{gray}{0}  & \textcolor{gray}{0}  & \textcolor{red}{1} & \textcolor{gray}{0} &\textcolor{red}{1}  & \tikzmark{e}\textcolor{red}{1} & \textcolor{gray}{0} \\
+        
+        5 & 1 & 1& \textcolor{red}{1}  & \textcolor{gray}{0}  & \textcolor{red}{1} & \textcolor{red}{1} &\textcolor{red}{1}  & \textcolor{red}{1} & \tikzmark{f}\textcolor{red}{\circled{1}} \\
+    \end{tabular}
+    \begin{tikzpicture}[overlay, remember picture, shorten >=.5pt, shorten <=.5pt, transform canvas={yshift=.25\baselineskip}, color = teal]
+
+    \draw [<-] ([yshift=.75pt]{pic cs:a}) -- ({pic cs:b});
+    \draw [<-] ([yshift=.75pt]{pic cs:b}) -- ({pic cs:c});
+    \draw [<-] ([yshift=.75pt]{pic cs:c}) -- ({pic cs:d});
+    \draw [<-] ([yshift=.75pt]{pic cs:d}) -- ({pic cs:e});  \draw [<-] ([yshift=.75pt]{pic cs:e}) -- ({pic cs:f});
+  \end{tikzpicture}
+    \caption{Fully developed table with \textcolor{teal}{backtracking} }
+    \label{tab:SubSetSum-FinishedTable}
+    }
+\end{table}
+Die Lösung dieses Problems ist mit \textcolor{red}{\circled{1}} gekennzeichnet und kann zurückverfolgt werden via $3 + 3 + 1 = 7$, wenn $T(n,b) =$ \textcolor{red}{\circled{0}}, so würde es keine Lösung für dieses Problems geben. 
+Die Laufzeit dieses Algorithmus \& dessen benötigten Speicher ist $\Theta(n\cdot b)$. Da die Laufzeit nun abhänig von der Grösse einer Zahl ist \textbf{pseudo-polynomiell}. \\
+Es gilt: \\ 
+$n$: Anzahl der Zahlen im Input \\
+$b$: eine einzelne Zahl aus dem Input\\
+Für $b= 2^n: $ Inputlänge $\Theta(n)$ Laufzeit: $\Theta(n\cdot2^n)$ (\textbf{exponentiell}) \\
+Für $b= b^c: $ Inputlänge $\Theta(n)$ Laufzeit: $\Theta(n\cdot2^{c+1})$(\textbf{polynomiell})
 
 \subsection{Knap Sack Problem}
+Erweiterung des Subset-Sum Problems. Bei diesem Problem haben wir als \textbf{Input}: Rucksack mit Gewichtslimit $W$ und $n$ Gegenstände mit Gewicht $w_i \in \mathbb{N}$ und Wert $v_i \in \mathbb{N}, i = 1\dots n$. \textbf{Gesucht}: Teilmenge $I \subseteq \lbrace 1,\dots ,n \rbrace$ sodass $\sum_{i\in I} w_i \leq W$ und $\sum_{i\in I} v_i$ maximal. \\ 
+\textbf{Ansätze:} 
+\begin{enumerate}
+    \item alle $I$ ausprobieren $\rightarrow 2^n$ Möglichkeiten $\rightarrow$ zu teuer.
+    \item Greedy-Algorithmen: Nimm zuerst Element 
+    \begin{enumerate}
+        \item mit grösstem Wert
+        \item mit kleinstem Wert
+        \item mit bestem Preis-Leistung Verhältnis: $v_i /w_i$
+    \end{enumerate}
+\end{enumerate}
+Jedoch liefert dieser Ansatz kein korrektes Ereignis:
 
+\begin{equation*}
+    (v_1,w_1) = (v_2,w_2) = (2,2) ; (v_3,w_3) = (3,3) ; w = 4
+\end{equation*}
+$\rightarrow I = \lbrace 1,2\rbrace$ ist optimal, aber a) nimmt $I = \lbrace 3\rbrace$ an.
+\begin{equation*}
+    (v_1,w_1) = (1,1) ; (v_2,w_2) = (9,10) ; w = 10
+\end{equation*}
+$\rightarrow I = \lbrace 2\rbrace$ ist optimal, aber b) und c) nehmen $I = \lbrace 1\rbrace$ an.
+\textbf{DP-Teilproblem:} $MW(i, w) :=$ maximaler Wert 
+
+\subsection{Longest Ascending Subsequence}
+
+\subsection{Matrixkettenmultiplikation}
 
 
 
 \newpage
 
+
+
+\newpage
+\section{Anhang}
 %%Chapter 06
-\section{Sprachunterschiede}
+\subsection{Sprachunterschiede}
 Important: Do not mix languages in your exam submissions! Choose the language you are most comfortable with!
 
-\subsection{Deutsch}
+\subsubsection{Deutsch}
 
 Das Wort \emph{Graph} hei\ss t im Genitiv/Dativ/Akkusativ Singular \emph{Graphen}, also: \emph{betrachten wir einen Graphen}, nicht *\emph{betrachten wir einen Graph}.
 
@@ -1829,9 +1946,6 @@ Do not translate German \emph{also} by English \emph{also}. The German word \emp
 
 Use \emph{once}, \emph{twice} and not \emph{one time}, \emph{two times}.
 
-
-\newpage
-\section{Anhang}
 \subsection{Stalin-Sort}
 The Stalin sort is a sort in which elements that are out of order get removed from a list. For example, [1, 2, 5, 3, 6, 4, 10] becomes [1, 2, 5, 6, 10]. It is said to runs in $\mathcal{O}(n)$ time but if coded that way, the final list may have fewer than the maximum number of elements possible. For example [10, 1, 2, 3, 4] would become [10].
 
