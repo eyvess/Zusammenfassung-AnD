@@ -16,6 +16,7 @@
 \usepackage{multicol}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{calc}
 \usepackage{wrapfig}
 \usepackage{hyperref}
 \usepackage{tikz}  %
@@ -26,6 +27,8 @@
 \usepackage{stmaryrd}
 \usepackage{listings}
 \usepackage{mathtools}
+\usepackage{diagbox}
+
 
 
 	% Eingekreiste Nummern für Aufzählungen
@@ -1894,7 +1897,7 @@ Erweiterung des Subset-Sum Problems. Bei diesem Problem haben wir als \textbf{In
         \item mit bestem Preis-Leistung Verhältnis: $v_i /w_i$
     \end{enumerate}
 \end{enumerate}
-Jedoch liefert dieser Ansatz kein korrektes Ereignis:
+Jedoch liefert dieser Ansatz kein korrektes Ereignis:f
 
 \begin{equation*}
     (v_1,w_1) = (v_2,w_2) = (2,2) ; (v_3,w_3) = (3,3) ; w = 4
@@ -1905,40 +1908,218 @@ $\rightarrow I = \lbrace 1,2\rbrace$ ist optimal, aber a) nimmt $I = \lbrace 3\r
 \end{equation*}
 $\rightarrow I = \lbrace 2\rbrace$ ist optimal, aber b) und c) nehmen $I = \lbrace 1\rbrace$ an.
 \subsubsection*{DP-Teilproblem:} $MW(i, w) :=$ maximaler Wert, den man aus $1 \dots n$ mit Höchstgewicht $w$ erreichen kann. \\
-\textbf{Rekrusion:} $MW(i,w) = \max \lbrace MW(i-1, w) , v_i + MW(i-1,w-w_i)\rbrace$, wobei 
+\textbf{Rekursion:} $MW(i,w) = \max \lbrace MW(i-1, w) , v_i + MW(i-1,w-w_i)\rbrace$, wobei 
 \begin{itemize}
     \item $MW(i-1, w) :=$ verwende item $i$ nicht
     \item $v_i + MW(i-1,w-w_i) :=$ verwende item $i$. Nur möglich, falls $w_i \leq w$.
 \end{itemize}
 Tabelle:
-%%Tabelle hier noch einfügen, keine lust gerade :oooo 
-
-
-
-%%Ende Tabelle woni kei bock ha zum ihfüege
+\begin{table}[h]
+    \centering
+\begin{tabular}{c|ccccccccc}
+  \backslashbox{i}{w} & 0 & 1 & 2 & $\dots$ & $w \cdot w_i$ & $\dots$ & $w$ &  & $W$\\
+  \hline
+  0 & 0  & 0  & 0  & 0  & 0 & 0 & 0 & 0 & 0\\
+  1 &  0 &  & & & & & & &\tikzmark{aa}   \\
+  $\vdots$ & $\vdots$  & \\
+    & $\vdots$  &   &   &   &  &  &  &  \\
+  $i-1$ & $\vdots$  &   &   &   & $\bullet$ \tikzmark{cc} &  & $\bullet$\tikzmark{dd} &  \\
+  $i$ & $\vdots$  &   &   &   &  &  & $\bullet$\tikzmark{ee} &  \\
+  $\vdots$ & $\vdots$   \\
+  0 &  0 &  & & & & & & &\tikzmark{bb}   \\ 
+  $n$ & 0  & \tikzmark{ff}  &   &   &  &  &  & \tikzmark{gg} & \textcolor{red}{$\bullet$}  \\
+  \hline
+\end{tabular}
+  \label{tab:KnapSackV1}
+  \caption{Fully developed table with \textcolor{red}{backtracking} }
+  \begin{tikzpicture}[overlay, remember picture,shorten >=.5pt, color = red]
+    \draw [-] ({pic cs:aa}) -- ({pic cs:bb});
+    \draw [-] ({pic cs:ff}) -- ({pic cs:gg});
+    \draw [->] ({pic cs:cc}) -- ({pic cs:ee});
+    \draw [->] ({pic cs:dd}) -- ({pic cs:ee});
+  \end{tikzpicture}
+\end{table}
+Der Punkt: \textcolor{red}{$\bullet$}, ist die Lösung dieses DP-Tables.
 Die Laufzeit dieses Algorithmus und dessen benötigten Speicher ist $\mathcal{O}(nW)$ (\textbf{pseudo-polynomiell}).
 
 \subsubsection*{Alternativ-DP:} 
 \textbf{Teilproblem:} $MG(i, v) :=$ minimales Gewicht, das man braucht, um aus$1 \dots i$ einen Wert $\geq v$ zu erzeugen ($MG(i, v) = \infty)$, wenn $v$ gar nicht erreicht werden kann \\
-\textbf{Rekrusion:} $MG(i,v)= \min\lbrace MG(i-1, v), w_i + MG(i-1, v-v_1)\rbrace$ ($MG(i-1, v-v_1) = 0$, falls $v_i \geq v$)
+\textbf{Rekursion:} $MG(i,v)= \min\lbrace MG(i-1, v), w_i + MG(i-1, v-v_1)\rbrace$ ($MG(i-1, v-v_1) = 0$, falls $v_i \geq v$)
 
+\begin{table}[h]
+\centering
+\begin{tabular}{c|ccccccccccc}
+  \backslashbox{i}{v} & 0 & 1 & 2 & $\dots$ & $v - v_i$ & $\dots$ & $v$ &  & \textcolor{red}{$\circled{}$} & $\dots$ & $V$\\
+  \hline
+  0 &   &   &   &   &  &  &  &  &\tikzmark{a1}  \\
+  1 &  0 &  & & & & & & &  \\
+  $\vdots$ &   & \\
+    &   &   &   &   &  &  &  &  \\
+  $i-1$ &   &   &   &   & $\bullet$ \tikzmark{c1} &  & $\bullet$\tikzmark{d1} &  \\
+  $i$ &   &   &   &   &  &  & $\bullet$\tikzmark{e1} &  \\
+  \\
+   &   &  & & & & & & &\tikzmark{b1}   \\ 
+  $n$ &  \tikzmark{f1} & &   &   &  &  &  & \tikzmark{g1} & \textcolor{red}{$\circled{}$}  \\
+  \hline
+\end{tabular}
+  \label{tab:KnapSackV2}
+  \caption{Fully developed table with \textcolor{red}{backtracking} }
+  \begin{tikzpicture}[overlay, remember picture,shorten >=.5pt, color = red]
+    \draw [<-] ({pic cs:a1}) -- ({pic cs:b1});
+    \draw [-] ({pic cs:f1}) -- ({pic cs:g1});
+    \draw [->] ({pic cs:c1}) -- ({pic cs:e1});
+    \draw [->] ({pic cs:d1}) -- ({pic cs:e1});
+  \end{tikzpicture}
+\end{table}
+Der in der ersten Zeile enthaltene \textcolor{red}{$\circled{}$}, ist die Lösung dieser DP-Tabelle. 
+Der unterste enthaltene \text{\textcolor{red}{$\circled{}$}} , ist als "Suche $W$ (bzw. nächstkleineres, falls W nicht vorkommt)" definiert. Die Laufzeit dieses Algorithmus ist $\mathcal{O}(nV)$.
 
-%%Tabelle hier noch einfügen, keine lust gerade :oooo
+\subsubsection*{Weiteres über Subset Sum und NP P}
+Das Subset Sum Problem ist ein Entscheidungsproblem: Antwort ja oder nein; Wir definieren: \\
+$P :=$ Menge aller Entscheidungsprobleme, die in polynomieller Zeit lösbar sind \\
+$NP :=$ Menge aller Entscheidungsprobleme, bei denen man im JA-Fall eine Lösung in polynomieller Zeit überprüfen kann.
 
-
-
-%%Ende Tabelle woni kei bock ha zum ihfüege
-
-Die Laufzeit dieses Algorithmus ist $\mathcal{O}(nV)$.
-
+\subsubsection{Approximationsalgorithmus für das KnapSack-Problem}
+\textbf{Input}: $w_i, v_i, W$,\textbf{Annahme}: alle $w_i \leq W$ (sonst entferne alle Gegenstände mit $w_i > W$, passen sowieso nicht $\rightarrow V_{ips} \geq v_{max} (=\max v_i)$\\
+Ziel: Lösung, die fast optimal ist in polynomieller Zeit zu finden. $\implies$ Der ganze Beweis ist unter \href{https://cadmo.ethz.ch/education/lectures/HS23/DA/lectures/AD23-08.pdf}{Beweis des Approximationsalgorithmus für das Rucksackproblem} zu finden.
 
 \subsection{Longest Ascending Subsequence}
+\textbf{Input:} Array $A[1\dots n]$ von Integers. \textbf{Annahme}: keine Zahl kommt doppelt vor und \textbf{Gesucht:} Länge der längsten aufsteigenden Teilfolge $LAT$ (Reihenfolge muss gleich bleiben, aber Lücken sind erlaubt).
+\subsubsection*{Beispiel}:
+$A =  [2, 13, 17, 9, 11, 4, 78, 28, 15, 25, 99] \implies LAT = 2, 9, 11, 15, 25, 99;$ 
+\subsubsection*{Lösung mit DP:}
+Versuch 1: $LAT(i):=$ längste aufsteigende Teilfolge (AT) von $A[1\dots i] \rightarrow \lightning$ \\
+Versuch 2: Merke alle Endungen einer $LAT$ in $A[1\dots i] \rightarrow \lightning$\\
+Versuch 3: Merke auch kürzere AT in $A[1\dots i] :$
+\begin{center}
+$E(i,l):=$ "Es gibt AT der Länge l, die in i endet"$\in \lbrace 0,1\rbrace$ 
+\end{center}
+\textbf{Rekursion} für $l \geq 2$: 
+\begin{equation*}
+E(i,l) = 
+    \begin{cases}
+        $1$ & \text{ falls es } $j < i$\text{ gibt mit }$E(j,l-1) = 1$\text{ und }$A[j] < A[i]$ \\
+        $0$ & \text{sonst}
+    \end{cases}
+\end{equation*}
+Es folgt, dass $E(i,1) = 1$ für alle $i \in \lbrace1, \dots , n\rbrace$\\
+Laufzeit: $\mathcal{O}(\sum_{l = 1}^{n}\sum_{i = 1}^{n} (i-1) = \mathcal{O}(\sum_{l=1} \frac{n(n-1)}{2}) = \mathcal{O}(n^3)$ \\
+Versuch 4: $M(i,l) := $ kleinstmögliche Endung einer AT der Länge $l$ in $A[1 \dots i] \ (\inf$ falls keine solche AT existiert) \\
+\textbf{Rekursion} für $i \geq 2$: 
+\begin{equation*}
+M(i,l) = 
+    \begin{cases}
+        $A[i]$ & \text{ falls } $M(i-1, l-1) < A[i] < M(i-1,l)$ \\
+        $M(i-1,l)$ & \text{sonst}
+    \end{cases}
+\end{equation*}
+\begin{equation*}
+i = 1: \ M(1,l) = 
+    \begin{cases}
+        $A[i]$ & $l = 1$ \\
+        $+\infty$ & \text{sonst}
+    \end{cases}
+\end{equation*}
+\begin{center}
+$\implies \mathcal{O}(n^2)$    
+\end{center}
+
+\subsubsection*{Beispiel $A = 3, 7, 8, 4, 5$ }
+\begin{table}[h]
+\parbox{.45\linewidth}{
+\centering
+    \centering
+    \begin{tabular}{c|ccccc}
+     \backslashbox{i}{l} & 1 & 2 & 3 & 4 & 5 \\
+     \hline
+      1 & 3 & \infty & \infty & \infty & \infty\\
+      2 & 3 & \infty & \infty & \infty & \infty\\
+      3 & 3 & \infty & \infty & \infty & \infty\\
+      4 & 3 & \infty & \infty & \infty & \infty\\
+      5 & 3 & \infty & \infty & \infty & \infty\\
+    \end{tabular}
+    \caption{Base Case der LAS}
+    \label{tab:LAS-BaseCase}
+}
+\hfill
+\parbox{.45\linewidth}{
+\centering
+    \begin{tabular}{c|ccccc}
+     \backslashbox{i}{l} & 1 & 2 & 3 & 4 & 5 \\
+     \hline
+      1 & 3\tikzmark{A} &  \tikzmark{B}\infty & \infty & \infty & \infty\\
+      2 & 3 & \tikzmark{C}\textcolor{red}{7}\tikzmark{C1} & \infty\tikzmark{D} & \infty & \infty\\
+      3 & 3\tikzmark{F} & \textcolor{red}{7}\tikzmark{G} & \tikzmark{E}\textcolor{red}{8} \tikzmark{E1} & \infty & \infty\\
+      4 & 3 & \tikzmark{H}\textcolor{red}{4}\tikzmark{H1} & \textcolor{red}{8}\tikzmark{I} & \infty & \infty\\
+      5 & 3 & \textcolor{red}{4} & \tikzmark{J}\textcolor{red}{5}\tikzmark{J1} & \infty & \infty\\
+    \end{tabular}
+    \begin{tikzpicture}[overlay, remember picture,shorten >=.5pt, color = red]
+    \draw [<-] ({pic cs:A}) -- ({pic cs:C});
+    \draw [<-] ({pic cs:B}) -- ({pic cs:C});
+    
+    \draw [<-] ({pic cs:C1}) -- ({pic cs:E});
+    \draw [<-] ({pic cs:D}) -- ({pic cs:E1});
+    \draw [<-] ({pic cs:F}) -- ({pic cs:H});  
+    \draw [<-] ({pic cs:G}) -- ({pic cs:H1});
+    \draw [<-] ({pic cs:H1}) -- ({pic cs:J});
+    \draw [<-] ({pic cs:I}) -- ({pic cs:J1});
+
+  \end{tikzpicture}
+    \caption{Fertige Tabelle der LAS}
+    \label{tab:LAS-Finished}
+}
+\end{table}
+Beobachtungen zu Table \ref{tab:LAS-Finished}: 
+\begin{itemize}
+    \item Zeilen sind sortiert
+    \item Wir ändern pro Zeile nur einen Eintrag
+    \item Diesen können wir mit binärer Suche in Zeit $\mathcal{O}(\log n)$ finden
+    \item Wenn wir dasselbe Array für jede Zeile wiederverwenden, dauert das Update pro Zeile nur $\mathcal{O}(\log n)$
+    \item insgesamt Laufzeit: $\mathcal{O}(n\log n)$
+\end{itemize}
+Wir machen ein zweites Beispiel: $A = [2, 13, 17, 9, 11, 4, 28, 15, 25, 99]$
+
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|cccccc}
+        $l$ & 1 & 2 & 3 & 4 & 5 & 6\\
+        \hline
+        $M(*,l) $ & $\circled{2}$ & 13 & 17  & 78 & $\circled{25}$ & $\circled{99}$\\
+         &  & $\circled{9}$ & $\circled{11}$ &  28 & &   \\
+         &  & 4 &  &  $\circled{15}$ &  & \\
+    \end{tabular}
+    \caption{LAS-optimiert}
+    \label{tab:LAS-final}
+\end{table}
+
+Mithilfe der Rückverfolgung die LAT ist wie folgt aufgebaut: $99 \rightarrow 25 \rightarrow 15 \rightarrow 11 \rightarrow 9 \rightarrow 2$. Es folgt zusätzlich, dass der Extraspeicher $\mathcal{O}(n)$ ist und die Laufzeit sich auf $\mathcal{O}(n\log n)$ beschränkt.
+
 
 \subsection{Matrixkettenmultiplikation}
+Problem: Berechne Matrizenprodukt $A_1\cdot A_2\cdot _{...}  \cdot A_n$ so günstig wie möglich: $A_i$ ist eine $k_i \times l_i$-Matrix, $k_i, l_i \in \mathbb{N}, k_{i-1} = l_1$, so dass das Produkt sinnvoll ist. \\
+Freiheitsgrad: Assoziativität $\big((A_1 \cdot A_2) \cdot A_3 = A_1 \cdot (A_2 \cdot A_3) \big) $ \\
+Teilproblem: $M(i,j):=$ minimale Zahl an Operationen zur Berechnung von $A_i\cdot _{...} \cdot A_j, i \leq j$ \\
+Rekursion: $(A_i\cdot A_{i+1}\cdot _{...} \cdot A_s) \cdot (A_{s+1}\cdot _{...}  \cdot A_j)$,
+wobei der erste Teil $k_i \times l_s$ entspricht, die
 
+Multiplikation zwischen den beiden Klammern die letzte Multiplikation repräsentiert und der letzte Teil $k_{s+1} \times l_j = l_s \times l_j$ repräsentiert.
+\begin{equation*}
+    j > i: M(i,j) := \min_{i \leq s < j}\lbrace M(i,s) + M(s+1,j) + \text{Zahl Ops zur Multiplikation einer }k_i\times l_s \text{ mit einer } l_s\times l_j \text{-Matrize}\rbrace 
+\end{equation*}
+\begin{equation*}
+        j = i: M(i,i) = 0    
+\end{equation*}
+Berechnungsreihenfolge: von kurzen \textit{(kleines $j-i$)} zu langen \textit{(grosses $j-i$)} Produkten, aber Diagonale weg:
 
-
-\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 0.5\textwidth]{Pictures/Matrixketten.png}
+    \caption{Matrixketten-Multiplikation}
+    \label{fig:Matrixketten}
+\end{figure}
+Laufzeit: $\Theta (\big\sum_{i=1}^n\sum_{j=i}(j-i)\big) = \Theta(n^3)$ und Speicher: $\Theta(n^3)$.
 
 
 
